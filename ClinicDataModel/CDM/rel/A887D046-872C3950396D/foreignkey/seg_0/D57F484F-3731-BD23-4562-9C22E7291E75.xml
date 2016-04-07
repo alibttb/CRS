@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D57F484F-3731-BD23-4562-9C22E7291E75" containerWithKeyObject="933D361C-3904-40B5-5242-E9BF63916C00" localFKIndex="7AD3DB30-75E8-5D7B-2C0F-39F4E43B7F12" name="ptnt_prsn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>8C1C181F-523B-C013-2612-BBA150110B3E</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<arc>83F633BA-2E3A-CCC3-C8F4-F282D5ADEB8C</arc>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>6F5794BC-A11C-1E41-CA7C-2B6518C33BD4</referredTableID>
+<keyObject>1A472E81-2792-0BAC-E979-9D581B42BA4F</keyObject>
+<referredKeyID>1A472E81-2792-0BAC-E979-9D581B42BA4F</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>false</transferable>
+<rely>false</rely>
+<discriminatorColumn>7A69825C-4ECB-64E3-7D74-583C14CEDF81</discriminatorColumn>
+<discriminatorValue>PTNT</discriminatorValue>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

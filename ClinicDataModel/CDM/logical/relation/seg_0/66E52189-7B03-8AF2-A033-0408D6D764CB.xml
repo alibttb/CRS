@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="documents visit FK" directorySegmentName="seg_0" id="66E52189-7B03-8AF2-A033-0408D6D764CB">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 16:53:36 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<targetTransferable>false</targetTransferable>
+<sourcePk>F8975A17-C165-5866-3384-361288C4FBFF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>741381A2-EAD4-ACAE-72CD-546BF9D6DD3F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>0C40B051-B2D8-8167-378B-CE031F163973</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

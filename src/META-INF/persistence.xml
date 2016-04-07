@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="CRS">
+		<class>me.bttb.crs.model.ContactInfo</class>
+		<class>me.bttb.crs.model.Dctr</class>
+		<class>me.bttb.crs.model.DctrOrder</class>
+		<class>me.bttb.crs.model.DiaganosedWith</class>
+		<class>me.bttb.crs.model.DiaganosedWithPK</class>
+		<class>me.bttb.crs.model.Diaganosi</class>
+		<class>me.bttb.crs.model.Document</class>
+		<class>me.bttb.crs.model.HasSymptom</class>
+		<class>me.bttb.crs.model.HasSymptomPK</class>
+		<class>me.bttb.crs.model.Lctn</class>
+		<class>me.bttb.crs.model.Measurment</class>
+		<class>me.bttb.crs.model.Nr</class>
+		<class>me.bttb.crs.model.Prsn</class>
+		<class>me.bttb.crs.model.Ptnt</class>
+		<class>me.bttb.crs.model.Symptom</class>
+		<class>me.bttb.crs.model.TkMsrmnt</class>
+		<class>me.bttb.crs.model.TkMsrmntPK</class>
+		<class>me.bttb.crs.model.TreatedWith</class>
+		<class>me.bttb.crs.model.TreatedWithPK</class>
+		<class>me.bttb.crs.model.Treatment</class>
+		<class>me.bttb.crs.model.Usr</class>
+		<class>me.bttb.crs.model.Visit</class>
 	</persistence-unit>
 </persistence>

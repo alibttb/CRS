@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="contact info lctn FK" directorySegmentName="seg_0" id="15B45F73-8E37-1CE9-A3D2-7A0940426D4B">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:45:43 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<sourcePk>BFE4C9CA-BF9D-4C58-2E93-FED1DFABE24D</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E907A80E-8D34-7462-29A3-333512249305</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>874FFD58-44D8-4875-065B-25A7C87E592D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

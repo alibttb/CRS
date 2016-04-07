@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A2A44437-F0DC-FEE8-C5E5-45CC6DA81CD1" containerWithKeyObject="AD7108CC-B69E-6886-3E64-E738BA5FB0EF" localFKIndex="276FE400-9746-162D-4E8B-12FB48F9F26C" name="nrs_usr_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>E983FF0F-9567-7D32-A3CD-E3C0DF013CE5</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<arc>3CC47A02-8DF9-CA0E-EE17-E2F2E9A0CE06</arc>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>B0FBB221-D874-02FA-E376-DC6A356E6304</referredTableID>
+<keyObject>4789F571-5334-6032-7DC8-DD87654D9F33</keyObject>
+<referredKeyID>4789F571-5334-6032-7DC8-DD87654D9F33</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>false</transferable>
+<rely>false</rely>
+<discriminatorColumn>24FA112B-8482-06AC-8646-4C2D1966E1FD</discriminatorColumn>
+<discriminatorValue>NRS</discriminatorValue>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

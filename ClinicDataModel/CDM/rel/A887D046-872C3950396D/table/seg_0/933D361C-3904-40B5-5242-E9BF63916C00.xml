@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="933D361C-3904-40B5-5242-E9BF63916C00" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="ptnt">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>395C4F54-C568-A615-D87E-82E306309F40</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<ordsEnable>true</ordsEnable>
+<abbreviation>ptnt</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="prsn_prsn_pi" id="6332B4FA-326E-1B52-8B49-578845655BB6">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>8F3B1B52-74FD-6AFD-98D4-2F8D4570F203</generatorID>
+<notes>personal identifier is a number that uniqly identify a person all across the system</notes>
+<ownerDesignName>CDM</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_ptnt_prsn_prsn_pi</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="D57F484F-3731-BD23-4562-9C22E7291E75" referredColumn="86AD98FA-B7FB-0F77-03DA-0F3D70E9BB1C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F7ED1472-A0B7-3A73-3C4C-AFB9532BED16" name="ptnt_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>C4687723-F483-9343-7854-55E6089F61DF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6332B4FA-326E-1B52-8B49-578845655BB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="222962B4-35FE-CE4D-9795-0680F940ACA1" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="ptnt__IDX">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:52:00 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6332B4FA-326E-1B52-8B49-578845655BB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7AD3DB30-75E8-5D7B-2C0F-39F4E43B7F12" name="ptnt_prsn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>8C1C181F-523B-C013-2612-BBA150110B3E</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6332B4FA-326E-1B52-8B49-578845655BB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

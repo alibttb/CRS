@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="680CDE24-5F1A-9A81-5258-829B823174E8" containerWithKeyObject="A35424EE-A006-05E3-A14C-4F71312D1AD6" localFKIndex="61F26BE8-868F-4610-DBC1-9CF733A999B4" name="dctr_usr_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>AC8A0E8C-DF29-2F8E-8579-6F49CF70EEF1</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<arc>3CC47A02-8DF9-CA0E-EE17-E2F2E9A0CE06</arc>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>B0FBB221-D874-02FA-E376-DC6A356E6304</referredTableID>
+<keyObject>4789F571-5334-6032-7DC8-DD87654D9F33</keyObject>
+<referredKeyID>4789F571-5334-6032-7DC8-DD87654D9F33</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>false</transferable>
+<rely>false</rely>
+<discriminatorColumn>24FA112B-8482-06AC-8646-4C2D1966E1FD</discriminatorColumn>
+<discriminatorValue>DCTR</discriminatorValue>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

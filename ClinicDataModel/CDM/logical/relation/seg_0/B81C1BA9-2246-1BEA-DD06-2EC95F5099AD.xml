@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="documents order FK" directorySegmentName="seg_0" id="B81C1BA9-2246-1BEA-DD06-2EC95F5099AD">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>0613E297-F2A6-77CE-C916-E24D90F2DD15</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<sourcePk>26DE2ECF-C123-F0E3-5100-3DE5BBAA3140</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>58315852-E027-4750-24E5-FD550684A6CA</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>0C40B051-B2D8-8167-378B-CE031F163973</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

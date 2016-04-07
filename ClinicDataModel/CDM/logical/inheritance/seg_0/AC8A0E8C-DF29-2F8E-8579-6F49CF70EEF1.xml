@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<InheritanceRelation class="oracle.dbtools.crest.model.design.logical.InheritanceRelation" name="doctor_sub" directorySegmentName="seg_0" id="AC8A0E8C-DF29-2F8E-8579-6F49CF70EEF1">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-20 21:02:06 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="4570852E-3C45-B8A7-AD35-1A9369382B3D" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnSource>Super Type</nameOnSource>
+<nameOnTarget>Sub Type</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceEntity>3F8D1B1B-FF2D-AEAE-C1B0-3A517EF60ECD</sourceEntity>
+<targetEntity>F4097641-C18B-AC58-8ED6-F9C0B0F6CB24</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</InheritanceRelation>
