@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="CRS">
+	<persistence-unit name="CRS" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>ds/clinic</non-jta-data-source>
 		<class>me.bttb.crs.model.ContactInfo</class>
 		<class>me.bttb.crs.model.Dctr</class>
 		<class>me.bttb.crs.model.DctrOrder</class>
@@ -23,5 +24,14 @@
 		<class>me.bttb.crs.model.Treatment</class>
 		<class>me.bttb.crs.model.Usr</class>
 		<class>me.bttb.crs.model.Visit</class>
+		<properties>
+			<property name="eclipselink.jdbc.cache-statements" value="true"/>
+			<property name="eclipselink.jdbc.native-sql" value="true"/>
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@192.168.56.200:1521:xe"/>
+			<property name="javax.persistence.jdbc.user" value="clinic"/>
+			<property name="javax.persistence.jdbc.password" value="clinic"/>
+			<property name="eclipselink.jdbc.read-connections.shared" value="true"/>
+		</properties>
 	</persistence-unit>
 </persistence>
