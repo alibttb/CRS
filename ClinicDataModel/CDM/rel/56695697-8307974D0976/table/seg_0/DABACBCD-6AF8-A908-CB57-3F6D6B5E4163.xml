@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DABACBCD-6AF8-A908-CB57-3F6D6B5E4163" name="contact_info">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>874FFD58-44D8-4875-065B-25A7C87E592D</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<abbreviation>cntc_nf</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cntct_nf_id" id="A20EEF8D-1C49-8214-2571-B0607F960DE3">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>399950EB-64D7-354C-34DE-0E2F11844364</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_contact_info_cntct_nf_id</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cntc_nf_cntct_nf_id</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="type" id="8744E42D-EC1C-2005-C09D-3F420AE384AA">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>6D74DB8A-785D-6566-E9CB-00190730A913</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_contact_info_type</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>D9C90A3F-C438-7415-D98F-363285BABC09</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone" id="A0DB760D-3050-2FA5-D219-2C4A5F5FFAE4">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>6BAA584D-E95D-3C16-6DDC-EF44FB318025</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>976FF53B-637F-1866-2377-F89930141524</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="08F896D9-1B5A-FCCD-3A3C-CDFBA84211F9">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>8791A64F-F58E-0283-E2A6-E6D335465AB9</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC0E9B13-CBF7-A2B5-2F25-13CE3DA85823</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prsn_prsn_pi" id="E90AE0FA-E59E-EEB1-330B-E73BE00AD8F5">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<generatorID>7EA69ED4-4B7B-1409-DFFC-A9F02B2D770C</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_contact_info_prsn_prsn_pi</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cntc_nf_prsn_prsn_pi</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="0CA9290A-E711-47DB-8F64-9110A8DAB162" referredColumn="A12F3782-2693-F3A4-2BD1-D3E5DDC0153E"/>
+</associations>
+</Column>
+<Column name="lctn_loc_id" id="F2EB5FDC-EC80-EFE3-7155-C0B0CFADD3AF">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>5EBC0342-A258-EE68-E7FB-A642AC09EDFB</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_contact_info_lctn_loc_id</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cntc_nf_lctn_loc_id</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="77C4F4E1-ACEC-5447-7F84-5C1D3983CCC4" referredColumn="BC17B7E3-ED72-7FF7-BD89-68991039410F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8A48259A-A381-9082-6717-5892322FF700" name="contact_info_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>390623AF-438D-1640-637D-DD304E92A241</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A20EEF8D-1C49-8214-2571-B0607F960DE3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="939D7ED0-0F32-5512-97DA-348B2F4B1456" name="contact_info_lctn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>15B45F73-8E37-1CE9-A3D2-7A0940426D4B</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F2EB5FDC-EC80-EFE3-7155-C0B0CFADD3AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B1B6D076-5E78-8C61-3D53-1819701ED6DF" name="contact_info_prsn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>A4B00819-4E42-56A9-08C5-96152B246436</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E90AE0FA-E59E-EEB1-330B-E73BE00AD8F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

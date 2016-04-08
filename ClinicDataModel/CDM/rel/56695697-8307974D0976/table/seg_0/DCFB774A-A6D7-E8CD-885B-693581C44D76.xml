@@ -1,0 +1,156 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DCFB774A-A6D7-E8CD-885B-693581C44D76" name="Has_Symptoms">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Visit_vst_id" id="16D295BF-4EF7-9546-063A-C6AB31BF7D92">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_Has_Symptoms_Visit_vst_id</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Has_Symptoms_Visit_vst_id</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="06A7F39C-2135-1A62-E4B8-640B9946E174" referredColumn="A9AD552B-73AE-4C43-B2E9-DBDFE6D29B57"/>
+</associations>
+</Column>
+<Column name="Symptom_id" id="DBD18543-51C3-055F-898B-785BDEE2F62B">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_Has_Symptoms_Symptom_id</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Has_Symptoms_Symptom_id</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="6E9E1557-C5E0-0B52-00AB-C6AD77D86372" referredColumn="3906BC05-8F4F-0D9F-566D-97394B9A2F37"/>
+</associations>
+</Column>
+<Column name="start_date" id="77E11584-AADB-9D06-43C4-9A42EC77BD42">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>F438EC7A-871F-85DB-6F72-4EB1ECE0059E</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="severity" id="2F36B72B-2FAA-169F-BF7A-CFB103D7E1CF">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>29275493-2C07-0AF2-73A8-B0DC71FE001C</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_Has_Symptoms_severity</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>4191988C-6E01-8BF6-3F78-19915C946C09</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="repetation" id="9AA78058-7749-6BC8-0FF8-21946FF780B2">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>9853F28D-63D9-238E-576B-5D8543E2C8DF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A2AD88B5-380D-D141-5D3C-63B2A89DAA6E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="notes" id="2924E312-C43E-D0C3-64DF-A777F26E2E25">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>A510FB9C-892C-1F63-3C58-FBF425E4A2B9</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFF55752-A71F-F5C3-4C2A-3A8375B2DD6D" name="Has_Symptoms_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="16D295BF-4EF7-9546-063A-C6AB31BF7D92"/>
+<colUsage columnID="DBD18543-51C3-055F-898B-785BDEE2F62B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="63AC2284-C49F-2008-AB2B-BB4544E35BD1" name="Has_Symptoms_Visit_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>62992F34-0CA9-5073-EC7B-9923A5DAA706</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="16D295BF-4EF7-9546-063A-C6AB31BF7D92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C4EC4F34-70DC-E221-89DB-133C5AD649D0" name="Has_Symptoms_Symptom_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>62992F34-0CA9-5073-EC7B-9923A5DAA706</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DBD18543-51C3-055F-898B-785BDEE2F62B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

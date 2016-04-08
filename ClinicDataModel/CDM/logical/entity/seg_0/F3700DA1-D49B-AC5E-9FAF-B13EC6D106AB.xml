@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F3700DA1-D49B-AC5E-9FAF-B13EC6D106AB" name="treatment">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-23 21:43:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>trtmnt</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="3BA86E9F-7AEE-5858-575F-9C762E11A204">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-23 21:45:48 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="type" id="4182CAC2-41F0-20DF-C941-1D822D1CE120">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 16:24:41 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<constraintName>CK_treatment_type</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>3E57BC01-CCFC-0AF4-6F87-CE7B210D6BC8</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="511C2C08-3C8E-DA18-61B2-923CC56E6D47">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 16:30:09 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10A26325-3873-9A5F-FE03-E9E7176E14C9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="61D3A6BE-502B-1E57-5A2B-486DDF72CA45">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 16:31:49 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>B8BEF9E0-85CB-E79E-7DB8-6055DF5CFF88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="16F34AD5-5384-E449-A6F6-9BDDA8FBEB5D" name="treatment_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-23 21:46:01 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3BA86E9F-7AEE-5858-575F-9C762E11A204</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="prsn_usr_FK" directorySegmentName="seg_0" id="394ADDDD-489C-A5D7-F138-8B0E56CDA148">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:32:16 UTC</createdTime>
+<generatorID>D68C5E48-4E47-5D55-7961-EF431ED383FA</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<sourcePk>C4687723-F483-9343-7854-55E6089F61DF</sourcePk>
+<dominantRole>3F8D1B1B-FF2D-AEAE-C1B0-3A517EF60ECD</dominantRole>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3F8D1B1B-FF2D-AEAE-C1B0-3A517EF60ECD</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>1636C01E-DE30-3646-E64B-707119BDA7C1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

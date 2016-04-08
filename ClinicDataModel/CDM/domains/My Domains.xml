@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="My Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="general_name" id="10A26325-3873-9A5F-FE03-E9E7176E14C9">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 14:52:32 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>100 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="simple_address" id="13E299FC-EFD7-76F5-3D7A-8E149723B694">
+         <createdBy>HASaliS</createdBy>
+         <createdTime>2016-03-17 09:17:41 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>1024 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="general_id" id="2018A11C-9475-9826-9DBF-064F55F52439">
+         <createdBy>HASaliS</createdBy>
+         <createdTime>2016-03-17 07:47:21 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <importedID>2018A11C-9475-9826-9DBF-064F55F52439</importedID>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>15</dataTypePrecision>
+         <dataTypeSize>15 BYTE</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+         <synonym>personal identifier</synonym>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="coordinants" directorySegmentName="seg_0" id="3337FA6A-A60B-5BF8-43E0-26A2D6BF46BD">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-20 20:16:37 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>12 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="treatment_type" id="3E57BC01-CCFC-0AF4-6F87-CE7B210D6BC8">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 16:25:51 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>2 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+         <listOfValues>
+            <valueDef value="DI" description="Diet"/>
+            <valueDef value="DR" description="Drug"/>
+            <valueDef value="PH" description="Physical"/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="gender" id="6AC3FC86-29CD-935C-0727-FC0DA455F4B2">
+         <createdBy>HASaliS</createdBy>
+         <createdTime>2016-03-17 09:20:23 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>1</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+         <listOfValues>
+            <valueDef value="F" description="Female"/>
+            <valueDef value="M" description="Male"/>
+            <valueDef value="U" description="Unknown"/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="phone_number" id="976FF53B-637F-1866-2377-F89930141524">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 11:49:56 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>25 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="repetation" id="A2AD88B5-380D-D141-5D3C-63B2A89DAA6E">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 15:54:51 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>50</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="personal_name" id="A6E023AB-2D2D-4D9F-2406-60DA8CAC13D2">
+         <createdBy>HASaliS</createdBy>
+         <createdTime>2016-03-17 07:47:21 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <importedID>A6E023AB-2D2D-4D9F-2406-60DA8CAC13D2</importedID>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>75 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="general_long_text" id="B8BEF9E0-85CB-E79E-7DB8-6055DF5CFF88">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 14:55:02 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>4000 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="visit_type" id="C5310044-546A-B946-91A0-8611EA7314FF">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-21 15:20:33 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>1</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <listOfValues>
+            <valueDef value="E" description="Emergency"/>
+            <valueDef value="O" description="Ordinary"/>
+            <valueDef value="S" description="Schedual"/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="diaganosis_type" id="C6CC67B4-2F25-8512-34C0-CFB4CA73A71F">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 16:15:35 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>2</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+         <listOfValues>
+            <valueDef value="A" description="Allergy"/>
+            <valueDef value="D" description="Disease"/>
+            <valueDef value="I" description="Infection"/>
+            <valueDef value="J" description="Injury"/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="birth_date" id="C7E6966A-84FC-33F5-E123-A5ECDB510B8C">
+         <createdBy>HASaliS</createdBy>
+         <createdTime>2016-03-17 09:19:17 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="document_type" id="CFD19322-51C6-6E8A-FB11-B689A4E6C0DF">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 16:49:54 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>5</dataTypePrecision>
+         <dataTypeSize>5 BYTE</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <listOfValues>
+            <valueDef value="Blood Work" description=""/>
+            <valueDef value="Body Fluids" description=""/>
+            <valueDef value="XRAY" description=""/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="contact_info_type" id="D9C90A3F-C438-7415-D98F-363285BABC09">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 11:47:27 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>2 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT025</logicalDatatype>
+         <listOfValues>
+            <valueDef value="CU" description="current"/>
+            <valueDef value="HO" description="home"/>
+            <valueDef value="PE" description="permenant"/>
+            <valueDef value="WO" description="work"/>
+         </listOfValues>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Unknown" id="DOM3000004">
+         <createdBy>HASaliS</createdBy>
+         <createdTime>2015-05-30 10:52:20 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <importedID>DOM3000004</importedID>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT017</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="email_address" id="FC0E9B13-CBF7-A2B5-2F25-13CE3DA85823">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 11:50:54 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>150 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="notes" id="FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971">
+         <createdBy>ali</createdBy>
+         <createdTime>2016-03-27 15:59:31 UTC</createdTime>
+         <ownerDesignName>CDM</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypeSize>2000 CHAR</dataTypeSize>
+         <fileName>My Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

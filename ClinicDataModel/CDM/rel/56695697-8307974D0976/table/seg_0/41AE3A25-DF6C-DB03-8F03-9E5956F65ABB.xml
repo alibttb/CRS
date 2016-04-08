@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="41AE3A25-DF6C-DB03-8F03-9E5956F65ABB" name="usr">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>3F8D1B1B-FF2D-AEAE-C1B0-3A517EF60ECD</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<abbreviation>usr</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="prsn_prsn_pi" id="90C9530D-7489-69B5-EC7D-2EE982EDFEDB">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>8F3B1B52-74FD-6AFD-98D4-2F8D4570F203</generatorID>
+<notes>personal identifier is a number that uniqly identify a person all across the system</notes>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_usr_prsn_prsn_pi</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_usr_prsn_prsn_pi</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="32F6B2A8-B2E9-844F-BA35-4DD034ABE15A" referredColumn="A12F3782-2693-F3A4-2BD1-D3E5DDC0153E"/>
+</associations>
+</Column>
+<Column name="usr_user_name" id="07FD49ED-A976-C378-AB37-ED3FBA149108">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>E0EB515F-A126-D6AD-6CCF-04E3DBA1D40F</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>A6E023AB-2D2D-4D9F-2406-60DA8CAC13D2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usr_hash_sha256" id="E681421E-D766-96DA-412B-90AF9C28064E">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>E77866FB-A584-5631-32AE-8B45E4908DA7</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>32 BYTE</dataTypeSize>
+<ownDataTypeParameters>32 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usr_salt" id="D25F330F-78D9-1CA0-B330-219F9411263D">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>AAEBF2C2-B00A-2626-A2B9-BECC5BE23C12</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usr_work_start_date" id="5D567E81-5FBD-B4D6-685A-44F7AE02A54F">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>349912C5-36F6-E9EE-4C2E-E69BE7D4F014</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D42C12E-550E-0AE5-B4EE-A2E7FD6AEFD3" name="usr_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>C4687723-F483-9343-7854-55E6089F61DF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90C9530D-7489-69B5-EC7D-2EE982EDFEDB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="04411E5E-2951-A916-0212-1F3282390351" name="usr_prsn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>26CAE3C2-DE07-E535-EF37-E3E29E2AB97C</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90C9530D-7489-69B5-EC7D-2EE982EDFEDB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

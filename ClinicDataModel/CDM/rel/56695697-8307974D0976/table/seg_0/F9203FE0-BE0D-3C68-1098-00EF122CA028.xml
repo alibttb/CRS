@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F9203FE0-BE0D-3C68-1098-00EF122CA028" name="dctr">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>F4097641-C18B-AC58-8ED6-F9C0B0F6CB24</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<abbreviation>dctr</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="usr_prsn_prsn_pi" id="5CEE86AA-FD37-C65E-73F7-10DFADFED3D0">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>8F3B1B52-74FD-6AFD-98D4-2F8D4570F203</generatorID>
+<notes>personal identifier is a number that uniqly identify a person all across the system</notes>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_dctr_usr_prsn_prsn_pi</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_dctr_usr_prsn_prsn_pi</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="FAE8DD01-69BA-713F-FBDA-644831209DE1" referredColumn="90C9530D-7489-69B5-EC7D-2EE982EDFEDB"/>
+</associations>
+</Column>
+<Column name="dctr_main_spec" id="CDC2B411-D44C-711A-7C5E-DAA16A3F5384">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>B4FF56ED-C0C8-B224-2DB0-179557DB1864</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dctr_sub_spec" id="14B4144B-D74A-620A-2592-94C26C86EBCD">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>4212EE3B-7C2C-4852-EECC-E69EACB3D4FF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EE814E2D-B562-52D4-2ED0-6F5A981BF819" name="dctr_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>C4687723-F483-9343-7854-55E6089F61DF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5CEE86AA-FD37-C65E-73F7-10DFADFED3D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A3C76026-47C0-44C7-AC79-D815B0076F3E" name="dctr_usr_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>AC8A0E8C-DF29-2F8E-8579-6F49CF70EEF1</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5CEE86AA-FD37-C65E-73F7-10DFADFED3D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

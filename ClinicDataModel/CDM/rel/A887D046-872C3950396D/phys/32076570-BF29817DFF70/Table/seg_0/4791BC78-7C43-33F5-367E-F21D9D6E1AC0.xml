@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="lctn" directorySegmentName="seg_0" id="4791BC78-7C43-33F5-367E-F21D9D6E1AC0">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>65D26282-39A6-4EC5-5E14-A3DD24F2CC11</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<user>90BC8DDD-024A-ED19-CAA7-0B2AD0BFAC73</user>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="location_string" id="2CADB186-5777-2279-494C-8955F9AA28FC">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="level" id="3FEBD823-58B5-6B4E-0A10-0BBC812DBC5A">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="name" id="4639DB2D-BE87-67F6-5E83-F8A4392E84A7">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="super_id" id="7C064962-9FE2-D495-87C4-E4D2C0420E10">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="loc_id" id="81A7BE8D-9669-2108-7B07-CB98BEA43B0C">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="magnitude" id="B0A149CF-0237-BF51-97E9-69F769051C93">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="altittude" id="F2E50CA0-285D-D60B-DC12-5DC72CD4BA95">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="lctn_PK" id="B9278812-606A-77E6-0A12-907D69F807E8">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

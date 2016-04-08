@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B1E0595D-EF4A-A8CB-4E54-17EB38692D04" name="Diaganosis">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>8AF7AE73-58A2-B001-7041-9E79A8B1C26A</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<abbreviation>dgnss</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dgnss_id" id="E9CC4D8E-2B75-E887-D0EE-A10C4FEBFB77">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>B235B41C-8BEC-9252-DB8E-8C43F7D7B76B</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>99999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>100000000000000</beginValue>
+<endValue>999999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="dgnss_type" id="B31BAF92-2CF9-361C-2302-E2C12070AC1F">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>F5B453E5-2E5A-1148-611A-82EAAC2E4810</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>C6CC67B4-2F25-8512-34C0-CFB4CA73A71F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="460A8694-6481-D4A3-812B-74C6538FE5D7">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>3C029C69-CCF0-C298-62AC-0124F4ABD353</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10A26325-3873-9A5F-FE03-E9E7176E14C9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="describtion" id="84272B60-550D-E293-8453-A0591847DB84">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>33D4B3F5-200B-3023-D68E-0C52CBA0C2E6</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<domain>B8BEF9E0-85CB-E79E-7DB8-6055DF5CFF88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="code" id="545F7A05-85C5-37AA-E5A1-2C48F53F0B22">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>A151724D-BEFA-1AF8-9395-B1D26B485953</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>60A8D65C-40A1-CA44-DD6D-10ABC346016F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="severity" id="CD19E66B-D895-0863-C0D7-AC477B939A80">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>EF932F3E-3D07-9A94-8D07-56708E4FCF66</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>4191988C-6E01-8BF6-3F78-19915C946C09</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<dependOnForeignKeyID>D8C98DD7-372F-3ADA-BBDB-AA3E1E64CC43</dependOnForeignKeyID>
+</Column>
+<Column name="notes" id="6E40245A-9AC2-A80D-FF8B-A201CBFD1AF2">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>D78AF836-2D70-9A96-AC68-4C446451BDB1</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<dependOnForeignKeyID>D8C98DD7-372F-3ADA-BBDB-AA3E1E64CC43</dependOnForeignKeyID>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="52C11C12-A4C5-0BA0-FD7B-B5B13CB6A8F5" name="Diaganosis_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>2354E3C6-9AA6-76B1-B1DF-6C8C9946F587</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9CC4D8E-2B75-E887-D0EE-A10C4FEBFB77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B11B66B9-666D-A4AA-2AC3-CCFCE911430F" name="Diaganosed_with">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>31BB76A6-9AF2-5C2E-6039-56440407DF18</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+</indexes>
+</Table>

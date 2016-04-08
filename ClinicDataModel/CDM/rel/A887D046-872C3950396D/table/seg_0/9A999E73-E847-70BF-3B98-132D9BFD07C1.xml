@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9A999E73-E847-70BF-3B98-132D9BFD07C1" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="measurment">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>BA78C2E7-7DE7-F4E0-8644-AAB9BF8E3EE3</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<ordsEnable>true</ordsEnable>
+<abbreviation>msrmnt</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="msrmnt_id" id="41CC5D64-F2B5-F2D5-AF7B-A2AB2F0CA776">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>230D3737-0B80-D905-3786-34075C8ECD8D</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_msrmnt_msrmnt_id</notNullConstraintName>
+</Column>
+<Column name="name" id="9D7862B7-2E7A-543B-FA79-5B4975000367">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>F16755BC-03DD-D28A-9BB1-70DC54D3C910</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10A26325-3873-9A5F-FE03-E9E7176E14C9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="describtion" id="5773F630-2A32-BF91-92B9-E0A51AE9F450">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>DE395BA3-027D-DA9B-39AA-4E9144A745CC</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>B8BEF9E0-85CB-E79E-7DB8-6055DF5CFF88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="notes" id="F4131A7F-DF7A-0864-BE49-79A9F531D788">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:01:41 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="42E2D94A-14AC-6A52-9109-3138EA6D948F" name="measurment_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>9420866B-8276-B28C-3253-65C42DC4FAC6</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="41CC5D64-F2B5-F2D5-AF7B-A2AB2F0CA776"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

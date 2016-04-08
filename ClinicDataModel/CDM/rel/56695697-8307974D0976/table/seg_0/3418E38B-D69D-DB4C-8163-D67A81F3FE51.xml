@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3418E38B-D69D-DB4C-8163-D67A81F3FE51" name="Diaganosed_with">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Visit_vst_id" id="88C9813E-99DA-DD3F-C83C-758C18B6103F">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_Diaganosed_with_Visit_vst_id</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Diaganosed_with_Visit_vst_id</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="672EF3EE-E794-6480-4038-BEA5D9757AC8" referredColumn="A9AD552B-73AE-4C43-B2E9-DBDFE6D29B57"/>
+</associations>
+</Column>
+<Column name="Diaganosis_dgnss_id" id="7FF5B73A-A515-FB7B-0AA0-F18DA49C842B">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_Diaganosed_with_Diaganosis_dgnss_id</constraintName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Diaganosed_with_Diaganosis_dgnss_id</notNullConstraintName>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1000000000000</beginValue>
+<endValue>9999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="7401AA92-31C4-4103-5843-5880552D2A4F" referredColumn="C2AF51B6-E896-83F3-C8CF-1FB8C9534C40"/>
+</associations>
+</Column>
+<Column name="severity" id="FDECDD20-BC05-0590-D714-E0E0BEF55207">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>EF932F3E-3D07-9A94-8D07-56708E4FCF66</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<constraintName>CK_Diaganosed_with_severity</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>4191988C-6E01-8BF6-3F78-19915C946C09</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="notes" id="CB41C634-4084-4140-A9B8-80E772666B92">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>D78AF836-2D70-9A96-AC68-4C446451BDB1</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AC3EF304-E15D-75AB-D269-AD6C7F77DBF1" name="Diaganosed_with_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88C9813E-99DA-DD3F-C83C-758C18B6103F"/>
+<colUsage columnID="7FF5B73A-A515-FB7B-0AA0-F18DA49C842B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0EC7A6F0-439C-05F5-9EEF-6F80482E5FA9" name="Diaganosed_with_Visit_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>31BB76A6-9AF2-5C2E-6039-56440407DF18</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="88C9813E-99DA-DD3F-C83C-758C18B6103F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DE15AE61-B9C7-BF26-BC15-532E2276E4B8" name="Diaganosed_with_Diaganosis_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:55:15 UTC</createdTime>
+<generatorID>31BB76A6-9AF2-5C2E-6039-56440407DF18</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7FF5B73A-A515-FB7B-0AA0-F18DA49C842B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

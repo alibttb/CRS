@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="CDM" id="C10184D3-0613-88AB-9825-C667BFEEB589" version="3.5">
+<createdBy>HASaliS</createdBy>
+<createdTime>2016-03-17 07:29:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C10184D3-0613-88AB-9825-C667BFEEB589</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="2B6ADCB1-C865-B085-B32A-F1127AF0B834">
+<designStoragePath>/home/ali/projects/Yara/CMP/ClinicDataModel</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C1753728-E5C5-4677-8A78-98EAF7770AB6" name="usr">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>3F8D1B1B-FF2D-AEAE-C1B0-3A517EF60ECD</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<abbreviation>usr</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="prsn_pi" id="15517AC1-330B-2CD1-0391-846A2559A002">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>8F3B1B52-74FD-6AFD-98D4-2F8D4570F203</generatorID>
+<notes>personal identifier is a number that uniqly identify a person all across the system</notes>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>99999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>100000000000000</beginValue>
+<endValue>999999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="50B67310-7277-FBE4-5357-2A147F1798ED" referredColumn="1350EF53-8878-B373-9F9D-C0A0147AC376"/>
+</associations>
+</Column>
+<Column name="usr_user_name" id="960A6233-3C15-CBB8-ED9B-58D6894AE8C1">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>E0EB515F-A126-D6AD-6CCF-04E3DBA1D40F</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>A6E023AB-2D2D-4D9F-2406-60DA8CAC13D2</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usr_hash_sha256" id="A9C33A64-22DC-AACC-CEE8-9FF4ACC8DECD">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>E77866FB-A584-5631-32AE-8B45E4908DA7</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>32 BYTE</dataTypeSize>
+<ownDataTypeParameters>32 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usr_salt" id="B4974247-C6B4-6444-374F-450BFA15CB9D">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>AAEBF2C2-B00A-2626-A2B9-BECC5BE23C12</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="26FD81F1-4C13-EDA9-F436-B446E9B9238E" name="usr_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>C4687723-F483-9343-7854-55E6089F61DF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15517AC1-330B-2CD1-0391-846A2559A002"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4F2A62CB-C0CE-67CE-12CD-215CEC9394D3" name="usr_prsn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>26CAE3C2-DE07-E535-EF37-E3E29E2AB97C</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="15517AC1-330B-2CD1-0391-846A2559A002"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

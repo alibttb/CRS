@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="874FFD58-44D8-4875-065B-25A7C87E592D" name="contact info">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:41:01 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>cntc_nf</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cntct nf id" id="399950EB-64D7-354C-34DE-0E2F11844364">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:41:23 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="type" id="6D74DB8A-785D-6566-E9CB-00190730A913">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:41:38 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<constraintName>CK_contact_info_type</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<domain>D9C90A3F-C438-7415-D98F-363285BABC09</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="phone" id="6BAA584D-E95D-3C16-6DDC-EF44FB318025">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:41:55 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>976FF53B-637F-1866-2377-F89930141524</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="8791A64F-F58E-0283-E2A6-E6D335465AB9">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:42:39 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FC0E9B13-CBF7-A2B5-2F25-13CE3DA85823</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prsn prsn pi" id="7EA69ED4-4B7B-1409-DFFC-A9F02B2D770C">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:44:01 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>A4B00819-4E42-56A9-08C5-96152B246436</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<referedAttribute>8F3B1B52-74FD-6AFD-98D4-2F8D4570F203</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lctn loc id" id="5EBC0342-A258-EE68-E7FB-A642AC09EDFB">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:45:43 UTC</createdTime>
+<generatorID>15B45F73-8E37-1CE9-A3D2-7A0940426D4B</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<referedAttribute>2BE6AC33-7F10-E6E5-B33E-544396ECA925</referedAttribute>
+<structAttributeID>BA713D45-485D-4F8F-48E2-854555FC5171</structAttributeID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,0,0</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="390623AF-438D-1640-637D-DD304E92A241" name="contact_info_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 09:48:40 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>399950EB-64D7-354C-34DE-0E2F11844364</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

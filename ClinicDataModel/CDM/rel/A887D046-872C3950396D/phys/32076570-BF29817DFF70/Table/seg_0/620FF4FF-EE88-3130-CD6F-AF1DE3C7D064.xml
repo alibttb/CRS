@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="contact_info" directorySegmentName="seg_0" id="620FF4FF-EE88-3130-CD6F-AF1DE3C7D064">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>65D26282-39A6-4EC5-5E14-A3DD24F2CC11</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<user>90BC8DDD-024A-ED19-CAA7-0B2AD0BFAC73</user>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="type" id="57A75660-218C-9703-F37E-3BE40C54B336">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="cntct_nf_id" id="8A4C5C88-88FD-5A7E-AA7E-C86F9895A93A">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="lctn_loc_id" id="96C005A9-8C1A-CE8B-683E-70B6064AC7C7">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="email" id="B826E8AB-96A7-639B-C6F6-3CB8381B766E">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="phone" id="DC6F4BB6-597F-6FDF-1410-72320CE26C96">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="prsn_prsn_pi" id="FE3A1D65-A376-5565-4A4F-2EBE39BFAAB2">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="contact_info__IDXv1" id="05700CD2-61EB-6651-F16C-6693F7148643">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:52:00 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>65D26282-39A6-4EC5-5E14-A3DD24F2CC11</schemaObject>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="contact_info__IDX" id="19974A17-9ED5-0353-E5E4-74050374E198">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:52:00 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>65D26282-39A6-4EC5-5E14-A3DD24F2CC11</schemaObject>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="contact_info_lctn_FK" id="62245054-B967-3D3B-9478-94073F7D5C5C">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="contact_info_prsn_FK" id="AECD6A67-C5CC-252F-1E11-AE6596E9244A">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="contact_info_PK" id="3EE9783A-2567-0A32-3244-DB7B5D58D9FF">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:33:11 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

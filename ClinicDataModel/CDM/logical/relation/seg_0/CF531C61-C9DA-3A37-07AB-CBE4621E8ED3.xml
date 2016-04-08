@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Visit ptnt FK" directorySegmentName="seg_0" id="CF531C61-C9DA-3A37-07AB-CBE4621E8ED3">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-23 20:40:35 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<targetTransferable>false</targetTransferable>
+<sourcePk>C4687723-F483-9343-7854-55E6089F61DF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>395C4F54-C568-A615-D87E-82E306309F40</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>741381A2-EAD4-ACAE-72CD-546BF9D6DD3F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

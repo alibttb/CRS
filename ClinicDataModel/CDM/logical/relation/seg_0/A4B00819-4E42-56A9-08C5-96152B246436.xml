@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="contact info prsn FK" directorySegmentName="seg_0" id="A4B00819-4E42-56A9-08C5-96152B246436">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 11:44:01 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<sourcePk>C4687723-F483-9343-7854-55E6089F61DF</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>1636C01E-DE30-3646-E64B-707119BDA7C1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>874FFD58-44D8-4875-065B-25A7C87E592D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

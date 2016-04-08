@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6F0A0CDA-63A2-08D5-05D4-84D2BEBE793C" name="ptnt">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>395C4F54-C568-A615-D87E-82E306309F40</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<abbreviation>ptnt</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="prsn_pi" id="FE152665-2D67-B7C3-A4A3-A7664FE1D5AD">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>8F3B1B52-74FD-6AFD-98D4-2F8D4570F203</generatorID>
+<notes>personal identifier is a number that uniqly identify a person all across the system</notes>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>99999999999999</endValue>
+<description>Reversed People Ids</description>
+</rangeDef>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>100000000000000</beginValue>
+<endValue>999999999999999</endValue>
+<description>Main People Ids</description>
+</rangeDef>
+</listOfRanges>
+<associations>
+<colAssociation fkAssociation="3257E12F-5D6F-F9D8-5248-F4C6F5FD095A" referredColumn="1350EF53-8878-B373-9F9D-C0A0147AC376"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0E52245F-66AA-3D8E-CF1D-5DE74D392595" name="ptnt_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>C4687723-F483-9343-7854-55E6089F61DF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE152665-2D67-B7C3-A4A3-A7664FE1D5AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="578493ED-5FCC-91DF-C154-F7C5CC101335" name="ptnt_prsn_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-03-27 17:11:24 UTC</createdTime>
+<generatorID>8C1C181F-523B-C013-2612-BBA150110B3E</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE152665-2D67-B7C3-A4A3-A7664FE1D5AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

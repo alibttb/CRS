@@ -1,0 +1,136 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A74FE9F2-EE99-26B7-B2E0-E23F1A5AFC32" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="tk_msrmnt">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<ordsEnable>true</ordsEnable>
+<ordsAlias>took_measurment</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="vst_id" id="664D7FF8-C355-70C2-BFA5-6A0081F791DD">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_tk_msrmnt_visit_vst_id</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="CF5043A9-9E2F-4795-9945-83A9C7C84CAE" referredColumn="96E378E5-CAE2-E8EB-2492-37461A15405F"/>
+</associations>
+</Column>
+<Column name="msrmnt_id" id="29A510B9-6C42-105B-1A51-AC4B916F8D3D">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_tk_msrmnt_msrmnt_id</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="7AE02480-23D5-F5F9-D6B2-D9F20B731447" referredColumn="41CC5D64-F2B5-F2D5-AF7B-A2AB2F0CA776"/>
+</associations>
+</Column>
+<Column name="numrecal_value" id="F5174C13-ABDA-D54D-E6DF-C4AB3A943FE7">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>E62DC67B-1488-3359-D415-ED49CC97F3B7</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="textual_value" id="6D16AC9F-2913-07C1-9FCE-55D7A2C5510E">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>96998735-0C1F-8762-591E-C669696AB59C</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>B8BEF9E0-85CB-E79E-7DB8-6055DF5CFF88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+<Column name="notes" id="8D976E65-55DE-E26F-B951-A6ACD29018EB">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>152C7255-C09D-2BEB-A04E-FBC29C8D1734</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3B9005B0-8549-A113-C4D8-F6D6EDDEF537" name="tk_msrmnt_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="664D7FF8-C355-70C2-BFA5-6A0081F791DD"/>
+<colUsage columnID="29A510B9-6C42-105B-1A51-AC4B916F8D3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A5F929ED-AFD8-811D-5467-DA8E1A7DBEB5" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="tk_msrmnt__IDXv2">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:52:00 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="664D7FF8-C355-70C2-BFA5-6A0081F791DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7CB58682-6EF6-2AD5-2C25-E8060706F9A7" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="tk_msrmnt__IDXv1v1">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:52:00 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29A510B9-6C42-105B-1A51-AC4B916F8D3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C4C46E4-2A67-83B5-EF30-F5CE41AC8AE1" name="tk_msrmnt_vst_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>AB91348D-D8D8-67CA-10AE-381B26ED9915</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="664D7FF8-C355-70C2-BFA5-6A0081F791DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="745A3319-D5F1-FE88-420D-A5D507BF8B50" name="tk_msrmnt_msrmnt_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>AB91348D-D8D8-67CA-10AE-381B26ED9915</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29A510B9-6C42-105B-1A51-AC4B916F8D3D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

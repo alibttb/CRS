@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="clinic" directorySegmentName="seg_0" id="90BC8DDD-024A-ED19-CAA7-0B2AD0BFAC73">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:34:40 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<identifier>0596566E87CFE99130B8EA73730EAA5155</identifier>
+<privileges>ALTER SESSION, CONNECT, RESOURCE</privileges>
+</UserOraclev10g>

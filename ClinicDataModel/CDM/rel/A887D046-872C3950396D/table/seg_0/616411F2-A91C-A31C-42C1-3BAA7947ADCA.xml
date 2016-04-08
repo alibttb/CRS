@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="616411F2-A91C-A31C-42C1-3BAA7947ADCA" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="visit">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>741381A2-EAD4-ACAE-72CD-546BF9D6DD3F</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<ordsEnable>true</ordsEnable>
+<abbreviation>vst</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="vst_id" id="96E378E5-CAE2-E8EB-2492-37461A15405F">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>274C80EB-59EE-92B2-AFE7-1F6B859EC4CA</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_vst_vst_id</notNullConstraintName>
+</Column>
+<Column name="ptnt_prsn_prsn_pi" id="E20DE6E7-2C8C-F88B-BD0D-7E4CA3B2BC53">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<comment>personal identifier is a number that uniqly identify a person all across the system</comment>
+<commentInRDBMS>personal identifier is a number that uniqly identify a person all across the system</commentInRDBMS>
+<generatorID>BFCABB8F-80E0-915B-F77D-4CF047ABB7A3</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_vst_ptnt_prsn_prsn_pi</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="F796E032-78A7-1EB7-DB6C-C8961014E5FC" referredColumn="6332B4FA-326E-1B52-8B49-578845655BB6"/>
+</associations>
+</Column>
+<Column name="visit_date" id="90D2609A-CA87-A178-9701-97DED7E6E95C">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>9DB47B30-A749-1C52-0264-DE80C2850146</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vist_type" id="8EEFBFA7-FBF6-2F3C-30D4-149BC7E06EF1">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>9B463E37-F9D8-25AB-F9BF-025DD773FA90</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<domain>C5310044-546A-B946-91A0-8611EA7314FF</domain>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="notes" id="8B7BC70C-8B9E-1468-BA48-745C6894FAD2">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>D78AF836-2D70-9A96-AC68-4C446451BDB1</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<dependOnForeignKeyID>45E7913D-040C-778D-B1B6-E484BD41CC10</dependOnForeignKeyID>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B19FBE8E-13A9-D06A-7579-7F301D32766F" name="visit_PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>F8975A17-C165-5866-3384-361288C4FBFF</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="96E378E5-CAE2-E8EB-2492-37461A15405F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="51007531-28D5-A059-A36F-863BA5D33DE3" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="visit__IDX">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-04 08:52:00 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E20DE6E7-2C8C-F88B-BD0D-7E4CA3B2BC53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="08B39987-DF0B-4E6F-EA02-27EDB5DA6555" name="visit_ptnt_FK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-02 10:44:31 UTC</createdTime>
+<generatorID>CF531C61-C9DA-3A37-07AB-CBE4621E8ED3</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E20DE6E7-2C8C-F88B-BD0D-7E4CA3B2BC53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

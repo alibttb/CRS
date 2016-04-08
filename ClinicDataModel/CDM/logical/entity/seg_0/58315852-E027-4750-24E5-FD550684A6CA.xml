@@ -1,0 +1,120 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="58315852-E027-4750-24E5-FD550684A6CA" name="dctr order">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>2276102C-E398-50FE-0A3E-568AB2B1F478</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<shortName>rdr</shortName>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="912148D1-A29B-F344-FD2D-6FD4BC8399A1">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>4A1CC288-1B81-D53F-7D4C-D3786FAF5F17</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="type" id="575B7CA2-2EF3-C376-C7C1-76596FD901AF">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>7634E070-B6C3-50C5-D5E4-5859E874751F</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<constraintName>CK_order_type</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CFD19322-51C6-6E8A-FB11-B689A4E6C0DF</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="AAEAEA72-E23B-122B-348F-71FE36D65710">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>725ADA1E-099C-B369-A28D-140DE5DCD363</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>10A26325-3873-9A5F-FE03-E9E7176E14C9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="514748B6-2C55-06B3-12C8-DC39B7797561">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>367AB0E0-08B2-6B15-BAA4-4B836617800E</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>B8BEF9E0-85CB-E79E-7DB8-6055DF5CFF88</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="notes" id="56F83976-250E-8F97-EA6A-1257EC413687">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>F099BA8F-D66C-0C49-21FC-958411245C65</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="visit vst id" id="46A8737E-FAEA-CF4C-2BE4-A71EF3B6A46E">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>7BBC278A-53B0-4716-16BE-6C1CBE8C5B96</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<referedAttribute>274C80EB-59EE-92B2-AFE7-1F6B859EC4CA</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="26DE2ECF-C123-F0E3-5100-3DE5BBAA3140" name="order PK">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-03 10:03:36 UTC</createdTime>
+<generatorID>E23F089B-087D-4177-67BF-7902C20E130A</generatorID>
+<ownerDesignName>CDM</ownerDesignName>
+<engineerTo>
+<item key="A887D046-11AE-A2A2-2049-872C3950396D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>912148D1-A29B-F344-FD2D-6FD4BC8399A1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
