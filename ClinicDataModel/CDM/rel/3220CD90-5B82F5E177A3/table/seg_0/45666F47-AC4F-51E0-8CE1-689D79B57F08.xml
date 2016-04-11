@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="45666F47-AC4F-51E0-8CE1-689D79B57F08" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="LCTN">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>LCTN</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="LOC_ID" id="7E4109D8-9F64-8073-B772-AE9D6B1DA1F9">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>LOC_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ALTITTUDE" id="FEFD0A99-E6F9-F981-C159-BE31D91FA51A">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>ALTITTUDE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="level" id="5189A4C2-BDF3-7CA1-E10D-3B058ED7ED9D">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>level</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,38,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCATION_STRING" id="6C910ACE-2744-A502-230E-647FCF04A76B">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>LOCATION_STRING</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAGNITUDE" id="558F5AA1-36CA-3813-1788-89DB31D87273">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>MAGNITUDE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="9E21B5F8-F808-93EC-2477-50929FA93663">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUPER_ID" id="59CF9AC3-B2A1-A137-911F-EFBEFA29D320">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>LCTN</sourceObjSchema>
+<sourceObjName>SUPER_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,38,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CEF303FF-2896-F0F9-72F5-773BCE1D676F" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="LCTN_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007835</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E4109D8-9F64-8073-B772-AE9D6B1DA1F9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

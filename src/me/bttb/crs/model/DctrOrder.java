@@ -16,25 +16,25 @@ public class DctrOrder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="RDR_ID", unique=true, nullable=false, precision=15)
-	private long rdrId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long id;
 
-	@Column(length=4000)
+	@Column(length=255)
 	private String description;
 
-	@Column(length=100)
+	@Column(length=255)
 	private String name;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
 
-	@Column(name="\"TYPE\"", length=5)
-	private String type;
+	@Column(name="RDR_TYPE", length=255)
+	private String rdrType;
 
 	//bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VISIT_VST_ID", nullable=false)
+	@JoinColumn(name="VST_ID")
 	private Visit visit;
 
 	//bi-directional many-to-one association to Document
@@ -44,12 +44,12 @@ public class DctrOrder implements Serializable {
 	public DctrOrder() {
 	}
 
-	public long getRdrId() {
-		return this.rdrId;
+	public long getId() {
+		return this.id;
 	}
 
-	public void setRdrId(long rdrId) {
-		this.rdrId = rdrId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getDescription() {
@@ -76,12 +76,12 @@ public class DctrOrder implements Serializable {
 		this.notes = notes;
 	}
 
-	public String getType() {
-		return this.type;
+	public String getRdrType() {
+		return this.rdrType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setRdrType(String rdrType) {
+		this.rdrType = rdrType;
 	}
 
 	public Visit getVisit() {

@@ -1,0 +1,178 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6A7E6087-865A-71BF-F88A-7E0B7257746C" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DOCUMENT">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>DOCUMENT</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="00600DD5-F0AB-3E47-6A01-04E08D643D0F">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CONTENT" id="C4CF6F58-6A1B-6539-3D6C-D805502C18E7">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>CONTENT</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIBTION" id="305E784B-E1E4-1AB6-DF1B-2E278C5FB02C">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>DESCRIBTION</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DOC_TYPE" id="54F939BF-8778-9B8E-07B4-D59F5D43B9AD">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>DOC_TYPE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="4BB9A297-827F-7E8A-6B61-3774DB55F565">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTES" id="589904A4-735A-C447-7911-143FB2C95D3B">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RDR_ID" id="A09DBAA5-0F9D-E5E2-EE37-FA857AF2BA61">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>RDR_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E5C6AEBF-BD60-0B4D-9931-32B8D9D9B614" referredColumn="F600744F-7059-B0E2-4B70-D9EF252FC469"/>
+</associations>
+</Column>
+<Column name="VST_ID" id="69ED13F5-0D0D-E8F2-8364-3134C09CA20B">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DOCUMENT</sourceObjSchema>
+<sourceObjName>VST_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="507BFAB7-8B6E-3E1D-9555-7180F567BAFC" referredColumn="7AE6F899-2D8F-8E1C-B440-F16B1F1C3F43"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="77590440-43C9-626C-D97D-4FB0BCDC459F" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DOCUMENT_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007830</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00600DD5-F0AB-3E47-6A01-04E08D643D0F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C0F5BA32-C290-1DDC-10AE-0C6A956C3D22" name="FK_DOCUMENT_RDR_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A09DBAA5-0F9D-E5E2-EE37-FA857AF2BA61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F270D585-714D-20C5-A74A-96E46D2276F0" name="FK_DOCUMENT_VST_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="69ED13F5-0D0D-E8F2-8364-3134C09CA20B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

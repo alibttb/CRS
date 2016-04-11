@@ -17,31 +17,31 @@ public class Lctn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="LOC_ID", unique=true, nullable=false, precision=15)
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(name="LOC_ID", unique=true, nullable=false, precision=19)
 	private long locId;
 
-	@Column(length=12)
+	@Column(length=255)
 	private String altittude;
 
 	@Column(name="\"level\"", precision=38)
 	private BigDecimal level;
 
-	@Column(name="LOCATION_STRING", length=4000)
+	@Column(name="LOCATION_STRING", length=255)
 	private String locationString;
 
-	@Column(length=12)
+	@Column(length=255)
 	private String magnitude;
 
-	@Column(nullable=false, length=4000)
+	@Column(length=255)
 	private String name;
 
-	@Column(name="SUPER_ID", nullable=false, precision=15)
+	@Column(name="SUPER_ID", precision=38)
 	private BigDecimal superId;
 
 	//bi-directional many-to-one association to ContactInfo
 	@OneToMany(mappedBy="lctn")
-	private List<ContactInfo> contactInfos;
+	private List<ContactInfo> contactInfoList;
 
 	public Lctn() {
 	}
@@ -102,26 +102,26 @@ public class Lctn implements Serializable {
 		this.superId = superId;
 	}
 
-	public List<ContactInfo> getContactInfos() {
-		return this.contactInfos;
+	public List<ContactInfo> getContactInfoList() {
+		return this.contactInfoList;
 	}
 
-	public void setContactInfos(List<ContactInfo> contactInfos) {
-		this.contactInfos = contactInfos;
+	public void setContactInfoList(List<ContactInfo> contactInfoList) {
+		this.contactInfoList = contactInfoList;
 	}
 
-	public ContactInfo addContactInfo(ContactInfo contactInfo) {
-		getContactInfos().add(contactInfo);
-		contactInfo.setLctn(this);
+	public ContactInfo addContactInfoList(ContactInfo contactInfoList) {
+		getContactInfoList().add(contactInfoList);
+		contactInfoList.setLctn(this);
 
-		return contactInfo;
+		return contactInfoList;
 	}
 
-	public ContactInfo removeContactInfo(ContactInfo contactInfo) {
-		getContactInfos().remove(contactInfo);
-		contactInfo.setLctn(null);
+	public ContactInfo removeContactInfoList(ContactInfo contactInfoList) {
+		getContactInfoList().remove(contactInfoList);
+		contactInfoList.setLctn(null);
 
-		return contactInfo;
+		return contactInfoList;
 	}
 
 }

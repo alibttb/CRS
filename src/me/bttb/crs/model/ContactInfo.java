@@ -15,38 +15,38 @@ public class ContactInfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="CNTCT_NF_ID", unique=true, nullable=false, precision=15)
-	private long cntctNfId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long id;
 
-	@Column(length=150)
+	@Column(length=255)
 	private String email;
 
-	@Column(length=25)
+	@Column(length=255)
 	private String phone;
 
-	@Column(name="\"TYPE\"", length=2)
+	@Column(name="\"TYPE\"", length=255)
 	private String type;
 
 	//bi-directional many-to-one association to Lctn
 	@ManyToOne
-	@JoinColumn(name="LCTN_LOC_ID", nullable=false)
+	@JoinColumn(name="LOC_ID")
 	private Lctn lctn;
 
 	//bi-directional many-to-one association to Prsn
 	@ManyToOne
-	@JoinColumn(name="PRSN_PRSN_PI", nullable=false)
+	@JoinColumn(name="PID")
 	private Prsn prsn;
 
 	public ContactInfo() {
 	}
 
-	public long getCntctNfId() {
-		return this.cntctNfId;
+	public long getId() {
+		return this.id;
 	}
 
-	public void setCntctNfId(long cntctNfId) {
-		this.cntctNfId = cntctNfId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getEmail() {

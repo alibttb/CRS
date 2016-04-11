@@ -12,7 +12,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="prsn_pi" id="86AD98FA-B7FB-0F77-03DA-0F3D70E9BB1C">
+<Column name="pid" id="86AD98FA-B7FB-0F77-03DA-0F3D70E9BB1C">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>
@@ -27,7 +27,7 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <notNullConstraintName>NNC_prsn_prsn_pi</notNullConstraintName>
 </Column>
-<Column name="prsn_first_name" id="959E44E6-D449-9D57-6D67-E7225BF276BE">
+<Column name="first_name" id="959E44E6-D449-9D57-6D67-E7225BF276BE">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>C3E74EB7-BBAE-DFDA-0CB8-1D6A2951292F</generatorID>
@@ -39,7 +39,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="prsn_father_name" id="37C161C4-9326-D0C7-B744-AF634655E247">
+<Column name="father_name" id="37C161C4-9326-D0C7-B744-AF634655E247">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>9542A9DD-5830-991A-4A69-6647CB5D9E81</generatorID>
@@ -51,7 +51,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="prsn_family_name" id="7B1423C7-FB2F-D3FB-66B0-9F6DAB423725">
+<Column name="family_name" id="7B1423C7-FB2F-D3FB-66B0-9F6DAB423725">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>F7A8A9DF-1006-327E-27EB-27DCA4D6DCEC</generatorID>
@@ -63,7 +63,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="prsn_mother_name" id="9CEA424C-1AEC-4B13-7580-772D5358A623">
+<Column name="mother_name" id="9CEA424C-1AEC-4B13-7580-772D5358A623">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>F6CED95B-46F1-0563-5FCB-B038D17BBD69</generatorID>
@@ -75,7 +75,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="prsn_mother_family_name" id="228BEE7E-2A15-15DC-6FC4-0FB29E438C45">
+<Column name="mother_family_name" id="228BEE7E-2A15-15DC-6FC4-0FB29E438C45">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>13C20477-08D4-6156-AA67-7E8D95138621</generatorID>
@@ -87,7 +87,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="prsn_birth_place" id="BBF949EC-1AB2-3C97-7CC6-AEFDA3458DE9">
+<Column name="birth_place" id="BBF949EC-1AB2-3C97-7CC6-AEFDA3458DE9">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>979C3F31-DC50-3605-7FC3-F3CC5A5E42C6</generatorID>
@@ -99,7 +99,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="prsn_birth_date" id="E9C497D2-4FA3-7900-14E8-463A4CB0DF95">
+<Column name="birth_date" id="E9C497D2-4FA3-7900-14E8-463A4CB0DF95">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>9E67518B-62E8-053D-4F20-04229016E537</generatorID>
@@ -111,14 +111,8 @@
 <domain>C7E6966A-84FC-33F5-E123-A5ECDB510B8C</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-<listOfRanges>
-<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
-<beginValue>1/1/1910</beginValue>
-<endValue>sysdate</endValue>
-</rangeDef>
-</listOfRanges>
 </Column>
-<Column name="type" id="7A69825C-4ECB-64E3-7D74-583C14CEDF81">
+<Column name="prsn_type" id="7A69825C-4ECB-64E3-7D74-583C14CEDF81">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-04 08:10:46 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>

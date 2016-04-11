@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TK_MSRMNT" directorySegmentName="seg_0" id="EF2C8067-1A2F-A42B-5BEE-EF43C1B008A3">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>CCECCEE0-B4DE-0921-6597-E105DD13A604</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NOTES" id="184E2F29-EA4D-55FD-B8EE-D0ACA958DE1E">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NUMRICAL_VALUE" id="29F25C82-6A28-2639-C092-0A884891F2FC">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="VST_ID" id="2F9FB188-570D-24DE-5AB9-F8CA8F8CB091">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TEXTUAL_VALUE" id="3F3FF932-3C1F-975C-56FD-3E402C4D1C19">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MSRMNT_ID" id="CA47AAFB-25B9-F9B0-633B-04DDCF5CA301">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TK_MSRMNT_MSRMNT_ID" id="BD702D91-D5FE-A528-EA26-5CD5D906EB1C">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_TK_MSRMNT_VST_ID" id="DC065526-4F22-633E-53B4-B074C15F8328">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TK_MSRMNT_PK" id="C69BADEC-E847-9E4B-2F96-813ACD5CDE0A">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<segment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<indexSegment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

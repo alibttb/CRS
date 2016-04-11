@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EF2C8067-1A2F-A42B-5BEE-EF43C1B008A3" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="TK_MSRMNT">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>TK_MSRMNT</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOTES" id="184E2F29-EA4D-55FD-B8EE-D0ACA958DE1E">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>TK_MSRMNT</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUMRICAL_VALUE" id="29F25C82-6A28-2639-C092-0A884891F2FC">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>TK_MSRMNT</sourceObjSchema>
+<sourceObjName>NUMRICAL_VALUE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>38</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,38,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TEXTUAL_VALUE" id="3F3FF932-3C1F-975C-56FD-3E402C4D1C19">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>TK_MSRMNT</sourceObjSchema>
+<sourceObjName>TEXTUAL_VALUE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MSRMNT_ID" id="CA47AAFB-25B9-F9B0-633B-04DDCF5CA301">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>TK_MSRMNT</sourceObjSchema>
+<sourceObjName>MSRMNT_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4750F5C8-BAB7-15C0-20FB-F235E578AEB2" referredColumn="9C0CE5F8-C979-98ED-F9F3-357530DB883E"/>
+</associations>
+</Column>
+<Column name="VST_ID" id="2F9FB188-570D-24DE-5AB9-F8CA8F8CB091">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>TK_MSRMNT</sourceObjSchema>
+<sourceObjName>VST_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4C9539AB-8B5B-17E5-47EB-E7F014FE17AF" referredColumn="7AE6F899-2D8F-8E1C-B440-F16B1F1C3F43"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C69BADEC-E847-9E4B-2F96-813ACD5CDE0A" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="TK_MSRMNT_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007842</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA47AAFB-25B9-F9B0-633B-04DDCF5CA301"/>
+<colUsage columnID="2F9FB188-570D-24DE-5AB9-F8CA8F8CB091"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BD702D91-D5FE-A528-EA26-5CD5D906EB1C" name="FK_TK_MSRMNT_MSRMNT_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA47AAFB-25B9-F9B0-633B-04DDCF5CA301"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC065526-4F22-633E-53B4-B074C15F8328" name="FK_TK_MSRMNT_VST_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F9FB188-570D-24DE-5AB9-F8CA8F8CB091"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

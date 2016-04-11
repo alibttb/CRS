@@ -8,14 +8,7 @@
 <h:head>
 	<title><ui:insert name="title">Clinic Record System 0.1</ui:insert></title>
 </h:head>
-
 <h:body>
-
-
-
-	<ui:debug hotkey="x"
-		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
-
 	<div id="header">
 		<ui:insert name="header">
     	Header area.  See comments below this line in the source.
@@ -23,8 +16,6 @@
 			<!-- <ui:include src="header.xhtml"/> -->
 		</ui:insert>
 	</div>
-
-
 	<div id="content">
 		<h:form>
 			<p:panel id="panel" header="Login" style="margin-bottom:10px;">
@@ -32,14 +23,30 @@
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="username" value="Username:" />
 					<p:inputText id="username" required="true"
-						value="#{userBean.username}"  validatorMessage="You must input a user name"/>
+						value="#{userBean.username}"
+						validatorMessage="You must input a user name" />
 
 					<h:outputText for="password" value="Password: " />
-					<p:password id="password" value="#{userBean.password}" validatorMessage="Password can't be empty"/>
+					<p:password id="password" value="#{userBean.password}"
+						validatorMessage="Password can't be empty" />
 				</h:panelGrid>
 			</p:panel>
-			<p:commandButton value="Submit" update="panel" action="#{userBean.authenticate}" />
+			<p:commandButton value="Submit" update="panel"
+				action="#{userBean.authenticate}" />
 		</h:form>
+		<p:panel toggleable="true" toggleTitle="users">
+			<h:form id="form">
+				<p:dataTable id="users" value="#{userDAO.users}" var="user"
+					scrollable="true" scrollHeight="200" scrollWidth="80%" >
+					<p:column width="80" headerText="id">#{user.pid}</p:column>
+					<p:column width="120" headerText="role">#{user.role}</p:column>
+					<p:column width="200" headerText="first name">#{user.firstName}</p:column>
+				</p:dataTable>
+				<p:commandButton update="users" action="#{userDAO.addRandomUser}"
+					value="Insert Random User">
+				</p:commandButton>
+			</h:form>
+		</p:panel>
 	</div>
 
 	<div id="footer">
@@ -49,7 +56,6 @@
 			<!--<ui:include src="footer.xhtml"/>  -->
 		</ui:insert>
 	</div>
-
 </h:body>
 
 </html>

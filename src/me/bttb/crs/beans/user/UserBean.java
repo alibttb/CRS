@@ -3,11 +3,12 @@ package me.bttb.crs.beans.user;
 
 import javax.annotation.ManagedBean;
 import javax.inject.Named;
+
 import org.springframework.context.annotation.Scope;
 
 
-@Named(value="userBean")
-@ManagedBean
+@Named("userBean")
+@ManagedBean()
 @Scope("session")
 public class UserBean {
 	private String username;
@@ -66,5 +67,6 @@ public class UserBean {
 		}
 		return result;
 	}
+	
 
 }

@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2B52B38-024A-CB51-64EA-9275C4318A27" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DIAGANOSIS">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>DIAGANOSIS</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="9066A800-8D25-F989-E3B0-EE74B009781A">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSIS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CODE" id="C81ABE77-286C-A15E-A96E-43F260599352">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSIS</sourceObjSchema>
+<sourceObjName>CODE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRIBTION" id="6EE4E8F0-86CE-2494-5228-40B47E5DF86D">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSIS</sourceObjSchema>
+<sourceObjName>DESCRIBTION</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DGNSS_TYPE" id="334585AA-C0B2-8933-128E-69D7C5D39018">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSIS</sourceObjSchema>
+<sourceObjName>DGNSS_TYPE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="0F36FA44-D544-031F-5F72-F98938103FD1">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSIS</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FB544D11-8C58-D4BB-0580-C378C86E6750" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DIAGANOSIS_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007828</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9066A800-8D25-F989-E3B0-EE74B009781A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

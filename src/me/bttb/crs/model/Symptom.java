@@ -16,32 +16,32 @@ public class Symptom implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="SMPTM_ID", unique=true, nullable=false, precision=15)
-	private long smptmId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long id;
 
-	@Column(length=4000)
+	@Column(length=255)
 	private String description;
 
-	@Column(length=100)
+	@Column(length=255)
 	private String name;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
 
 	//bi-directional many-to-one association to HasSymptom
 	@OneToMany(mappedBy="symptom")
-	private List<HasSymptom> hasSymptoms;
+	private List<HasSymptom> hasSymptomList;
 
 	public Symptom() {
 	}
 
-	public long getSmptmId() {
-		return this.smptmId;
+	public long getId() {
+		return this.id;
 	}
 
-	public void setSmptmId(long smptmId) {
-		this.smptmId = smptmId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getDescription() {
@@ -68,26 +68,26 @@ public class Symptom implements Serializable {
 		this.notes = notes;
 	}
 
-	public List<HasSymptom> getHasSymptoms() {
-		return this.hasSymptoms;
+	public List<HasSymptom> getHasSymptomList() {
+		return this.hasSymptomList;
 	}
 
-	public void setHasSymptoms(List<HasSymptom> hasSymptoms) {
-		this.hasSymptoms = hasSymptoms;
+	public void setHasSymptomList(List<HasSymptom> hasSymptomList) {
+		this.hasSymptomList = hasSymptomList;
 	}
 
-	public HasSymptom addHasSymptom(HasSymptom hasSymptom) {
-		getHasSymptoms().add(hasSymptom);
-		hasSymptom.setSymptom(this);
+	public HasSymptom addHasSymptomList(HasSymptom hasSymptomList) {
+		getHasSymptomList().add(hasSymptomList);
+		hasSymptomList.setSymptom(this);
 
-		return hasSymptom;
+		return hasSymptomList;
 	}
 
-	public HasSymptom removeHasSymptom(HasSymptom hasSymptom) {
-		getHasSymptoms().remove(hasSymptom);
-		hasSymptom.setSymptom(null);
+	public HasSymptom removeHasSymptomList(HasSymptom hasSymptomList) {
+		getHasSymptomList().remove(hasSymptomList);
+		hasSymptomList.setSymptom(null);
 
-		return hasSymptom;
+		return hasSymptomList;
 	}
 
 }

@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="38A0F540-3963-2DF0-0E12-DDBF5C5E8021" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="VISIT">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>VISIT</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="7AE6F899-2D8F-8E1C-B440-F16B1F1C3F43">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>VISIT</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOTES" id="9D3CDC47-D2F6-FF98-111F-89EB0F301D76">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>VISIT</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VST_DATE" id="7AE613AA-977D-E347-44A1-EBD8C8EB4FEC">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>VISIT</sourceObjSchema>
+<sourceObjName>VST_DATE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VST_TYPE" id="6C73507C-3E32-DDE0-A8B2-5047E4450139">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>VISIT</sourceObjSchema>
+<sourceObjName>VST_TYPE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PID" id="391F53DD-5E3B-5F7E-DAD3-47EC5A7E2B8A">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>VISIT</sourceObjSchema>
+<sourceObjName>PID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C816E64E-02D2-6D77-6A4C-836E9CEC76C7" referredColumn="E4EB0FBD-7C84-AF45-BB3B-B819210CA2D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2CFCE560-C5AB-A5ED-F55A-21D7798245C0" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="VISIT_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007849</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7AE6F899-2D8F-8E1C-B440-F16B1F1C3F43"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="35AF3BE3-EFF4-8968-C020-CF07C2ADC122" name="FK_VISIT_PID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="391F53DD-5E3B-5F7E-DAD3-47EC5A7E2B8A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

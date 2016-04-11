@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="DIAGANOSED_WITH" directorySegmentName="seg_0" id="C1FDFD88-DC5D-1386-79A0-374182C2D3A6">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>CCECCEE0-B4DE-0921-6597-E105DD13A604</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="VST_ID" id="3CBC3AC1-0549-B274-F6EA-F679055D3143">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SEVERITY" id="591E920E-4850-84FE-7319-C5D91AAF0282">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DGNSS_ID" id="A65B6FCD-096A-1F4E-BA32-798AFB8DD9AA">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NOTES" id="EF37F361-73B9-EBA2-84C4-3F90B5930A8A">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_DIAGANOSED_WITH_VST_ID" id="597F2316-2CE8-206E-E0E4-9729C222E16E">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_DIAGANOSED_WITH_DGNSS_ID" id="8573D105-0319-8D30-859D-090FA5821BA9">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="DIAGANOSED_WITH_PK" id="2C40E068-3A46-896D-557A-53CE07C5DA16">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<segment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<indexSegment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

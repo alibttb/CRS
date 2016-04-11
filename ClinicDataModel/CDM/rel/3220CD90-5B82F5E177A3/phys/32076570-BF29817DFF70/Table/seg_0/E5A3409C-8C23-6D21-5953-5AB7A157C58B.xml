@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="NRS" directorySegmentName="seg_0" id="E5A3409C-8C23-6D21-5953-5AB7A157C58B">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>CCECCEE0-B4DE-0921-6597-E105DD13A604</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="PID" id="D6AA129F-FA1B-5E0B-2CD9-2E17281EE220">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_NRS_PID" id="BF4895E1-54C8-28B0-2F63-B77D7349CEEE">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="NRS_PK" id="EBC16808-F048-BD13-1793-6820F9711465">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<segment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<indexSegment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

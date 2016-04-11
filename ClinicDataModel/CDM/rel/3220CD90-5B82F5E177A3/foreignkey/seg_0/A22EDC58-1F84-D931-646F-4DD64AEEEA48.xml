@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A22EDC58-1F84-D931-646F-4DD64AEEEA48" containerWithKeyObject="CB78885F-6C2D-636B-9AEF-DCC23E27C244" localFKIndex="28C6C42B-8276-72D1-21B1-0B5F63F19A12" name="FK_CONTACT_INFO_PID">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>FK_CONTACT_INFO_PID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C54A4E7B-BE02-04F2-AF0A-33E8FD1343B2</referredTableID>
+<keyObject>03AAD390-6A8F-3C9C-CCB9-0E259D859C3F</keyObject>
+<referredKeyID>03AAD390-6A8F-3C9C-CCB9-0E259D859C3F</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

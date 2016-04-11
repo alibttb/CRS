@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import static javax.persistence.InheritanceType.JOINED;
 
 
 /**
@@ -13,162 +14,140 @@ import java.util.List;
 @Entity
 @Table(name="PRSN")
 @NamedQuery(name="Prsn.findAll", query="SELECT p FROM Prsn p")
+@Inheritance(strategy = JOINED)
+@DiscriminatorColumn(name = "PRSN_TYPE")
 public class Prsn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="PRSN_PI", unique=true, nullable=false, precision=15)
-	private long prsnPi;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long pid;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="PRSN_BIRTH_DATE")
-	private Date prsnBirthDate;
+	@Column(name="BIRTH_DATE")
+	private Date birthDate;
 
-	@Column(name="PRSN_BIRTH_PLACE", length=1024)
-	private String prsnBirthPlace;
+	@Column(name="BIRTH_PLACE", length=255)
+	private String birthPlace;
 
-	@Column(name="PRSN_FAMILY_NAME", length=75)
-	private String prsnFamilyName;
+	@Column(name="FAMILY_NAME", length=255)
+	private String familyName;
 
-	@Column(name="PRSN_FATHER_NAME", length=75)
-	private String prsnFatherName;
+	@Column(name="FATHER_NAME", length=255)
+	private String fatherName;
 
-	@Column(name="PRSN_FIRST_NAME", length=75)
-	private String prsnFirstName;
+	@Column(name="FIRST_NAME", length=255)
+	private String firstName;
 
-	@Column(name="PRSN_MOTHER_FAMILY_NAME", length=75)
-	private String prsnMotherFamilyName;
+	@Column(name="MOTHER_FAMILY_NAME", length=255)
+	private String motherFamilyName;
 
-	@Column(name="PRSN_MOTHER_NAME", length=75)
-	private String prsnMotherName;
+	@Column(name="MOTHER_NAME", length=255)
+	private String motherName;
 
-	@Column(name="\"TYPE\"", length=4)
-	private String type;
+	@Column(name="PRSN_TYPE", length=31)
+	private String prsnType;
 
 	//bi-directional many-to-one association to ContactInfo
 	@OneToMany(mappedBy="prsn")
-	private List<ContactInfo> contactInfos;
-
-	//bi-directional one-to-one association to Ptnt
-	@OneToOne(mappedBy="prsn")
-	private Ptnt ptnt;
-
-	//bi-directional one-to-one association to Usr
-	@OneToOne(mappedBy="prsn")
-	private Usr usr;
+	private List<ContactInfo> contactInfoList;
 
 	public Prsn() {
 	}
 
-	public long getPrsnPi() {
-		return this.prsnPi;
+	public long getPid() {
+		return this.pid;
 	}
 
-	public void setPrsnPi(long prsnPi) {
-		this.prsnPi = prsnPi;
+	public void setPid(long pid) {
+		this.pid = pid;
 	}
 
-	public Date getPrsnBirthDate() {
-		return this.prsnBirthDate;
+	public Date getBirthDate() {
+		return this.birthDate;
 	}
 
-	public void setPrsnBirthDate(Date prsnBirthDate) {
-		this.prsnBirthDate = prsnBirthDate;
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
 	}
 
-	public String getPrsnBirthPlace() {
-		return this.prsnBirthPlace;
+	public String getBirthPlace() {
+		return this.birthPlace;
 	}
 
-	public void setPrsnBirthPlace(String prsnBirthPlace) {
-		this.prsnBirthPlace = prsnBirthPlace;
+	public void setBirthPlace(String birthPlace) {
+		this.birthPlace = birthPlace;
 	}
 
-	public String getPrsnFamilyName() {
-		return this.prsnFamilyName;
+	public String getFamilyName() {
+		return this.familyName;
 	}
 
-	public void setPrsnFamilyName(String prsnFamilyName) {
-		this.prsnFamilyName = prsnFamilyName;
+	public void setFamilyName(String familyName) {
+		this.familyName = familyName;
 	}
 
-	public String getPrsnFatherName() {
-		return this.prsnFatherName;
+	public String getFatherName() {
+		return this.fatherName;
 	}
 
-	public void setPrsnFatherName(String prsnFatherName) {
-		this.prsnFatherName = prsnFatherName;
+	public void setFatherName(String fatherName) {
+		this.fatherName = fatherName;
 	}
 
-	public String getPrsnFirstName() {
-		return this.prsnFirstName;
+	public String getFirstName() {
+		return this.firstName;
 	}
 
-	public void setPrsnFirstName(String prsnFirstName) {
-		this.prsnFirstName = prsnFirstName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getPrsnMotherFamilyName() {
-		return this.prsnMotherFamilyName;
+	public String getMotherFamilyName() {
+		return this.motherFamilyName;
 	}
 
-	public void setPrsnMotherFamilyName(String prsnMotherFamilyName) {
-		this.prsnMotherFamilyName = prsnMotherFamilyName;
+	public void setMotherFamilyName(String motherFamilyName) {
+		this.motherFamilyName = motherFamilyName;
 	}
 
-	public String getPrsnMotherName() {
-		return this.prsnMotherName;
+	public String getMotherName() {
+		return this.motherName;
 	}
 
-	public void setPrsnMotherName(String prsnMotherName) {
-		this.prsnMotherName = prsnMotherName;
+	public void setMotherName(String motherName) {
+		this.motherName = motherName;
 	}
 
-	public String getType() {
-		return this.type;
+	public String getPrsnType() {
+		return this.prsnType;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setPrsnType(String prsnType) {
+		this.prsnType = prsnType;
 	}
 
-	public List<ContactInfo> getContactInfos() {
-		return this.contactInfos;
+	public List<ContactInfo> getContactInfoList() {
+		return this.contactInfoList;
 	}
 
-	public void setContactInfos(List<ContactInfo> contactInfos) {
-		this.contactInfos = contactInfos;
+	public void setContactInfoList(List<ContactInfo> contactInfoList) {
+		this.contactInfoList = contactInfoList;
 	}
 
-	public ContactInfo addContactInfo(ContactInfo contactInfo) {
-		getContactInfos().add(contactInfo);
-		contactInfo.setPrsn(this);
+	public ContactInfo addContactInfoList(ContactInfo contactInfoList) {
+		getContactInfoList().add(contactInfoList);
+		contactInfoList.setPrsn(this);
 
-		return contactInfo;
+		return contactInfoList;
 	}
 
-	public ContactInfo removeContactInfo(ContactInfo contactInfo) {
-		getContactInfos().remove(contactInfo);
-		contactInfo.setPrsn(null);
+	public ContactInfo removeContactInfoList(ContactInfo contactInfoList) {
+		getContactInfoList().remove(contactInfoList);
+		contactInfoList.setPrsn(null);
 
-		return contactInfo;
-	}
-
-	public Ptnt getPtnt() {
-		return this.ptnt;
-	}
-
-	public void setPtnt(Ptnt ptnt) {
-		this.ptnt = ptnt;
-	}
-
-	public Usr getUsr() {
-		return this.usr;
-	}
-
-	public void setUsr(Usr usr) {
-		this.usr = usr;
+		return contactInfoList;
 	}
 
 }

@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SequenceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.SequenceOraclev10g" name="guid_seq" directorySegmentName="seg_0" id="F428C56F-8B6D-9857-A7FA-60765AC4EA65">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-10 17:04:19 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<incrementBy>1</incrementBy>
+<maxValue>999999999999999</maxValue>
+<startWith>1</startWith>
+<user>90BC8DDD-024A-ED19-CAA7-0B2AD0BFAC73</user>
+</SequenceOraclev10g>

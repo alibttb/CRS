@@ -31,7 +31,7 @@
 <domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="visit date" id="9DB47B30-A749-1C52-0264-DE80C2850146">
+<Attribute name="date" id="9DB47B30-A749-1C52-0264-DE80C2850146">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-21 15:15:52 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -44,7 +44,7 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="vist type" id="9B463E37-F9D8-25AB-F9BF-025DD773FA90">
+<Attribute name="type" id="9B463E37-F9D8-25AB-F9BF-025DD773FA90">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-21 15:16:19 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -59,7 +59,7 @@
 <domain>C5310044-546A-B946-91A0-8611EA7314FF</domain>
 <ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ptnt prsn prsn pi" id="BFCABB8F-80E0-915B-F77D-4CF047ABB7A3">
+<Attribute name="pid" id="BFCABB8F-80E0-915B-F77D-4CF047ABB7A3">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-23 20:40:35 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>

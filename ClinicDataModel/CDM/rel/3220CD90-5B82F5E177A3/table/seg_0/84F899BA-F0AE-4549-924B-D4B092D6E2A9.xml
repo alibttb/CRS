@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="84F899BA-F0AE-4549-924B-D4B092D6E2A9" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="PTNT">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>PTNT</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PID" id="63F766D4-D82F-3E16-AAD7-D8116C0A13F5">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>PTNT</sourceObjSchema>
+<sourceObjName>PID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BD2CF9E4-0105-ECC9-E8A7-14E43DF68A0F" referredColumn="E4EB0FBD-7C84-AF45-BB3B-B819210CA2D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DA824586-E9EA-A5D9-63B9-416354DBC8D9" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="PTNT_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007859</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63F766D4-D82F-3E16-AAD7-D8116C0A13F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09F88C9D-D6C6-0F85-883F-F7AB7C51D42A" name="FK_PTNT_PID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="63F766D4-D82F-3E16-AAD7-D8116C0A13F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

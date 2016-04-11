@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="LCTN" directorySegmentName="seg_0" id="45666F47-AC4F-51E0-8CE1-689D79B57F08">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>CCECCEE0-B4DE-0921-6597-E105DD13A604</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="level" id="5189A4C2-BDF3-7CA1-E10D-3B058ED7ED9D">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="MAGNITUDE" id="558F5AA1-36CA-3813-1788-89DB31D87273">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SUPER_ID" id="59CF9AC3-B2A1-A137-911F-EFBEFA29D320">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOCATION_STRING" id="6C910ACE-2744-A502-230E-647FCF04A76B">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LOC_ID" id="7E4109D8-9F64-8073-B772-AE9D6B1DA1F9">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="9E21B5F8-F808-93EC-2477-50929FA93663">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ALTITTUDE" id="FEFD0A99-E6F9-F981-C159-BE31D91FA51A">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="LCTN_PK" id="CEF303FF-2896-F0F9-72F5-773BCE1D676F">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<schemaObject>1BDDDB71-E132-5384-9C40-40F410BEADCF</schemaObject>
+<segment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</segment>
+<tableSpace>F5DDBBF6-5836-969A-E8FD-2176B7B3EFC9</tableSpace>
+<indexSegment>DEACDE3B-5A6A-E161-715E-EBBE3FEBCBF4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E5A3409C-8C23-6D21-5953-5AB7A157C58B" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="NRS">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>NRS</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PID" id="D6AA129F-FA1B-5E0B-2CD9-2E17281EE220">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>NRS</sourceObjSchema>
+<sourceObjName>PID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CFA80CA5-9E1B-C551-8AE7-7FF5938F9881" referredColumn="E4EB0FBD-7C84-AF45-BB3B-B819210CA2D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EBC16808-F048-BD13-1793-6820F9711465" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="NRS_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007857</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6AA129F-FA1B-5E0B-2CD9-2E17281EE220"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BF4895E1-54C8-28B0-2F63-B77D7349CEEE" name="FK_NRS_PID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6AA129F-FA1B-5E0B-2CD9-2E17281EE220"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

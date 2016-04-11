@@ -17,20 +17,20 @@ public class DiaganosedWith implements Serializable {
 	@EmbeddedId
 	private DiaganosedWithPK id;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
 
-	@Column(length=1)
+	@Column(length=255)
 	private String severity;
 
-	//bi-directional many-to-one association to Diaganosi
+	//bi-directional many-to-one association to Diaganosis
 	@ManyToOne
-	@JoinColumn(name="DGNSS_ID", nullable=false, insertable=false, updatable=false)
-	private Diaganosi diaganosi;
+	@JoinColumn(name="DGNSS_ID", nullable=false, insertable=true, updatable=false)
+	private Diaganosis diaganosis;
 
 	//bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID", nullable=false, insertable=false, updatable=false)
+	@JoinColumn(name="VST_ID", nullable=false, insertable=true, updatable=false)
 	private Visit visit;
 
 	public DiaganosedWith() {
@@ -60,12 +60,12 @@ public class DiaganosedWith implements Serializable {
 		this.severity = severity;
 	}
 
-	public Diaganosi getDiaganosi() {
-		return this.diaganosi;
+	public Diaganosis getDiaganosis() {
+		return this.diaganosis;
 	}
 
-	public void setDiaganosi(Diaganosi diaganosi) {
-		this.diaganosi = diaganosi;
+	public void setDiaganosis(Diaganosis diaganosis) {
+		this.diaganosis = diaganosis;
 	}
 
 	public Visit getVisit() {

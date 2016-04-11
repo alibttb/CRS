@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C1FDFD88-DC5D-1386-79A0-374182C2D3A6" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DIAGANOSED_WITH">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>DIAGANOSED_WITH</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOTES" id="EF37F361-73B9-EBA2-84C4-3F90B5930A8A">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSED_WITH</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEVERITY" id="591E920E-4850-84FE-7319-C5D91AAF0282">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSED_WITH</sourceObjSchema>
+<sourceObjName>SEVERITY</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DGNSS_ID" id="A65B6FCD-096A-1F4E-BA32-798AFB8DD9AA">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSED_WITH</sourceObjSchema>
+<sourceObjName>DGNSS_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B26F7D9A-725F-91B7-9FDA-A536193EB39C" referredColumn="9066A800-8D25-F989-E3B0-EE74B009781A"/>
+</associations>
+</Column>
+<Column name="VST_ID" id="3CBC3AC1-0549-B274-F6EA-F679055D3143">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DIAGANOSED_WITH</sourceObjSchema>
+<sourceObjName>VST_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8C84367B-0BED-DC64-3518-437E0E6A3749" referredColumn="7AE6F899-2D8F-8E1C-B440-F16B1F1C3F43"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2C40E068-3A46-896D-557A-53CE07C5DA16" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DIAGANOSED_WITH_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007826</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A65B6FCD-096A-1F4E-BA32-798AFB8DD9AA"/>
+<colUsage columnID="3CBC3AC1-0549-B274-F6EA-F679055D3143"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8573D105-0319-8D30-859D-090FA5821BA9" name="FK_DIAGANOSED_WITH_DGNSS_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A65B6FCD-096A-1F4E-BA32-798AFB8DD9AA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="597F2316-2CE8-206E-E0E4-9729C222E16E" name="FK_DIAGANOSED_WITH_VST_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3CBC3AC1-0549-B274-F6EA-F679055D3143"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

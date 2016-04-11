@@ -1,10 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B579D4BA-A2FE-1B53-BF28-67C8C363ACC5" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="has_symptoms">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B579D4BA-A2FE-1B53-BF28-67C8C363ACC5" schemaObject="65D26282-39A6-4EC5-5E14-A3DD24F2CC11" name="has_symptom">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
 <ordsEnable>true</ordsEnable>
-<abbreviation>hs_smptms</abbreviation>
+<ordsAlias>has_symptoms</ordsAlias>
+<abbreviation>hs_smptm</abbreviation>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>

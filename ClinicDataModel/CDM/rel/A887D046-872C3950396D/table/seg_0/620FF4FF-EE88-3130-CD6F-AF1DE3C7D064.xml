@@ -10,7 +10,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="cntct_nf_id" id="8A4C5C88-88FD-5A7E-AA7E-C86F9895A93A">
+<Column name="id" id="8A4C5C88-88FD-5A7E-AA7E-C86F9895A93A">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>399950EB-64D7-354C-34DE-0E2F11844364</generatorID>
@@ -22,7 +22,7 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <notNullConstraintName>NNC_cntc_nf_cntct_nf_id</notNullConstraintName>
 </Column>
-<Column name="lctn_loc_id" id="96C005A9-8C1A-CE8B-683E-70B6064AC7C7">
+<Column name="loc_id" id="96C005A9-8C1A-CE8B-683E-70B6064AC7C7">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>5EBC0342-A258-EE68-E7FB-A642AC09EDFB</generatorID>
@@ -40,7 +40,7 @@
 <colAssociation fkAssociation="2481D8F3-E35B-68E0-4F62-45F66C2F6978" referredColumn="81A7BE8D-9669-2108-7B07-CB98BEA43B0C"/>
 </associations>
 </Column>
-<Column name="prsn_prsn_pi" id="FE3A1D65-A376-5565-4A4F-2EBE39BFAAB2">
+<Column name="pid" id="FE3A1D65-A376-5565-4A4F-2EBE39BFAAB2">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>

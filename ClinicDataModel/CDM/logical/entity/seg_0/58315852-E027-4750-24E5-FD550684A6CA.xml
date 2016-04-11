@@ -87,7 +87,7 @@
 <domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="visit vst id" id="46A8737E-FAEA-CF4C-2BE4-A71EF3B6A46E">
+<Attribute name="vst id" id="46A8737E-FAEA-CF4C-2BE4-A71EF3B6A46E">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-03 10:03:36 UTC</createdTime>
 <generatorID>7BBC278A-53B0-4716-16BE-6C1CBE8C5B96</generatorID>

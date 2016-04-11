@@ -10,7 +10,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="trtmnt_id" id="18F4A9AD-DB08-E576-9CA0-93DCEB161988">
+<Column name="id" id="18F4A9AD-DB08-E576-9CA0-93DCEB161988">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>3BA86E9F-7AEE-5858-575F-9C762E11A204</generatorID>

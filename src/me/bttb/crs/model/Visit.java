@@ -17,19 +17,19 @@ public class Visit implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="VST_ID", unique=true, nullable=false, precision=15)
-	private long vstId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long id;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="VISIT_DATE")
-	private Date visitDate;
+	@Column(name="VST_DATE")
+	private Date vstDate;
 
-	@Column(name="VIST_TYPE", length=1)
-	private String vistType;
+	@Column(name="VST_TYPE", length=255)
+	private String vstType;
 
 	//bi-directional many-to-one association to DctrOrder
 	@OneToMany(mappedBy="visit")
@@ -37,7 +37,7 @@ public class Visit implements Serializable {
 
 	//bi-directional many-to-one association to DiaganosedWith
 	@OneToMany(mappedBy="visit")
-	private List<DiaganosedWith> diaganosedWiths;
+	private List<DiaganosedWith> diaganosedWithList;
 
 	//bi-directional many-to-one association to Document
 	@OneToMany(mappedBy="visit")
@@ -45,30 +45,30 @@ public class Visit implements Serializable {
 
 	//bi-directional many-to-one association to HasSymptom
 	@OneToMany(mappedBy="visit")
-	private List<HasSymptom> hasSymptoms;
+	private List<HasSymptom> hasSymptomList;
 
 	//bi-directional many-to-one association to TkMsrmnt
 	@OneToMany(mappedBy="visit")
-	private List<TkMsrmnt> tkMsrmnts;
+	private List<TkMsrmnt> tkMsrmntList;
 
 	//bi-directional many-to-one association to TreatedWith
 	@OneToMany(mappedBy="visit")
-	private List<TreatedWith> treatedWiths;
+	private List<TreatedWith> treatedWithList;
 
 	//bi-directional many-to-one association to Ptnt
 	@ManyToOne
-	@JoinColumn(name="PTNT_PRSN_PRSN_PI", nullable=false)
+	@JoinColumn(name="PID")
 	private Ptnt ptnt;
 
 	public Visit() {
 	}
 
-	public long getVstId() {
-		return this.vstId;
+	public long getId() {
+		return this.id;
 	}
 
-	public void setVstId(long vstId) {
-		this.vstId = vstId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNotes() {
@@ -79,20 +79,20 @@ public class Visit implements Serializable {
 		this.notes = notes;
 	}
 
-	public Date getVisitDate() {
-		return this.visitDate;
+	public Date getVstDate() {
+		return this.vstDate;
 	}
 
-	public void setVisitDate(Date visitDate) {
-		this.visitDate = visitDate;
+	public void setVstDate(Date vstDate) {
+		this.vstDate = vstDate;
 	}
 
-	public String getVistType() {
-		return this.vistType;
+	public String getVstType() {
+		return this.vstType;
 	}
 
-	public void setVistType(String vistType) {
-		this.vistType = vistType;
+	public void setVstType(String vstType) {
+		this.vstType = vstType;
 	}
 
 	public List<DctrOrder> getDctrOrders() {
@@ -117,26 +117,26 @@ public class Visit implements Serializable {
 		return dctrOrder;
 	}
 
-	public List<DiaganosedWith> getDiaganosedWiths() {
-		return this.diaganosedWiths;
+	public List<DiaganosedWith> getDiaganosedWithList() {
+		return this.diaganosedWithList;
 	}
 
-	public void setDiaganosedWiths(List<DiaganosedWith> diaganosedWiths) {
-		this.diaganosedWiths = diaganosedWiths;
+	public void setDiaganosedWithList(List<DiaganosedWith> diaganosedWithList) {
+		this.diaganosedWithList = diaganosedWithList;
 	}
 
-	public DiaganosedWith addDiaganosedWith(DiaganosedWith diaganosedWith) {
-		getDiaganosedWiths().add(diaganosedWith);
-		diaganosedWith.setVisit(this);
+	public DiaganosedWith addDiaganosedWithList(DiaganosedWith diaganosedWithList) {
+		getDiaganosedWithList().add(diaganosedWithList);
+		diaganosedWithList.setVisit(this);
 
-		return diaganosedWith;
+		return diaganosedWithList;
 	}
 
-	public DiaganosedWith removeDiaganosedWith(DiaganosedWith diaganosedWith) {
-		getDiaganosedWiths().remove(diaganosedWith);
-		diaganosedWith.setVisit(null);
+	public DiaganosedWith removeDiaganosedWithList(DiaganosedWith diaganosedWithList) {
+		getDiaganosedWithList().remove(diaganosedWithList);
+		diaganosedWithList.setVisit(null);
 
-		return diaganosedWith;
+		return diaganosedWithList;
 	}
 
 	public List<Document> getDocuments() {
@@ -161,70 +161,70 @@ public class Visit implements Serializable {
 		return document;
 	}
 
-	public List<HasSymptom> getHasSymptoms() {
-		return this.hasSymptoms;
+	public List<HasSymptom> getHasSymptomList() {
+		return this.hasSymptomList;
 	}
 
-	public void setHasSymptoms(List<HasSymptom> hasSymptoms) {
-		this.hasSymptoms = hasSymptoms;
+	public void setHasSymptomList(List<HasSymptom> hasSymptomList) {
+		this.hasSymptomList = hasSymptomList;
 	}
 
-	public HasSymptom addHasSymptom(HasSymptom hasSymptom) {
-		getHasSymptoms().add(hasSymptom);
-		hasSymptom.setVisit(this);
+	public HasSymptom addHasSymptomList(HasSymptom hasSymptomList) {
+		getHasSymptomList().add(hasSymptomList);
+		hasSymptomList.setVisit(this);
 
-		return hasSymptom;
+		return hasSymptomList;
 	}
 
-	public HasSymptom removeHasSymptom(HasSymptom hasSymptom) {
-		getHasSymptoms().remove(hasSymptom);
-		hasSymptom.setVisit(null);
+	public HasSymptom removeHasSymptomList(HasSymptom hasSymptomList) {
+		getHasSymptomList().remove(hasSymptomList);
+		hasSymptomList.setVisit(null);
 
-		return hasSymptom;
+		return hasSymptomList;
 	}
 
-	public List<TkMsrmnt> getTkMsrmnts() {
-		return this.tkMsrmnts;
+	public List<TkMsrmnt> getTkMsrmntList() {
+		return this.tkMsrmntList;
 	}
 
-	public void setTkMsrmnts(List<TkMsrmnt> tkMsrmnts) {
-		this.tkMsrmnts = tkMsrmnts;
+	public void setTkMsrmntList(List<TkMsrmnt> tkMsrmntList) {
+		this.tkMsrmntList = tkMsrmntList;
 	}
 
-	public TkMsrmnt addTkMsrmnt(TkMsrmnt tkMsrmnt) {
-		getTkMsrmnts().add(tkMsrmnt);
-		tkMsrmnt.setVisit(this);
+	public TkMsrmnt addTkMsrmntList(TkMsrmnt tkMsrmntList) {
+		getTkMsrmntList().add(tkMsrmntList);
+		tkMsrmntList.setVisit(this);
 
-		return tkMsrmnt;
+		return tkMsrmntList;
 	}
 
-	public TkMsrmnt removeTkMsrmnt(TkMsrmnt tkMsrmnt) {
-		getTkMsrmnts().remove(tkMsrmnt);
-		tkMsrmnt.setVisit(null);
+	public TkMsrmnt removeTkMsrmntList(TkMsrmnt tkMsrmntList) {
+		getTkMsrmntList().remove(tkMsrmntList);
+		tkMsrmntList.setVisit(null);
 
-		return tkMsrmnt;
+		return tkMsrmntList;
 	}
 
-	public List<TreatedWith> getTreatedWiths() {
-		return this.treatedWiths;
+	public List<TreatedWith> getTreatedWithList() {
+		return this.treatedWithList;
 	}
 
-	public void setTreatedWiths(List<TreatedWith> treatedWiths) {
-		this.treatedWiths = treatedWiths;
+	public void setTreatedWithList(List<TreatedWith> treatedWithList) {
+		this.treatedWithList = treatedWithList;
 	}
 
-	public TreatedWith addTreatedWith(TreatedWith treatedWith) {
-		getTreatedWiths().add(treatedWith);
-		treatedWith.setVisit(this);
+	public TreatedWith addTreatedWithList(TreatedWith treatedWithList) {
+		getTreatedWithList().add(treatedWithList);
+		treatedWithList.setVisit(this);
 
-		return treatedWith;
+		return treatedWithList;
 	}
 
-	public TreatedWith removeTreatedWith(TreatedWith treatedWith) {
-		getTreatedWiths().remove(treatedWith);
-		treatedWith.setVisit(null);
+	public TreatedWith removeTreatedWithList(TreatedWith treatedWithList) {
+		getTreatedWithList().remove(treatedWithList);
+		treatedWithList.setVisit(null);
 
-		return treatedWith;
+		return treatedWithList;
 	}
 
 	public Ptnt getPtnt() {

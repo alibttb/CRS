@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC60C5C1-1B51-5C9C-19A1-3B7B820818A5" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DCTR">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>DCTR</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PID" id="F0638356-E620-CFE5-C1B6-00D2151DEF71">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DCTR</sourceObjSchema>
+<sourceObjName>PID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="21B3F830-58EC-042F-B9A5-465F554D3E1F" referredColumn="E4EB0FBD-7C84-AF45-BB3B-B819210CA2D9"/>
+</associations>
+</Column>
+<Column name="DCTR_MAIN_SPEC" id="30925D1E-8468-8CED-C5E2-144320762D6F">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DCTR</sourceObjSchema>
+<sourceObjName>DCTR_MAIN_SPEC</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DCTR_SUB_SPEC" id="D03E0B97-DC3C-232E-BC0D-07C868E228B3">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>DCTR</sourceObjSchema>
+<sourceObjName>DCTR_SUB_SPEC</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AB9B5477-3E8A-3CAE-781E-B1EA9D25839C" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="DCTR_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007855</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0638356-E620-CFE5-C1B6-00D2151DEF71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0FB0FFD3-877E-000A-9620-0E855BF4F4DD" name="FK_DCTR_PID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0638356-E620-CFE5-C1B6-00D2151DEF71"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,16 +1,25 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
- * The persistent class for the HAS_SYMPTOMS database table.
+ * The persistent class for the HAS_SYMPTOM database table.
  * 
  */
 @Entity
-@Table(name="HAS_SYMPTOMS")
+@Table(name="HAS_SYMPTOM")
 @NamedQuery(name="HasSymptom.findAll", query="SELECT h FROM HasSymptom h")
 public class HasSymptom implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,13 +27,13 @@ public class HasSymptom implements Serializable {
 	@EmbeddedId
 	private HasSymptomPK id;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
 
-	@Column(length=50)
+	@Column(length=255)
 	private String repetation;
 
-	@Column(length=1)
+	@Column(length=255)
 	private String severity;
 
 	@Temporal(TemporalType.DATE)
@@ -33,12 +42,12 @@ public class HasSymptom implements Serializable {
 
 	//bi-directional many-to-one association to Symptom
 	@ManyToOne
-	@JoinColumn(name="SMPTM_ID", nullable=false, insertable=false, updatable=false)
+	@JoinColumn(name="SMPTM_ID", nullable=false, insertable=true, updatable=false)
 	private Symptom symptom;
 
 	//bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID", nullable=false, insertable=false, updatable=false)
+	@JoinColumn(name="VST_ID", nullable=false, insertable=true, updatable=false)
 	private Visit visit;
 
 	public HasSymptom() {

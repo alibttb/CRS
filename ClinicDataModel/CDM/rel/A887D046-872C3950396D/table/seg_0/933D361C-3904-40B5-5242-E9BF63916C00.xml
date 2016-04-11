@@ -10,7 +10,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="prsn_prsn_pi" id="6332B4FA-326E-1B52-8B49-578845655BB6">
+<Column name="pid" id="6332B4FA-326E-1B52-8B49-578845655BB6">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>

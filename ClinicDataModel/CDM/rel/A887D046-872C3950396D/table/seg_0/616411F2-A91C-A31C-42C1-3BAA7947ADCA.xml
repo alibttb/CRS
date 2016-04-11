@@ -10,7 +10,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="vst_id" id="96E378E5-CAE2-E8EB-2492-37461A15405F">
+<Column name="id" id="96E378E5-CAE2-E8EB-2492-37461A15405F">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>274C80EB-59EE-92B2-AFE7-1F6B859EC4CA</generatorID>
@@ -23,7 +23,7 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <notNullConstraintName>NNC_vst_vst_id</notNullConstraintName>
 </Column>
-<Column name="ptnt_prsn_prsn_pi" id="E20DE6E7-2C8C-F88B-BD0D-7E4CA3B2BC53">
+<Column name="pid" id="E20DE6E7-2C8C-F88B-BD0D-7E4CA3B2BC53">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>
@@ -41,7 +41,7 @@
 <colAssociation fkAssociation="F796E032-78A7-1EB7-DB6C-C8961014E5FC" referredColumn="6332B4FA-326E-1B52-8B49-578845655BB6"/>
 </associations>
 </Column>
-<Column name="visit_date" id="90D2609A-CA87-A178-9701-97DED7E6E95C">
+<Column name="vst_date" id="90D2609A-CA87-A178-9701-97DED7E6E95C">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>9DB47B30-A749-1C52-0264-DE80C2850146</generatorID>
@@ -53,7 +53,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="vist_type" id="8EEFBFA7-FBF6-2F3C-30D4-149BC7E06EF1">
+<Column name="vst_type" id="8EEFBFA7-FBF6-2F3C-30D4-149BC7E06EF1">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>9B463E37-F9D8-25AB-F9BF-025DD773FA90</generatorID>
@@ -104,7 +104,7 @@
 <colUsage columnID="E20DE6E7-2C8C-F88B-BD0D-7E4CA3B2BC53"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="08B39987-DF0B-4E6F-EA02-27EDB5DA6555" name="visit_ptnt_FK">
+<ind_PK_UK id="08B39987-DF0B-4E6F-EA02-27EDB5DA6555" name="Visit_ptnt_FK">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>CF531C61-C9DA-3A37-07AB-CBE4621E8ED3</generatorID>

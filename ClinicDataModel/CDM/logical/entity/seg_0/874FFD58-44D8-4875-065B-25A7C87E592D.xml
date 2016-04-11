@@ -16,7 +16,7 @@
 <normalForm>Third</normalForm>
 <shortName>cntc_nf</shortName>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="cntct nf id" id="399950EB-64D7-354C-34DE-0E2F11844364">
+<Attribute name="id" id="399950EB-64D7-354C-34DE-0E2F11844364">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-27 11:41:23 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -68,7 +68,7 @@
 <domain>FC0E9B13-CBF7-A2B5-2F25-13CE3DA85823</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="prsn prsn pi" id="7EA69ED4-4B7B-1409-DFFC-A9F02B2D770C">
+<Attribute name="pid" id="7EA69ED4-4B7B-1409-DFFC-A9F02B2D770C">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-27 11:44:01 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>
@@ -84,7 +84,7 @@
 <domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="lctn loc id" id="5EBC0342-A258-EE68-E7FB-A642AC09EDFB">
+<Attribute name="loc id" id="5EBC0342-A258-EE68-E7FB-A642AC09EDFB">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-27 11:45:43 UTC</createdTime>
 <generatorID>15B45F73-8E37-1CE9-A3D2-7A0940426D4B</generatorID>

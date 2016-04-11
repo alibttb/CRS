@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E5C6AEBF-BD60-0B4D-9931-32B8D9D9B614" containerWithKeyObject="6A7E6087-865A-71BF-F88A-7E0B7257746C" localFKIndex="C0F5BA32-C290-1DDC-10AE-0C6A956C3D22" name="FK_DOCUMENT_RDR_ID">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>FK_DOCUMENT_RDR_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A53C591F-C5B4-32C6-F879-C6485C8F9480</referredTableID>
+<keyObject>B06A44F6-AD14-8F17-091D-776AF4D2EE9C</keyObject>
+<referredKeyID>B06A44F6-AD14-8F17-091D-776AF4D2EE9C</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

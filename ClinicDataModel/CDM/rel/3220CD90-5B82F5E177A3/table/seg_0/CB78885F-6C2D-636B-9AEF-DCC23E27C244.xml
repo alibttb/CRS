@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CB78885F-6C2D-636B-9AEF-DCC23E27C244" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="CONTACT_INFO">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>CONTACT_INFO</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="121FEC0A-BA65-C213-FC70-069349EE35C4">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CONTACT_INFO</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="9BF5018C-84EA-89D3-3301-952AFC7130E8">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CONTACT_INFO</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="BB36D045-0970-AF69-A4BD-5B862768989E">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CONTACT_INFO</sourceObjSchema>
+<sourceObjName>PHONE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPE" id="24298D4A-1DC3-BD43-0156-22DCC582406A">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CONTACT_INFO</sourceObjSchema>
+<sourceObjName>TYPE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOC_ID" id="EB3D8FAF-FB6C-F162-52F6-89E17E11A269">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CONTACT_INFO</sourceObjSchema>
+<sourceObjName>LOC_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A5E6F264-23B6-EF21-BADB-096392833A07" referredColumn="7E4109D8-9F64-8073-B772-AE9D6B1DA1F9"/>
+</associations>
+</Column>
+<Column name="PID" id="74EF0A92-8B67-1D39-D7C6-D98875A20E0C">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CONTACT_INFO</sourceObjSchema>
+<sourceObjName>PID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A22EDC58-1F84-D931-646F-4DD64AEEEA48" referredColumn="E4EB0FBD-7C84-AF45-BB3B-B819210CA2D9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="94C4D0CD-D824-CAC9-31C8-B8C0C38825EB" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="CONTACT_INFO_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007821</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="121FEC0A-BA65-C213-FC70-069349EE35C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="15252E9A-0D0F-E931-4FBB-8C04B4F3AE49" name="FK_CONTACT_INFO_LOC_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EB3D8FAF-FB6C-F162-52F6-89E17E11A269"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="28C6C42B-8276-72D1-21B1-0B5F63F19A12" name="FK_CONTACT_INFO_PID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74EF0A92-8B67-1D39-D7C6-D98875A20E0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

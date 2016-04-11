@@ -66,7 +66,7 @@
 <domain>FFEE3FEB-B06C-1DC2-9E4D-6C85F4150971</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="type" id="536158F2-C79E-E910-8566-FA57EB533B92">
+<Attribute name="doc type" id="536158F2-C79E-E910-8566-FA57EB533B92">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-27 16:49:45 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -107,7 +107,7 @@
 <domain>2018A11C-9475-9826-9DBF-064F55F52439</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="order rdr id" id="7EC367B2-817C-13B2-571E-3FF368B4E001">
+<Attribute name="rdr id" id="7EC367B2-817C-13B2-571E-3FF368B4E001">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-03 10:03:35 UTC</createdTime>
 <generatorID>B81C1BA9-2246-1BEA-DD06-2EC95F5099AD</generatorID>

@@ -16,32 +16,32 @@ public class Treatment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="TRTMNT_ID", unique=true, nullable=false, precision=15)
-	private long trtmntId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long id;
 
-	@Column(length=4000)
+	@Column(length=255)
 	private String description;
 
-	@Column(length=100)
+	@Column(length=255)
 	private String name;
 
-	@Column(name="\"TYPE\"", length=2)
+	@Column(name="\"TYPE\"", length=255)
 	private String type;
 
 	//bi-directional many-to-one association to TreatedWith
 	@OneToMany(mappedBy="treatment")
-	private List<TreatedWith> treatedWiths;
+	private List<TreatedWith> treatedWithList;
 
 	public Treatment() {
 	}
 
-	public long getTrtmntId() {
-		return this.trtmntId;
+	public long getId() {
+		return this.id;
 	}
 
-	public void setTrtmntId(long trtmntId) {
-		this.trtmntId = trtmntId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getDescription() {
@@ -68,26 +68,26 @@ public class Treatment implements Serializable {
 		this.type = type;
 	}
 
-	public List<TreatedWith> getTreatedWiths() {
-		return this.treatedWiths;
+	public List<TreatedWith> getTreatedWithList() {
+		return this.treatedWithList;
 	}
 
-	public void setTreatedWiths(List<TreatedWith> treatedWiths) {
-		this.treatedWiths = treatedWiths;
+	public void setTreatedWithList(List<TreatedWith> treatedWithList) {
+		this.treatedWithList = treatedWithList;
 	}
 
-	public TreatedWith addTreatedWith(TreatedWith treatedWith) {
-		getTreatedWiths().add(treatedWith);
-		treatedWith.setTreatment(this);
+	public TreatedWith addTreatedWithList(TreatedWith treatedWithList) {
+		getTreatedWithList().add(treatedWithList);
+		treatedWithList.setTreatment(this);
 
-		return treatedWith;
+		return treatedWithList;
 	}
 
-	public TreatedWith removeTreatedWith(TreatedWith treatedWith) {
-		getTreatedWiths().remove(treatedWith);
-		treatedWith.setTreatment(null);
+	public TreatedWith removeTreatedWithList(TreatedWith treatedWithList) {
+		getTreatedWithList().remove(treatedWithList);
+		treatedWithList.setTreatment(null);
 
-		return treatedWith;
+		return treatedWithList;
 	}
 
 }

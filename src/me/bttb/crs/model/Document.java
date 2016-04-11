@@ -15,33 +15,33 @@ public class Document implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(unique=true, nullable=false, precision=15)
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
 	private long id;
 
 	@Lob
 	private byte[] content;
 
-	@Column(length=4000)
+	@Column(length=255)
 	private String describtion;
 
-	@Column(length=100)
+	@Column(name="DOC_TYPE", length=255)
+	private String docType;
+
+	@Column(length=255)
 	private String name;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
-
-	@Column(name="\"TYPE\"", length=5)
-	private String type;
 
 	//bi-directional many-to-one association to DctrOrder
 	@ManyToOne
-	@JoinColumn(name="ORDER_RDR_ID")
+	@JoinColumn(name="RDR_ID")
 	private DctrOrder dctrOrder;
 
 	//bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID", nullable=false)
+	@JoinColumn(name="VST_ID")
 	private Visit visit;
 
 	public Document() {
@@ -71,6 +71,14 @@ public class Document implements Serializable {
 		this.describtion = describtion;
 	}
 
+	public String getDocType() {
+		return this.docType;
+	}
+
+	public void setDocType(String docType) {
+		this.docType = docType;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -85,14 +93,6 @@ public class Document implements Serializable {
 
 	public void setNotes(String notes) {
 		this.notes = notes;
-	}
-
-	public String getType() {
-		return this.type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public DctrOrder getDctrOrder() {

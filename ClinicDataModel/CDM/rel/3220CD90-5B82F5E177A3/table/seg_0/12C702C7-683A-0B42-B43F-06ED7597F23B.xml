@@ -1,0 +1,147 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="12C702C7-683A-0B42-B43F-06ED7597F23B" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="HAS_SYMPTOM">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>HAS_SYMPTOM</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NOTES" id="A85F51C8-4395-4BB9-3681-6BC0D2B96250">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>HAS_SYMPTOM</sourceObjSchema>
+<sourceObjName>NOTES</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="REPETATION" id="53348F66-1F1B-A2F4-4476-77C9A905BAF1">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>HAS_SYMPTOM</sourceObjSchema>
+<sourceObjName>REPETATION</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEVERITY" id="3998D524-1038-7AF9-E4A2-CB679E8E40BE">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>HAS_SYMPTOM</sourceObjSchema>
+<sourceObjName>SEVERITY</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE" id="19002CEE-5A86-D273-7730-0793C109EF99">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>HAS_SYMPTOM</sourceObjSchema>
+<sourceObjName>START_DATE</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SMPTM_ID" id="4289DAEA-1547-DA8C-72E1-42C715D161BB">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>HAS_SYMPTOM</sourceObjSchema>
+<sourceObjName>SMPTM_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="661CD598-4B42-0EA6-BE54-849F8F80D166" referredColumn="70BF38E9-B020-9129-98ED-6620454EAFE4"/>
+</associations>
+</Column>
+<Column name="VST_ID" id="2682349D-413E-BAB1-5E1B-C6138DB257AE">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>HAS_SYMPTOM</sourceObjSchema>
+<sourceObjName>VST_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>19</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,19,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="19257843-7421-C8D8-8636-2818EF1F86F3" referredColumn="7AE6F899-2D8F-8E1C-B440-F16B1F1C3F43"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3FC0085A-E0D9-DFB7-6D6D-15ABB8A66FBC" schemaObject="1BDDDB71-E132-5384-9C40-40F410BEADCF" name="HAS_SYMPTOM_PK">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>SYS_C007833</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:32 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4289DAEA-1547-DA8C-72E1-42C715D161BB"/>
+<colUsage columnID="2682349D-413E-BAB1-5E1B-C6138DB257AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="88746B89-074C-41E9-BB8A-677F6C9F7E20" name="FK_HAS_SYMPTOM_SMPTM_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4289DAEA-1547-DA8C-72E1-42C715D161BB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C1999210-45EA-85DB-2C01-8A94B825DDD0" name="FK_HAS_SYMPTOM_VST_ID">
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2682349D-413E-BAB1-5E1B-C6138DB257AE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

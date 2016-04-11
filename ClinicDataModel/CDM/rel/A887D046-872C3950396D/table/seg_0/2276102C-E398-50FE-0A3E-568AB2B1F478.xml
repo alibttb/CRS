@@ -10,7 +10,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="rdr_id" id="4A1CC288-1B81-D53F-7D4C-D3786FAF5F17">
+<Column name="id" id="4A1CC288-1B81-D53F-7D4C-D3786FAF5F17">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-03 09:36:56 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -21,7 +21,7 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <notNullConstraintName>NNC_rdr_rdr_id</notNullConstraintName>
 </Column>
-<Column name="visit_vst_id" id="73EACD42-ED73-C306-A22D-E42E47B70666">
+<Column name="vst_id" id="73EACD42-ED73-C306-A22D-E42E47B70666">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-03 09:39:23 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -36,7 +36,7 @@
 <colAssociation fkAssociation="5AA3F179-09ED-3947-36EC-5D33E38893B8" referredColumn="96E378E5-CAE2-E8EB-2492-37461A15405F"/>
 </associations>
 </Column>
-<Column name="type" id="7634E070-B6C3-50C5-D5E4-5859E874751F">
+<Column name="rdr_type" id="7634E070-B6C3-50C5-D5E4-5859E874751F">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-03 09:36:56 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>

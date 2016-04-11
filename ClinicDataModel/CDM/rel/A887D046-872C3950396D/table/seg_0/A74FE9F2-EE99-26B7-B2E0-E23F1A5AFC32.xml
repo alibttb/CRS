@@ -39,7 +39,7 @@
 <colAssociation fkAssociation="7AE02480-23D5-F5F9-D6B2-D9F20B731447" referredColumn="41CC5D64-F2B5-F2D5-AF7B-A2AB2F0CA776"/>
 </associations>
 </Column>
-<Column name="numrecal_value" id="F5174C13-ABDA-D54D-E6DF-C4AB3A943FE7">
+<Column name="numrical_value" id="F5174C13-ABDA-D54D-E6DF-C4AB3A943FE7">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>E62DC67B-1488-3359-D415-ED49CC97F3B7</generatorID>

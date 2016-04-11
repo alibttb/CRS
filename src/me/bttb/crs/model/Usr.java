@@ -12,52 +12,36 @@ import java.util.Date;
 @Entity
 @Table(name="USR")
 @NamedQuery(name="Usr.findAll", query="SELECT u FROM Usr u")
-public class Usr implements Serializable {
+public class Usr extends Prsn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="PRSN_PI", unique=true, nullable=false, precision=15)
-	private long prsnPi;
 
-	@Column(name="\"ROLE\"", length=4)
+	@Column(name="HASH_SHA256", length=255)
+	private String hashSha256;
+
+	@Column(name="\"ROLE\"", length=255)
 	private String role;
 
-	@Column(name="USR_HASH_SHA256", length=32)
-	private String usrHashSha256;
+	@Column(length=255)
+	private String salt;
 
-	@Column(name="USR_SALT", length=10)
-	private String usrSalt;
-
-	@Column(name="USR_USER_NAME", length=75)
-	private String usrUserName;
+	@Column(name="USER_NAME", length=255)
+	private String userName;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="USR_WORK_START_DATE")
-	private Date usrWorkStartDate;
-
-	//bi-directional one-to-one association to Dctr
-	@OneToOne(mappedBy="usr")
-	private Dctr dctr;
-
-	//bi-directional one-to-one association to Nr
-	@OneToOne(mappedBy="usr")
-	private Nr nr;
-
-	//bi-directional one-to-one association to Prsn
-	@OneToOne
-	@JoinColumn(name="PRSN_PI", nullable=false, insertable=false, updatable=false)
-	private Prsn prsn;
+	@Column(name="WORK_START_DATE")
+	private Date workStartDate;
 
 	public Usr() {
 	}
 
-	public long getPrsnPi() {
-		return this.prsnPi;
+
+	public String getHashSha256() {
+		return this.hashSha256;
 	}
 
-	public void setPrsnPi(long prsnPi) {
-		this.prsnPi = prsnPi;
+	public void setHashSha256(String hashSha256) {
+		this.hashSha256 = hashSha256;
 	}
 
 	public String getRole() {
@@ -68,60 +52,28 @@ public class Usr implements Serializable {
 		this.role = role;
 	}
 
-	public String getUsrHashSha256() {
-		return this.usrHashSha256;
+	public String getSalt() {
+		return this.salt;
 	}
 
-	public void setUsrHashSha256(String usrHashSha256) {
-		this.usrHashSha256 = usrHashSha256;
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
-	public String getUsrSalt() {
-		return this.usrSalt;
+	public String getUserName() {
+		return this.userName;
 	}
 
-	public void setUsrSalt(String usrSalt) {
-		this.usrSalt = usrSalt;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getUsrUserName() {
-		return this.usrUserName;
+	public Date getWorkStartDate() {
+		return this.workStartDate;
 	}
 
-	public void setUsrUserName(String usrUserName) {
-		this.usrUserName = usrUserName;
-	}
-
-	public Date getUsrWorkStartDate() {
-		return this.usrWorkStartDate;
-	}
-
-	public void setUsrWorkStartDate(Date usrWorkStartDate) {
-		this.usrWorkStartDate = usrWorkStartDate;
-	}
-
-	public Dctr getDctr() {
-		return this.dctr;
-	}
-
-	public void setDctr(Dctr dctr) {
-		this.dctr = dctr;
-	}
-
-	public Nr getNr() {
-		return this.nr;
-	}
-
-	public void setNr(Nr nr) {
-		this.nr = nr;
-	}
-
-	public Prsn getPrsn() {
-		return this.prsn;
-	}
-
-	public void setPrsn(Prsn prsn) {
-		this.prsn = prsn;
+	public void setWorkStartDate(Date workStartDate) {
+		this.workStartDate = workStartDate;
 	}
 
 }

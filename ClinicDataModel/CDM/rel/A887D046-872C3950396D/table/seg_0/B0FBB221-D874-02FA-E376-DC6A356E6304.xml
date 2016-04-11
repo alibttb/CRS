@@ -10,7 +10,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="prsn_pi" id="CA7D0A4F-095B-77E1-8F1F-21C86F88DB22">
+<Column name="pid" id="CA7D0A4F-095B-77E1-8F1F-21C86F88DB22">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>
@@ -29,7 +29,7 @@
 <colAssociation fkAssociation="9F702690-87C6-D15B-42E9-1C6460B7D7DE" referredColumn="86AD98FA-B7FB-0F77-03DA-0F3D70E9BB1C"/>
 </associations>
 </Column>
-<Column name="usr_user_name" id="C584835B-7B47-8645-64C6-C77148D5D0A8">
+<Column name="user_name" id="C584835B-7B47-8645-64C6-C77148D5D0A8">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>E0EB515F-A126-D6AD-6CCF-04E3DBA1D40F</generatorID>
@@ -41,7 +41,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="usr_hash_sha256" id="639C91D5-3E29-5EFB-7224-EF91E55EEEB2">
+<Column name="hash_sha256" id="639C91D5-3E29-5EFB-7224-EF91E55EEEB2">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>E77866FB-A584-5631-32AE-8B45E4908DA7</generatorID>
@@ -54,7 +54,7 @@
 <ownDataTypeParameters>32 BYTE,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="usr_salt" id="5E4720B6-556D-BC94-2CC0-D7AE428B4501">
+<Column name="salt" id="5E4720B6-556D-BC94-2CC0-D7AE428B4501">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>AAEBF2C2-B00A-2626-A2B9-BECC5BE23C12</generatorID>
@@ -67,7 +67,7 @@
 <ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="usr_work_start_date" id="69955ABB-A442-B7C1-75E7-4361BC742EB4">
+<Column name="work_start_date" id="69955ABB-A442-B7C1-75E7-4361BC742EB4">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>349912C5-36F6-E9EE-4C2E-E69BE7D4F014</generatorID>

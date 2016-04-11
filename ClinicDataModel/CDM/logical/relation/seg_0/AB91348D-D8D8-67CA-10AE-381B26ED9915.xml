@@ -18,7 +18,7 @@
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<attribute name="numrecal value" id="E62DC67B-1488-3359-D415-ED49CC97F3B7">
+<attribute name="numrical value" id="E62DC67B-1488-3359-D415-ED49CC97F3B7">
 <createdBy>ali</createdBy>
 <createdTime>2016-03-27 15:04:17 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>

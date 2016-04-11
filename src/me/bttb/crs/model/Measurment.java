@@ -16,32 +16,32 @@ public class Measurment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="MSRMNT_ID", unique=true, nullable=false, precision=15)
-	private long msrmntId;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	@Column(unique=true, nullable=false, precision=19)
+	private long id;
 
-	@Column(length=4000)
+	@Column(length=255)
 	private String describtion;
 
-	@Column(length=100)
+	@Column(length=255)
 	private String name;
 
-	@Column(length=2000)
+	@Column(length=255)
 	private String notes;
 
 	//bi-directional many-to-one association to TkMsrmnt
 	@OneToMany(mappedBy="measurment")
-	private List<TkMsrmnt> tkMsrmnts;
+	private List<TkMsrmnt> tkMsrmntList;
 
 	public Measurment() {
 	}
 
-	public long getMsrmntId() {
-		return this.msrmntId;
+	public long getId() {
+		return this.id;
 	}
 
-	public void setMsrmntId(long msrmntId) {
-		this.msrmntId = msrmntId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getDescribtion() {
@@ -68,26 +68,26 @@ public class Measurment implements Serializable {
 		this.notes = notes;
 	}
 
-	public List<TkMsrmnt> getTkMsrmnts() {
-		return this.tkMsrmnts;
+	public List<TkMsrmnt> getTkMsrmntList() {
+		return this.tkMsrmntList;
 	}
 
-	public void setTkMsrmnts(List<TkMsrmnt> tkMsrmnts) {
-		this.tkMsrmnts = tkMsrmnts;
+	public void setTkMsrmntList(List<TkMsrmnt> tkMsrmntList) {
+		this.tkMsrmntList = tkMsrmntList;
 	}
 
-	public TkMsrmnt addTkMsrmnt(TkMsrmnt tkMsrmnt) {
-		getTkMsrmnts().add(tkMsrmnt);
-		tkMsrmnt.setMeasurment(this);
+	public TkMsrmnt addTkMsrmntList(TkMsrmnt tkMsrmntList) {
+		getTkMsrmntList().add(tkMsrmntList);
+		tkMsrmntList.setMeasurment(this);
 
-		return tkMsrmnt;
+		return tkMsrmntList;
 	}
 
-	public TkMsrmnt removeTkMsrmnt(TkMsrmnt tkMsrmnt) {
-		getTkMsrmnts().remove(tkMsrmnt);
-		tkMsrmnt.setMeasurment(null);
+	public TkMsrmnt removeTkMsrmntList(TkMsrmnt tkMsrmntList) {
+		getTkMsrmntList().remove(tkMsrmntList);
+		tkMsrmntList.setMeasurment(null);
 
-		return tkMsrmnt;
+		return tkMsrmntList;
 	}
 
 }

@@ -19,7 +19,7 @@
 <preferredAbbreviation>prsn</preferredAbbreviation>
 <shortName>prsn</shortName>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="pi" id="8F3B1B52-74FD-6AFD-98D4-2F8D4570F203">
+<Attribute name="pid" id="8F3B1B52-74FD-6AFD-98D4-2F8D4570F203">
 <createdBy>HASaliS</createdBy>
 <createdTime>2016-03-17 07:37:23 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>
@@ -162,7 +162,7 @@
 <dataTypeSize>4 CHAR</dataTypeSize>
 <ownDataTypeParameters>4 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pi1" id="E3ED6AB4-F378-279D-27A7-1C89411A57FA">
+<Attribute name="pid1" id="E3ED6AB4-F378-279D-27A7-1C89411A57FA">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-04 08:32:16 UTC</createdTime>
 <comment>personal identifier is a number that uniqly identify a person all across the system</comment>

@@ -38,7 +38,7 @@
 <colAssociation fkAssociation="5823B691-DD74-BC50-2871-2E8E872141F4" referredColumn="96E378E5-CAE2-E8EB-2492-37461A15405F"/>
 </associations>
 </Column>
-<Column name="order_rdr_id" id="CE1AD82F-7594-1DD4-5B24-992D86D95D8A">
+<Column name="rdr_id" id="CE1AD82F-7594-1DD4-5B24-992D86D95D8A">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-03 09:42:27 UTC</createdTime>
 <ownerDesignName>CDM</ownerDesignName>
@@ -89,7 +89,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="type" id="12F67A13-5830-D8FF-875F-67C6BA71322E">
+<Column name="doc_type" id="12F67A13-5830-D8FF-875F-67C6BA71322E">
 <createdBy>ali</createdBy>
 <createdTime>2016-04-02 10:44:31 UTC</createdTime>
 <generatorID>536158F2-C79E-E910-8566-FA57EB533B92</generatorID>

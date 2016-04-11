@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4C9539AB-8B5B-17E5-47EB-E7F014FE17AF" containerWithKeyObject="EF2C8067-1A2F-A42B-5BEE-EF43C1B008A3" localFKIndex="DC065526-4F22-633E-53B4-B074C15F8328" name="FK_TK_MSRMNT_VST_ID">
+<sourceConnName>XE db</sourceConnName>
+<sourceObjSchema>CLINIC</sourceObjSchema>
+<sourceObjName>FK_TK_MSRMNT_VST_ID</sourceObjName>
+<createdBy>ali</createdBy>
+<createdTime>2016-04-11 21:11:33 UTC</createdTime>
+<ownerDesignName>CDM</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>38A0F540-3963-2DF0-0E12-DDBF5C5E8021</referredTableID>
+<keyObject>2CFCE560-C5AB-A5ED-F55A-21D7798245C0</keyObject>
+<referredKeyID>2CFCE560-C5AB-A5ED-F55A-21D7798245C0</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
