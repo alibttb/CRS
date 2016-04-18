@@ -4,33 +4,32 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the MEASURMENT database table.
  * 
  */
 @Entity
-@Table(name="MEASURMENT")
-@NamedQuery(name="Measurment.findAll", query="SELECT m FROM Measurment m")
+@Table(name = "MEASURMENT")
+@NamedQuery(name = "Measurment.findAll", query = "SELECT m FROM Measurment m")
 public class Measurment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String describtion;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	//bi-directional many-to-one association to TkMsrmnt
-	@OneToMany(mappedBy="measurment")
+	// bi-directional many-to-one association to TkMsrmnt
+	@OneToMany(mappedBy = "measurment")
 	private List<TkMsrmnt> tkMsrmntList;
 
 	public Measurment() {

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<ui:insert name="meta"></ui:insert>
+	<h:outputStylesheet library="css" name="template.css"></h:outputStylesheet>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+</h:head>
+
+<h:body>
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+
+	<div id="userControl" class="userControl">
+		<ui:insert name="userControl">
+			<p:panelGrid columns="4">
+				<p:outputLabel id="userName"
+					value="Welcome, #{userBean.userInDb.firstName} #{userBean.userInDb.familyName}!"></p:outputLabel>
+				<h:form id="userForm">
+					<p:commandButton value="Log Out" icon="icon-logout"
+						action="#{userBean.logout}"></p:commandButton>
+				</h:form>
+			</p:panelGrid>
+		</ui:insert>
+	</div>
+
+	<div id="header" class="header">
+		<ui:insert name="header">
+			<ui:include src="header.xhtml" />
+		</ui:insert>
+	</div>
+
+
+	<div id="content" class="content">
+		<ui:insert name="content">
+			<!-- <ui:include src="content.xhtml" />  -->
+		</ui:insert>
+	</div>
+
+	<div id="footer" class="footer">
+		<ui:insert name="footer">
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</div>
+
+</h:body>
+
+</html>

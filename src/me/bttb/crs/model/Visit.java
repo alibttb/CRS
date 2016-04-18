@@ -5,59 +5,58 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * The persistent class for the VISIT database table.
  * 
  */
 @Entity
-@Table(name="VISIT")
-@NamedQuery(name="Visit.findAll", query="SELECT v FROM Visit v")
+@Table(name = "VISIT")
+@NamedQuery(name = "Visit.findAll", query = "SELECT v FROM Visit v")
 public class Visit implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="VST_DATE")
+	@Column(name = "VST_DATE")
 	private Date vstDate;
 
-	@Column(name="VST_TYPE", length=255)
+	@Column(name = "VST_TYPE", length = 255)
 	private String vstType;
 
-	//bi-directional many-to-one association to DctrOrder
-	@OneToMany(mappedBy="visit")
+	// bi-directional many-to-one association to DctrOrder
+	@OneToMany(mappedBy = "visit")
 	private List<DctrOrder> dctrOrders;
 
-	//bi-directional many-to-one association to DiaganosedWith
-	@OneToMany(mappedBy="visit")
+	// bi-directional many-to-one association to DiaganosedWith
+	@OneToMany(mappedBy = "visit")
 	private List<DiaganosedWith> diaganosedWithList;
 
-	//bi-directional many-to-one association to Document
-	@OneToMany(mappedBy="visit")
+	// bi-directional many-to-one association to Document
+	@OneToMany(mappedBy = "visit")
 	private List<Document> documents;
 
-	//bi-directional many-to-one association to HasSymptom
-	@OneToMany(mappedBy="visit")
+	// bi-directional many-to-one association to HasSymptom
+	@OneToMany(mappedBy = "visit")
 	private List<HasSymptom> hasSymptomList;
 
-	//bi-directional many-to-one association to TkMsrmnt
-	@OneToMany(mappedBy="visit")
+	// bi-directional many-to-one association to TkMsrmnt
+	@OneToMany(mappedBy = "visit")
 	private List<TkMsrmnt> tkMsrmntList;
 
-	//bi-directional many-to-one association to TreatedWith
-	@OneToMany(mappedBy="visit")
+	// bi-directional many-to-one association to TreatedWith
+	@OneToMany(mappedBy = "visit")
 	private List<TreatedWith> treatedWithList;
 
-	//bi-directional many-to-one association to Ptnt
+	// bi-directional many-to-one association to Ptnt
 	@ManyToOne
-	@JoinColumn(name="PID")
+	@JoinColumn(name = "PID")
 	private Ptnt ptnt;
 
 	public Visit() {

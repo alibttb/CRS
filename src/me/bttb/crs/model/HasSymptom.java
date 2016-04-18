@@ -13,41 +13,40 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 /**
  * The persistent class for the HAS_SYMPTOM database table.
  * 
  */
 @Entity
-@Table(name="HAS_SYMPTOM")
-@NamedQuery(name="HasSymptom.findAll", query="SELECT h FROM HasSymptom h")
+@Table(name = "HAS_SYMPTOM")
+@NamedQuery(name = "HasSymptom.findAll", query = "SELECT h FROM HasSymptom h")
 public class HasSymptom implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private HasSymptomPK id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String repetation;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String severity;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="START_DATE")
+	@Column(name = "START_DATE")
 	private Date startDate;
 
-	//bi-directional many-to-one association to Symptom
+	// bi-directional many-to-one association to Symptom
 	@ManyToOne
-	@JoinColumn(name="SMPTM_ID", nullable=false, insertable=true, updatable=false)
+	@JoinColumn(name = "SMPTM_ID", nullable = false, insertable = true, updatable = false)
 	private Symptom symptom;
 
-	//bi-directional many-to-one association to Visit
+	// bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID", nullable=false, insertable=true, updatable=false)
+	@JoinColumn(name = "VST_ID", nullable = false, insertable = true, updatable = false)
 	private Visit visit;
 
 	public HasSymptom() {

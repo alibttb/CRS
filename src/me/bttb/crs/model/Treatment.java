@@ -4,33 +4,32 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the TREATMENT database table.
  * 
  */
 @Entity
-@Table(name="TREATMENT")
-@NamedQuery(name="Treatment.findAll", query="SELECT t FROM Treatment t")
+@Table(name = "TREATMENT")
+@NamedQuery(name = "Treatment.findAll", query = "SELECT t FROM Treatment t")
 public class Treatment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String description;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	@Column(name="\"TYPE\"", length=255)
+	@Column(name = "\"TYPE\"", length = 255)
 	private String type;
 
-	//bi-directional many-to-one association to TreatedWith
-	@OneToMany(mappedBy="treatment")
+	// bi-directional many-to-one association to TreatedWith
+	@OneToMany(mappedBy = "treatment")
 	private List<TreatedWith> treatedWithList;
 
 	public Treatment() {

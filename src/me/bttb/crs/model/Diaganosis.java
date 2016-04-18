@@ -4,36 +4,35 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the DIAGANOSIS database table.
  * 
  */
 @Entity
-@Table(name="DIAGANOSIS")
-@NamedQuery(name="Diaganosis.findAll", query="SELECT d FROM Diaganosis d")
+@Table(name = "DIAGANOSIS")
+@NamedQuery(name = "Diaganosis.findAll", query = "SELECT d FROM Diaganosis d")
 public class Diaganosis implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String code;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String describtion;
 
-	@Column(name="DGNSS_TYPE", length=255)
+	@Column(name = "DGNSS_TYPE", length = 255)
 	private String dgnssType;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	//bi-directional many-to-one association to DiaganosedWith
-	@OneToMany(mappedBy="diaganosis")
+	// bi-directional many-to-one association to DiaganosedWith
+	@OneToMany(mappedBy = "diaganosis")
 	private List<DiaganosedWith> diaganosedWithList;
 
 	public Diaganosis() {

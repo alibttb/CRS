@@ -9,26 +9,30 @@ import javax.persistence.*;
  */
 @Embeddable
 public class DiaganosedWithPK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="DGNSS_ID", insertable=false, updatable=false, unique=true, nullable=false, precision=19)
+	@Column(name = "DGNSS_ID", insertable = false, updatable = false, unique = true, nullable = false, precision = 19)
 	private long dgnssId;
 
-	@Column(name="VST_ID", insertable=false, updatable=false, unique=true, nullable=false, precision=19)
+	@Column(name = "VST_ID", insertable = false, updatable = false, unique = true, nullable = false, precision = 19)
 	private long vstId;
 
 	public DiaganosedWithPK() {
 	}
+
 	public long getDgnssId() {
 		return this.dgnssId;
 	}
+
 	public void setDgnssId(long dgnssId) {
 		this.dgnssId = dgnssId;
 	}
+
 	public long getVstId() {
 		return this.vstId;
 	}
+
 	public void setVstId(long vstId) {
 		this.vstId = vstId;
 	}
@@ -40,10 +44,8 @@ public class DiaganosedWithPK implements Serializable {
 		if (!(other instanceof DiaganosedWithPK)) {
 			return false;
 		}
-		DiaganosedWithPK castOther = (DiaganosedWithPK)other;
-		return 
-			(this.dgnssId == castOther.dgnssId)
-			&& (this.vstId == castOther.vstId);
+		DiaganosedWithPK castOther = (DiaganosedWithPK) other;
+		return (this.dgnssId == castOther.dgnssId) && (this.vstId == castOther.vstId);
 	}
 
 	public int hashCode() {
@@ -51,7 +53,7 @@ public class DiaganosedWithPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + ((int) (this.dgnssId ^ (this.dgnssId >>> 32)));
 		hash = hash * prime + ((int) (this.vstId ^ (this.vstId >>> 32)));
-		
+
 		return hash;
 	}
 }

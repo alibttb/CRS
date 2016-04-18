@@ -3,34 +3,33 @@ package me.bttb.crs.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the DIAGANOSED_WITH database table.
  * 
  */
 @Entity
-@Table(name="DIAGANOSED_WITH")
-@NamedQuery(name="DiaganosedWith.findAll", query="SELECT d FROM DiaganosedWith d")
+@Table(name = "DIAGANOSED_WITH")
+@NamedQuery(name = "DiaganosedWith.findAll", query = "SELECT d FROM DiaganosedWith d")
 public class DiaganosedWith implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private DiaganosedWithPK id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String severity;
 
-	//bi-directional many-to-one association to Diaganosis
+	// bi-directional many-to-one association to Diaganosis
 	@ManyToOne
-	@JoinColumn(name="DGNSS_ID", nullable=false, insertable=true, updatable=false)
+	@JoinColumn(name = "DGNSS_ID", nullable = false, insertable = true, updatable = false)
 	private Diaganosis diaganosis;
 
-	//bi-directional many-to-one association to Visit
+	// bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID", nullable=false, insertable=true, updatable=false)
+	@JoinColumn(name = "VST_ID", nullable = false, insertable = true, updatable = false)
 	private Visit visit;
 
 	public DiaganosedWith() {

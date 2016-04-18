@@ -4,43 +4,42 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
 /**
  * The persistent class for the TREATED_WITH database table.
  * 
  */
 @Entity
-@Table(name="TREATED_WITH")
-@NamedQuery(name="TreatedWith.findAll", query="SELECT t FROM TreatedWith t")
+@Table(name = "TREATED_WITH")
+@NamedQuery(name = "TreatedWith.findAll", query = "SELECT t FROM TreatedWith t")
 public class TreatedWith implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private TreatedWithPK id;
 
-	@Column(precision=38)
+	@Column(precision = 38)
 	private BigDecimal dosage;
 
-	@Column(name="DURATION_DAYS", precision=38)
+	@Column(name = "DURATION_DAYS", precision = 38)
 	private BigDecimal durationDays;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String repetation;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String unit;
 
-	//bi-directional many-to-one association to Treatment
+	// bi-directional many-to-one association to Treatment
 	@ManyToOne
-	@JoinColumn(name="TRTMNT_ID", nullable=false, insertable=true, updatable=false)
+	@JoinColumn(name = "TRTMNT_ID", nullable = false, insertable = true, updatable = false)
 	private Treatment treatment;
 
-	//bi-directional many-to-one association to Visit
+	// bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID", nullable=false, insertable=true, updatable=false)
+	@JoinColumn(name = "VST_ID", nullable = false, insertable = true, updatable = false)
 	private Visit visit;
 
 	public TreatedWith() {

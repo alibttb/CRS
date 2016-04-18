@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">Clinic Record System 0.1</ui:define>
+	<ui:define name="header">
+		<p style="margin: 5px">Welcome to CRS</p>
+		<p style="margin: 5px; font: smaller lighter italic;">The Simplest
+			Clinic Record System</p>
+		<p style="margin: 5px; font: small lighter italic;">please login
+			to use the application</p>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<p:panel id="panel" header="Login"
+				style="margin:0 auto; top:100; margin-bottom:10px; width:400px; height:190px;">
+				<p:growl id="messages" />
+				<p:remoteCommand autoRun="true"
+					action="#{userBean.isAlreadyLoggedIn}" />
+				<p:panelGrid columns="2" cellpadding="5" style="margin:5px">
+					<h:outputLabel for="username" value="Username:" />
+					<p:inputText id="username" required="true"
+						value="#{userBean.username}"
+						validatorMessage="You must input a user name" />
+
+					<h:outputText for="password" value="Password: " />
+					<p:password id="password" value="#{userBean.password}"
+						validatorMessage="Password can't be empty" />
+				</p:panelGrid>
+				<p:commandButton value="Login" style="float:right; margin:5px"
+					action="#{userBean.authenticate}" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+
+
+	<!-- <ui:define name="footer">
+    	Footer area.  See comments below this line in the source.
+    	  include your header file or uncomment the include below and create footer.xhtml in this directory 
+	<ui:include src="footer.xhtml"/> 
+	</ui:define> -->
+</ui:composition>

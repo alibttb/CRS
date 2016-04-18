@@ -4,33 +4,32 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the SYMPTOM database table.
  * 
  */
 @Entity
-@Table(name="SYMPTOM")
-@NamedQuery(name="Symptom.findAll", query="SELECT s FROM Symptom s")
+@Table(name = "SYMPTOM")
+@NamedQuery(name = "Symptom.findAll", query = "SELECT s FROM Symptom s")
 public class Symptom implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String description;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	//bi-directional many-to-one association to HasSymptom
-	@OneToMany(mappedBy="symptom")
+	// bi-directional many-to-one association to HasSymptom
+	@OneToMany(mappedBy = "symptom")
 	private List<HasSymptom> hasSymptomList;
 
 	public Symptom() {

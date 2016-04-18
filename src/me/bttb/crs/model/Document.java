@@ -3,45 +3,44 @@ package me.bttb.crs.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the DOCUMENT database table.
  * 
  */
 @Entity
-@Table(name="DOCUMENT")
-@NamedQuery(name="Document.findAll", query="SELECT d FROM Document d")
+@Table(name = "DOCUMENT")
+@NamedQuery(name = "Document.findAll", query = "SELECT d FROM Document d")
 public class Document implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
 	@Lob
 	private byte[] content;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String describtion;
 
-	@Column(name="DOC_TYPE", length=255)
+	@Column(name = "DOC_TYPE", length = 255)
 	private String docType;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	//bi-directional many-to-one association to DctrOrder
+	// bi-directional many-to-one association to DctrOrder
 	@ManyToOne
-	@JoinColumn(name="RDR_ID")
+	@JoinColumn(name = "RDR_ID")
 	private DctrOrder dctrOrder;
 
-	//bi-directional many-to-one association to Visit
+	// bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID")
+	@JoinColumn(name = "VST_ID")
 	private Visit visit;
 
 	public Document() {

@@ -4,20 +4,21 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the PTNT database table.
  * 
  */
 @Entity
-@Table(name="PTNT")
-@NamedQuery(name="Ptnt.findAll", query="SELECT p FROM Ptnt p")
+@Table(name = "PTNT")
+@NamedQueries({ @NamedQuery(name = "Ptnt.findAll", query = "SELECT p FROM Ptnt p"),
+		@NamedQuery(name = "Ptnt.findByPid", query = "SELECT p FROM Ptnt p where p.pid = :pid"),
+		@NamedQuery(name = "Ptnt.findByName", query = "SELECT p FROM Ptnt p "
+				+ "where p.firstName like :firstName and p.familyName like :familyName") })
 public class Ptnt extends Prsn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-
-	//bi-directional many-to-one association to Visit
-	@OneToMany(mappedBy="ptnt")
+	// bi-directional many-to-one association to Visit
+	@OneToMany(mappedBy = "ptnt")
 	private List<Visit> visits;
 
 	public Ptnt() {

@@ -9,26 +9,30 @@ import javax.persistence.*;
  */
 @Embeddable
 public class HasSymptomPK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="SMPTM_ID", insertable=false, updatable=false, unique=true, nullable=false, precision=19)
+	@Column(name = "SMPTM_ID", insertable = false, updatable = false, unique = true, nullable = false, precision = 19)
 	private long smptmId;
 
-	@Column(name="VST_ID", insertable=false, updatable=false, unique=true, nullable=false, precision=19)
+	@Column(name = "VST_ID", insertable = false, updatable = false, unique = true, nullable = false, precision = 19)
 	private long vstId;
 
 	public HasSymptomPK() {
 	}
+
 	public long getSmptmId() {
 		return this.smptmId;
 	}
+
 	public void setSmptmId(long smptmId) {
 		this.smptmId = smptmId;
 	}
+
 	public long getVstId() {
 		return this.vstId;
 	}
+
 	public void setVstId(long vstId) {
 		this.vstId = vstId;
 	}
@@ -40,10 +44,8 @@ public class HasSymptomPK implements Serializable {
 		if (!(other instanceof HasSymptomPK)) {
 			return false;
 		}
-		HasSymptomPK castOther = (HasSymptomPK)other;
-		return 
-			(this.smptmId == castOther.smptmId)
-			&& (this.vstId == castOther.vstId);
+		HasSymptomPK castOther = (HasSymptomPK) other;
+		return (this.smptmId == castOther.smptmId) && (this.vstId == castOther.vstId);
 	}
 
 	public int hashCode() {
@@ -51,7 +53,7 @@ public class HasSymptomPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + ((int) (this.smptmId ^ (this.smptmId >>> 32)));
 		hash = hash * prime + ((int) (this.vstId ^ (this.vstId >>> 32)));
-		
+
 		return hash;
 	}
 }

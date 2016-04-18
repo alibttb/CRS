@@ -23,13 +23,14 @@
 		<class>me.bttb.crs.model.Treatment</class>
 		<class>me.bttb.crs.model.Usr</class>
 		<class>me.bttb.crs.model.Visit</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<validation-mode>AUTO</validation-mode>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@192.168.56.200:1521:xe"/>
 			<property name="javax.persistence.jdbc.user" value="clinic"/>
 			<property name="javax.persistence.jdbc.password" value="clinic"/>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-			<property name="javax.persistence.schema-generation.create-source" value="metadata"/>
-			<property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+			<property name="eclipselink.ddl-generation" value="none"/>
 			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
 		</properties>
 	</persistence-unit>

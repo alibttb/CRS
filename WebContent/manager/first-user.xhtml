@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>First time wizard</title>
+</h:head>
+<h:body>
+	<p:panel header="There is no users in the database, create the first user">
+		<h:form>
+			<p:wizard flowListener="#{newUserWizard.onFlowProcess}">
+				<p:tab id="personal" title="Personal Information:">
+					<p:panel>
+						<p:messages></p:messages>
+						<p:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="First Name: *" />
+							<p:inputText value="#{newUserWizard.user.firstName}"
+								required="=ture" label="First Name" />
+							<h:outputText value="Family Name: *" />
+							<p:inputText value="#{newUserWizard.user.familyName}"
+								required="true" label="Last Name" />
+						</p:panelGrid>
+					</p:panel>
+				</p:tab>
+				<p:tab id="account" title="Account Information">
+					<p:panel>
+						<p:messages></p:messages>
+						<p:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Email: *" />
+							<p:inputText value="#{newUserWizard.user.email}" required="true"
+								label="Email" />
+							<h:outputText value="User Name: *" />
+							<p:inputText value="#{newUserWizard.user.userName}"
+								required="true" label="User Name" />
+						</p:panelGrid>
+					</p:panel>
+				</p:tab>
+				<p:tab id="password" title="Password">
+					<p:panel>
+						<p:messages></p:messages>
+						<p:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Password: *" />
+							<p:password id="pwd1" match="pwd2"
+								value="#{newUserWizard.password}" required="true"
+								label="Password" feedback="true" />
+							<h:outputText value="Confirm password: *" />
+							<p:password id="pwd2" value="#{newUserWizard.password}"
+								required="true" label="Confirm Password" />
+						</p:panelGrid>
+					</p:panel>
+				</p:tab>
+				<p:tab id="confirm" title="Confirm">
+					<p:panel>
+						<p:messages></p:messages>
+						<p:panelGrid columns="2" columnClasses="grid, grid">
+							<p:panelGrid columns="2" columnClasses="lable, value">
+								<h:outputText value="First Name: "></h:outputText>
+								<h:outputText value="#{newUserWizard.user.firstName}"></h:outputText>
+								<h:outputText value="Family Name: "></h:outputText>
+								<h:outputText value="#{newUserWizard.user.familyName}"></h:outputText>
+							</p:panelGrid>
+							<p:panelGrid columns="2" columnClasses="lable, value">
+								<h:outputText value="Email: "></h:outputText>
+								<h:outputText value="#{newUserWizard.user.email}"></h:outputText>
+								<h:outputText value="User Name: "></h:outputText>
+								<h:outputText value="#{newUserWizard.user.userName}"></h:outputText>
+							</p:panelGrid>
+						</p:panelGrid>
+						<p:commandButton value="Create User"
+							action="#{newUserWizard.save}"></p:commandButton>
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+		</h:form>
+	</p:panel>
+</h:body>
+</html>

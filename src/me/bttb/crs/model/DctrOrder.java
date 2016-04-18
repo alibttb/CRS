@@ -4,41 +4,40 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the DCTR_ORDER database table.
  * 
  */
 @Entity
-@Table(name="DCTR_ORDER")
-@NamedQuery(name="DctrOrder.findAll", query="SELECT d FROM DctrOrder d")
+@Table(name = "DCTR_ORDER")
+@NamedQuery(name = "DctrOrder.findAll", query = "SELECT d FROM DctrOrder d")
 public class DctrOrder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
 	private long id;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String description;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String notes;
 
-	@Column(name="RDR_TYPE", length=255)
+	@Column(name = "RDR_TYPE", length = 255)
 	private String rdrType;
 
-	//bi-directional many-to-one association to Visit
+	// bi-directional many-to-one association to Visit
 	@ManyToOne
-	@JoinColumn(name="VST_ID")
+	@JoinColumn(name = "VST_ID")
 	private Visit visit;
 
-	//bi-directional many-to-one association to Document
-	@OneToMany(mappedBy="dctrOrder")
+	// bi-directional many-to-one association to Document
+	@OneToMany(mappedBy = "dctrOrder")
 	private List<Document> documents;
 
 	public DctrOrder() {

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">CRS - Patients home page</ui:define>
+	<ui:define name="content">
+		<h:form id="patientsForm">
+			<p:dataTable id="patients" value="#{patientsViewBean.patients}"
+				filteredValue="#{patientsBean.filterdPatients}" var="patient"
+				selectionMode="single" widgetVar="patientsTable" lazy="false"
+				selection="#{patientBean.ptientData}" rowKey="#{patient.pid}">
+				<f:facet name="header">
+					<p:outputPanel>
+						<h:outputText value="Search all fields:  " />
+						<p:inputText id="globalFilter"
+							onkeyup="PF('patientsTable').filter()" style="width:180px"
+							placeholder="Enter search keyword" />
+					</p:outputPanel>
+				</f:facet>
+				<p:column headerText="Patient Id">
+					<h:outputText value="#{patient.pid}" />
+				</p:column>
+				<p:column headerText="First Name">
+					<h:outputText value="#{patient.firstName}" />
+				</p:column>
+				<p:column headerText="Family Name">
+					<h:outputText value="#{patient.familyName}" />
+				</p:column>
+				<p:column headerText="Birth Date">
+					<h:outputText value="#{patient.birthDate}" />
+				</p:column>
+				<f:facet name="footer">
+					<p:outputPanel>
+						<p:growl id="growl" showDetail="true" />
+						<p:commandButton value="Add Patient" icon="ui-icon-extlink"
+							actionListener="#{patientsViewBean.addNewPatientDialog}">
+							<p:ajax event="dialogReturn"
+								listener="#{patientsViewBean.onDialogReturn}" update="patients" />
+						</p:commandButton>
+					</p:outputPanel>
+				</f:facet>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -5,62 +5,67 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import static javax.persistence.InheritanceType.JOINED;
-
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.CascadeType.DETACH;
+import static javax.persistence.CascadeType.REFRESH;
+import static javax.persistence.CascadeType.ALL;
 
 /**
  * The persistent class for the PRSN database table.
  * 
  */
 @Entity
-@Table(name="PRSN")
-@NamedQuery(name="Prsn.findAll", query="SELECT p FROM Prsn p")
+@Table(name = "PRSN")
+@NamedQuery(name = "Prsn.findAll", query = "SELECT p FROM Prsn p")
 @Inheritance(strategy = JOINED)
 @DiscriminatorColumn(name = "PRSN_TYPE")
 public class Prsn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(unique=true, nullable=false, precision=19)
-	private long pid;
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
+	private Long pid;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="BIRTH_DATE")
+	@Column(name = "BIRTH_DATE")
 	private Date birthDate;
 
-	@Column(name="BIRTH_PLACE", length=255)
+	@Column(name = "BIRTH_PLACE", length = 255)
 	private String birthPlace;
 
-	@Column(name="FAMILY_NAME", length=255)
+	@Column(name = "FAMILY_NAME", length = 255)
 	private String familyName;
 
-	@Column(name="FATHER_NAME", length=255)
+	@Column(name = "FATHER_NAME", length = 255)
 	private String fatherName;
 
-	@Column(name="FIRST_NAME", length=255)
+	@Column(name = "FIRST_NAME", length = 255)
 	private String firstName;
 
-	@Column(name="MOTHER_FAMILY_NAME", length=255)
+	@Column(name = "MOTHER_FAMILY_NAME", length = 255)
 	private String motherFamilyName;
 
-	@Column(name="MOTHER_NAME", length=255)
+	@Column(name = "MOTHER_NAME", length = 255)
 	private String motherName;
 
-	@Column(name="PRSN_TYPE", length=31)
+	@Column(name = "PRSN_TYPE", length = 31)
 	private String prsnType;
 
-	//bi-directional many-to-one association to ContactInfo
-	@OneToMany(mappedBy="prsn")
+	// bi-directional many-to-one association to ContactInfo
+	@OneToMany(mappedBy = "prsn", cascade = { PERSIST, MERGE, REMOVE, DETACH, REFRESH, ALL })
 	private List<ContactInfo> contactInfoList;
 
 	public Prsn() {
 	}
 
-	public long getPid() {
+	public Long getPid() {
 		return this.pid;
 	}
 
-	public void setPid(long pid) {
+	public void setPid(Long pid) {
 		this.pid = pid;
 	}
 

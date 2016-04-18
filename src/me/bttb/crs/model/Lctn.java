@@ -5,42 +5,41 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-
 /**
  * The persistent class for the LCTN database table.
  * 
  */
 @Entity
-@Table(name="LCTN")
-@NamedQuery(name="Lctn.findAll", query="SELECT l FROM Lctn l")
+@Table(name = "LCTN")
+@NamedQuery(name = "Lctn.findAll", query = "SELECT l FROM Lctn l")
 public class Lctn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
-	@Column(name="LOC_ID", unique=true, nullable=false, precision=19)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "LOC_ID", precision = 19)
 	private long locId;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String altittude;
 
-	@Column(name="\"level\"", precision=38)
+	@Column(name = "\"level\"", precision = 38)
 	private BigDecimal level;
 
-	@Column(name="LOCATION_STRING", length=255)
+	@Column(name = "LOCATION_STRING", length = 255)
 	private String locationString;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String magnitude;
 
-	@Column(length=255)
+	@Column(length = 255)
 	private String name;
 
-	@Column(name="SUPER_ID", precision=38)
+	@Column(name = "SUPER_ID", precision = 38)
 	private BigDecimal superId;
 
-	//bi-directional many-to-one association to ContactInfo
-	@OneToMany(mappedBy="lctn")
+	// bi-directional many-to-one association to ContactInfo
+	@OneToMany(mappedBy = "lctn")
 	private List<ContactInfo> contactInfoList;
 
 	public Lctn() {
