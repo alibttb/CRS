@@ -9,6 +9,7 @@
 	<ui:define name="title">CRS - Patients home page</ui:define>
 	<ui:define name="content">
 		<h:form id="patientsForm">
+		<p:commandButton value="refresh" icon="ui-icon-refresh" actionListener="#{patientsViewBean.refreshAllPatients}" ></p:commandButton>
 			<p:dataTable id="patients" value="#{patientsViewBean.patients}"
 				filteredValue="#{patientsBean.filterdPatients}" var="patient"
 				selectionMode="single" widgetVar="patientsTable" lazy="false"

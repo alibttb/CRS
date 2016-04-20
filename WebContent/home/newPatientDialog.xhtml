@@ -120,8 +120,8 @@
 				</p:dataTable>
 			</p:panel>
 			<p:panel>
-				<p:commandButton value="Save" actionListener="#{newPatientView.onDialogApprove}"></p:commandButton>
-				<p:commandButton value="Discard" actionListener="#{newPatientView.onDialogCancel}"></p:commandButton>
+				<p:commandButton value="Save" update="msgs" actionListener="#{newPatientView.onDialogApprove}"></p:commandButton>
+				<p:commandButton value="Discard" process="@this" actionListener="#{newPatientView.onDialogCancel}"></p:commandButton>
 			</p:panel>
 		</h:form>
 	</p:panel>

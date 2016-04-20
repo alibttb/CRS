@@ -10,12 +10,12 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
 import me.bttb.crs.model.Ptnt;
 
-@Component
+@Repository
 public class PatientDAO {
 	@Autowired
 	JPAEntityManagerFactoryBean jpaEntityManagerFactoryBean;

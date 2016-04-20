@@ -5,17 +5,15 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-import javax.annotation.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
 
 import me.bttb.crs.model.Usr;
 
-@Named()
-@ManagedBean()
+@Repository
 @Scope("session")
 public class UserBean {
 	@Autowired
@@ -91,7 +89,7 @@ public class UserBean {
 		} else
 			return "";
 	}
-	
+
 	public String logout() {
 		this.setAuthenticated(false);
 		this.setUserInDb(null);

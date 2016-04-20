@@ -10,12 +10,12 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
 import me.bttb.crs.model.Usr;
 
-@Component
+@Repository
 public class UserDAO {
 	@Autowired
 	@Qualifier("jpaEmfBean")

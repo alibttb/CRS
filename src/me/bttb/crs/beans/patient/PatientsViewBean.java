@@ -4,28 +4,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
-import javax.inject.Named;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import me.bttb.crs.model.Ptnt;
 
-@Named
 @ManagedBean
 @ViewScoped
 public class PatientsViewBean {
-	@Autowired
+	@ManagedProperty(value = "#{patientDAO}")
 	private PatientDAO patientDAO;
 	private List<Ptnt> patients;
 	private List<Ptnt> filterdPatients;
 
 	public PatientsViewBean() {
+	}
+
+	@PostConstruct
+	public void init() {
+		refreshAllPatients();
 	}
 
 	public long getPatientsCount() {
@@ -42,12 +46,12 @@ public class PatientsViewBean {
 		options.put("resizable", false);
 		options.put("draggable", false);
 		options.put("modal", true);
-		//options.put("contentHeight", "95%");
-		//options.put("height", 400);
-		//options.put("width", 700);
+		// options.put("contentHeight", "95%");
+		// options.put("height", 400);
+		// options.put("width", 700);
 		options.put("closable", false);
 		RequestContext.getCurrentInstance().openDialog("newPatientDialog", options, null);
-		
+
 	}
 
 	public void onDialogReturn(SelectEvent event) {

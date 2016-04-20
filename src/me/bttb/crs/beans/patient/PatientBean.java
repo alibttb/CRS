@@ -1,6 +1,5 @@
 package me.bttb.crs.beans.patient;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -8,7 +7,6 @@ import javax.inject.Named;
 import me.bttb.crs.model.Ptnt;
 
 @Named
-@ManagedBean
 @SessionScoped
 public class PatientBean {
 	@Inject

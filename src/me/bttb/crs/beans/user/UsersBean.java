@@ -2,16 +2,13 @@ package me.bttb.crs.beans.user;
 
 import java.util.List;
 
-import javax.annotation.ManagedBean;
-import javax.inject.Named;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import me.bttb.crs.model.Usr;
 
-@Named
-@ManagedBean
+@Component
 @Scope("session")
 public class UsersBean {
 	@Autowired

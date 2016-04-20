@@ -4,14 +4,12 @@ import java.security.MessageDigest;
 
 import javax.annotation.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Named;
 
 import org.primefaces.event.FlowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import me.bttb.crs.model.Usr;
 
-@Named
 @ManagedBean
 @ViewScoped
 public class NewUserWizard {
