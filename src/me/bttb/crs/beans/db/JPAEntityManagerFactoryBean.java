@@ -6,9 +6,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component("jpaEmfBean")
+@Service("jpaEmfBean")
 @Scope("application")
 public class JPAEntityManagerFactoryBean {
 	EntityManagerFactory entityManagerFactory;

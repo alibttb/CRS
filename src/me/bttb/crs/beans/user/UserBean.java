@@ -5,18 +5,20 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Repository;
-
+import me.bttb.crs.model.Dctr;
+import me.bttb.crs.model.Nrs;
 import me.bttb.crs.model.Usr;
 
-@Repository
-@Scope("session")
+@ManagedBean
+@SessionScoped
 public class UserBean {
-	@Autowired
+	@ManagedProperty(value = "#{userDAO}")
 	private UserDAO userDAO;
 	private String username;
 	private String password;
@@ -60,9 +62,11 @@ public class UserBean {
 		userInDb = userDAO.getUserByName(getUsername());
 		if (userInDb == null) {
 			setAuthenticated(false);
-			result = "wrong";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Wrong login credintals", "if you forgot your login information contact the system administrator"));
+			result = null;
 		} else {
-			if (checkGoodPassword()) {
+			if (checkGoodPassword(this.password)) {
 				setAuthenticated(true);
 				result = "good";
 			}
@@ -70,7 +74,7 @@ public class UserBean {
 		return result;
 	}
 
-	private boolean checkGoodPassword() {
+	private boolean checkGoodPassword(String password) {
 		String passwordWithSalt = password + userInDb.getSalt();
 		boolean goodPassword = false;
 		try {
@@ -113,4 +117,43 @@ public class UserBean {
 		this.userDAO = userDAO;
 	}
 
+	public boolean changePassWord(String oldPass, String newPass) {
+		if (!isAuthenticated() || userInDb == null || checkGoodPassword(oldPass))
+			return false;
+		else
+			try {
+				Integer saltValue = (int) (Math.random() * 1000000);
+				userInDb.setSalt(saltValue.toString());
+				MessageDigest md;
+				md = MessageDigest.getInstance("SHA-256");
+				String passwordWithSalt = password + userInDb.getSalt();
+				byte[] hash = md.digest(passwordWithSalt.getBytes());
+				userInDb.setHashSha256(hash);
+				userDAO.updateUser(userInDb);
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
+	}
+
+	public boolean isAdmin() {
+		if (userInDb == null) {
+			return false;
+		}
+		return userInDb instanceof Usr && userInDb.getRole().equalsIgnoreCase("admin");
+	}
+
+	public boolean isDoctor() {
+		if (userInDb == null) {
+			return false;
+		}
+		return userInDb instanceof Dctr && userInDb.getRole().equalsIgnoreCase("doctor");
+	}
+
+	public boolean isNurse() {
+		if (userInDb == null) {
+			return false;
+		}
+		return userInDb instanceof Nrs && userInDb.getRole().equalsIgnoreCase("nurse");
+	}
 }

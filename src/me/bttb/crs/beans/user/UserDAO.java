@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
+import me.bttb.crs.model.Dctr;
+import me.bttb.crs.model.Nrs;
 import me.bttb.crs.model.Usr;
 
 @Repository
@@ -34,6 +37,19 @@ public class UserDAO {
 		TypedQuery<Usr> usrQuery = em.createNamedQuery("Usr.findAll", Usr.class);
 		List<Usr> users = usrQuery.getResultList();
 		em.close();
+		return users;
+	}
+
+	public List<Usr> getAllUsers() {
+		EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
+		List<Usr> users = em.createNamedQuery("Usr.findAll", Usr.class).getResultList();
+		List<Dctr> dctrs = em.createNamedQuery("Dctr.findAll", Dctr.class).getResultList();
+		List<Nrs> nurses = em.createNamedQuery("Nrs.findAll", Nrs.class).getResultList();
+		em.close();
+		users.removeAll(dctrs);
+		users.addAll(dctrs);
+		users.removeAll(nurses);
+		users.addAll(nurses);
 		return users;
 	}
 
@@ -62,22 +78,31 @@ public class UserDAO {
 		return user;
 	}
 
-	public void addUser(Usr user) {
-		EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
-		EntityTransaction et = em.getTransaction();
-		et.begin();
-		em.persist(user);
-		et.commit();
-		em.close();
+	public boolean addUser(Usr user) {
+		try {
+			EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
+			EntityTransaction et = em.getTransaction();
+			et.begin();
+			em.persist(user);
+			et.commit();
+			return true;
+		} catch (PersistenceException pe) {
+			return false;
+		}
 	}
 
-	public void updateUser(Usr user) {
-		EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
-		EntityTransaction et = em.getTransaction();
-		et.begin();
-		em.merge(user);
-		et.commit();
-		em.close();
+	public boolean updateUser(Usr user) {
+		try {
+			EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
+			EntityTransaction et = em.getTransaction();
+			et.begin();
+			em.merge(user);
+			et.commit();
+			em.close();
+			return true;
+		} catch (PersistenceException pe) {
+			return false;
+		}
 	}
 
 	public void deleteUser(Usr user) {

@@ -30,8 +30,14 @@
 			<property name="javax.persistence.jdbc.user" value="clinic"/>
 			<property name="javax.persistence.jdbc.password" value="clinic"/>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-			<property name="eclipselink.ddl-generation" value="none"/>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
 			<property name="eclipselink.ddl-generation.output-mode" value="both"/>
+			<property name="eclipselink.logging.connection" value="true"/>
+			<property name="eclipselink.logging.exceptions" value="true"/>
+			<property name="eclipselink.logging.session" value="true"/>
+			<property name="eclipselink.logging.thread" value="true"/>
+			<property name="eclipselink.logging.timestamp" value="true"/>
+			<property name="eclipselink.logging.level" value="FINE"/>
 		</properties>
 	</persistence-unit>
 </persistence>

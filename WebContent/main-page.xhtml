@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title">CRS - Patients home page</ui:define>
+	<ui:define name="content">
+		<h:form id="patientsForm">
+			<p:growl id="growl" showDetail="true" />
+			<p:panel>
+				<p:accordionPanel multiple="false">
+					<p:tab title="Basic search:">
+						<p:panelGrid columns="2" columnClasses="label,value">
+							<f:facet name="header"></f:facet>
+							<p:outputLabel value="Patient Number:" />
+							<p:inputText value="#{patientsView.pid}" />
+							<p:outputLabel value="Full name search:"></p:outputLabel>
+							<p:inputText value="#{patientsView.fullName}"></p:inputText>
+							<f:facet name="footer">
+								<p:commandButton value="Find" update="@form"
+									actionListener="#{patientsView.onSearchByGeneralTerms}"></p:commandButton>
+							</f:facet>
+						</p:panelGrid>
+					</p:tab>
+					<p:tab title="Detailed search:">
+						<f:facet name="header">
+							<p:outputLabel
+								value="You can use '%' as a wild card in the search fields." />
+						</f:facet>
+						<p:panelGrid id="detailedSearchPanel" columns="2"
+							columnClasses="grid grid">
+							<p:panelGrid columns="2" columnClasses="label,value">
+								<p:outputLabel value="First Name: "></p:outputLabel>
+								<p:inputText value="#{patientsView.example.firstName}"></p:inputText>
+								<p:outputLabel value="Father Name: "></p:outputLabel>
+								<p:inputText value="#{patientsView.example.fatherName}"></p:inputText>
+								<p:outputLabel value="Family Name: "></p:outputLabel>
+								<p:inputText value="#{patientsView.example.familyName}"></p:inputText>
+								<p:outputLabel value="Mother Name: "></p:outputLabel>
+								<p:inputText value="#{patientsView.example.motherName}"></p:inputText>
+							</p:panelGrid>
+							<p:panelGrid columns="2" columnClasses="label,value">
+								<p:outputLabel value="Birth place: "></p:outputLabel>
+								<p:inputText value="#{patientsView.example.birthPlace}"></p:inputText>
+								<p:outputLabel value="Birth Date: "></p:outputLabel>
+								<p:calendar id="bdate" value="#{patientsView.example.birthDate}"
+									locale="ar" navigator="true" yearRange="c-120:c" effect="fade"
+									mask="true" pattern="yyyy-MM-dd" />
+							</p:panelGrid>
+							<f:facet name="footer">
+								<p:commandButton value="Find" update="@form"
+									actionListener="#{patientsView.onSearchByDetailedExample}"></p:commandButton>
+							</f:facet>
+						</p:panelGrid>
+					</p:tab>
+					<!-- 					<p:tab title="Range Search"></p:tab> -->
+				</p:accordionPanel>
+
+			</p:panel>
+			<p:dataTable id="patients" value="#{patientsView.patients}"
+				filteredValue="#{patientsView.filterdPatients}" var="patient"
+				selectionMode="single" widgetVar="patientsTable" lazy="false"
+				selection="#{patientsView.selectedPatient}" rowKey="#{patient.pid}">
+				<f:facet name="header">
+					<p:outputPanel>
+						<h:outputText value="Search all fields:  " />
+						<p:inputText id="globalFilter"
+							onkeyup="PF('patientsTable').filter()" style="width:180px"
+							placeholder="Enter search keyword" />
+					</p:outputPanel>
+				</f:facet>
+				<p:column headerText="Patient Id" filterBy="#{patient.pid}">
+					<f:facet name="filter">
+						<p:outputLabel />
+					</f:facet>
+					<h:outputText value="#{patient.pid}" />
+				</p:column>
+				<p:column headerText="First Name" filterBy="#{patient.firstName}">
+					<f:facet name="filter">
+						<p:outputLabel />
+					</f:facet>
+					<h:outputText value="#{patient.firstName}" />
+				</p:column>
+				<p:column headerText="Family Name" filterBy="#{patient.familyName}">
+					<f:facet name="filter">
+						<p:outputLabel />
+					</f:facet>
+					<h:outputText value="#{patient.familyName}" />
+				</p:column>
+				<p:column headerText="Birth Date">
+					<f:facet name="filter">
+						<p:outputLabel />
+					</f:facet>
+					<h:outputText value="#{patient.birthDate}" />
+				</p:column>
+				<f:facet name="footer">
+					<p:outputPanel>
+						<p:commandButton value="New Patient" icon="ui-icon-plus"
+							action="/new-patient.xhtml?faces-redirect=true">
+						</p:commandButton>
+						<p:commandButton value="Open profile" icon="fa fa-file"
+							action="#{patientsView.openProfile}" />
+					</p:outputPanel>
+				</f:facet>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

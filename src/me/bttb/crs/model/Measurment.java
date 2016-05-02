@@ -1,8 +1,16 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the MEASURMENT database table.
@@ -19,8 +27,8 @@ public class Measurment implements Serializable {
 	@Column(precision = 19)
 	private long id;
 
-	@Column(length = 255)
-	private String describtion;
+	@Column(length = 255, name="DESCRIBTION")
+	private String description;
 
 	@Column(length = 255)
 	private String name;
@@ -43,12 +51,12 @@ public class Measurment implements Serializable {
 		this.id = id;
 	}
 
-	public String getDescribtion() {
-		return this.describtion;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setDescribtion(String describtion) {
-		this.describtion = describtion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getName() {

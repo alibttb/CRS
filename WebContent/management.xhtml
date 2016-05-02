@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="title">CRS - Management console</ui:define>
+	<ui:define name="content">
+
+		<h:form id="usersForm">
+			<p:growl id="msgs" showDetail="true" autoUpdate="true" />
+			<p:panel id="upnnv" header="Users" toggleable="false"
+				toggleTitle="Users">
+				<f:facet name="header">
+					<p:commandButton value="Refresh" icon="fa fa-refresh"
+						actionListener="#{userView.onRefreshButtonClicked}"
+						update="usersForm" process="@this" />
+				</f:facet>
+				<p:dataTable id="usersDTid" widgetVar="usersDT"
+					value="#{userView.list}" var="user" disabledTextSelection="true"
+					resizableColumns="true" selectionMode="single"
+					selection="#{userView.service.selected}" rowKey="#{user.pid}"
+					scrollRows="10" scrollable="true">
+					<p:ajax event="rowSelect"
+						update="usersForm:editUserButton,usersForm:editUserPwdButton" />
+					<p:ajax event="rowUnselect"
+						update="usersForm:editUserButton,usersForm:editUserPwdButton" />
+					<p:ajax event="filter"
+						update="usersForm:editUserButton, usersForm:editUserPwdButton"
+						listener="#{userView.unSelect()}" />
+					<p:column width="80" headerText="id" filterBy="#{user.pid}">
+						<f:facet name="filter">
+							<p:inputText onkeyup="PF('usersDT').filter()" style="width:60%" />
+						</f:facet>
+						<p:outputLabel value="#{user.pid}" />
+					</p:column>
+					<p:column width="200" headerText="Username"
+						filterBy="#{user.userName}">
+						<p:outputLabel value="#{user.userName}" />
+					</p:column>
+					<p:column width="200" headerText="Real Name"
+						filterBy="#{user.firstName} #{user.familyName}"
+						filterMatchMode="contains">
+						<p:outputLabel value="#{user.firstName} #{user.familyName}" />
+					</p:column>
+					<p:column width="120" headerText="Role" filterBy="#{user.prsnType}"
+						filterMatchMode="equals">
+						<f:facet name="filter">
+							<p:selectOneMenu onchange="PF('usersDT').filter()">
+								<f:selectItem itemLabel="All" itemValue="" />
+								<f:selectItem itemLabel="Admin" itemValue="Usr" />
+								<f:selectItem itemLabel="Nurse" itemValue="Dctr" />
+								<f:selectItem itemLabel="Doctor" itemValue="Nrs" />
+							</p:selectOneMenu>
+						</f:facet>
+						<p:outputLabel value="#{user.role}" />
+					</p:column>
+				</p:dataTable>
+				<f:facet name="footer">
+					<p:commandButton update="userDlg" value="Add Admin"
+						icon="fa fa-plus"
+						actionListener="#{userView.onAddAdminButtonClicked}"
+						oncomplete="PF('userDlgWv').show()" process="@this" />
+					<p:commandButton update="userDlg" value="Add Doctor"
+						icon="fa fa-plus"
+						actionListener="#{userView.onAddDoctorButtonClicked}"
+						oncomplete="PF('userDlgWv').show()" process="@this" />
+					<p:commandButton update="userDlg" value="Add Nurse"
+						icon="fa fa-plus"
+						actionListener="#{userView.onAddNurseButtonClicked}"
+						oncomplete="PF('userDlgWv').show()" process="@this" />
+					<p:commandButton id="editUserButton" update="usersForm:userPanel"
+						value="Edit" icon="fa fa-edit" oncomplete="PF('userDlgWv').show()"
+						disabled="#{userView.service.selected eq null}"
+						actionListener="#{userView.onEditButtonClicked}" process="@this" />
+					<p:commandButton id="editUserPwdButton" update="usersForm:pwdPanel"
+						value="Change password" icon="fa fa-edit"
+						oncomplete="PF('pwdChDlgWv').show()"
+						disabled="#{userView.service.selected eq null}"
+						actionListener="#{userView.onEditButtonClicked}" process="@this" />
+				</f:facet>
+			</p:panel>
+			<p:dialog id="userDlg" widgetVar="userDlgWv" closable="false"
+				header="New User" closeOnEscape="true" modal="true"
+				showEffect="explode" draggable="false" hideEffect="explode">
+				<p:panelGrid id="userPanel" columns="2" columnClasses="label, value">
+					<p:outputLabel for="usnam" value="User Name:" />
+					<p:inputText id="usnam" required="true"
+						requiredMessage="Username: is required!"
+						value="#{userView.service.selected.userName}" />
+					<p:outputLabel for="usEmail" value="Email:" />
+					<p:inputText id="usEmail" required="true"
+						requiredMessage="Email: is required!"
+						validatorMessage="Email: Should be an email!"
+						value="#{userView.service.selected.email}">
+						<f:validateRegex
+							pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"></f:validateRegex>
+					</p:inputText>
+					<p:outputLabel for="usFirstName" value="First Name:" />
+					<p:inputText id="usFirstName"
+						value="#{userView.service.selected.firstName}" required="true"
+						requiredMessage="First Name is required." />
+					<p:outputLabel for="usFamName" value="Family Name:" />
+					<p:inputText id="usFamName"
+						value="#{userView.service.selected.familyName}" required="true"
+						requiredMessage="Family Name is required." />
+
+					<p:outputLabel rendered="#{userView.service.ADoctorSelected}"
+						value="Specialization:" />
+					<p:inputText rendered="#{userView.service.ADoctorSelected}"
+						value="#{userView.service.selectedAsDctr.dctrMainSpec}" />
+
+					<p:outputLabel value="Password:" for="upwd1"
+						rendered="#{userView.service.selected.pid eq null}" />
+					<p:password id="upwd1" match="upwd2" value="#{userView.password}"
+						rendered="#{userView.service.selected.pid eq null}"
+						required="true" feedback="true" inline="true">
+						<f:validateLength minimum="6" maximum="10" />
+					</p:password>
+
+					<p:outputLabel value="Confirm:" for="upwd2"
+						rendered="#{userView.service.selected.pid eq null}" />
+					<p:password id="upwd2" value="#{userView.password}" required="true"
+						rendered="#{userView.service.selected.pid eq null}">
+					</p:password>
+				</p:panelGrid>
+				<f:facet name="footer">
+					<p:commandButton id="btnSave" value="Save" icon="fa fa-save"
+						oncomplete="handelUserSaveRequest(xhr, status, args)"
+						validateClient="true" ajax="true" partialSubmit="true"
+						actionListener="#{userView.onSaveButtonClicked}"
+						process="userPanel,@this"
+						update="usersForm:usersDTid,userPanel, msgs" />
+					<p:commandButton value="Cancel" icon="fa fa-ban"
+						oncomplete="PF('userDlgWv').hide()" validateClient="true"
+						ajax="true" partialSubmit="true"
+						actionListener="#{userView.onCancelButtonClicked}" process="@this"
+						update="userPanel, msgs">
+						<p:resetInput target="userPanel" />
+					</p:commandButton>
+				</f:facet>
+			</p:dialog>
+			<!-- 			<p:defaultCommand target="btnSave" scope="userDlg" ></p:defaultCommand> -->
+
+			<p:dialog id="pwdChDlg" widgetVar="pwdChDlgWv" closable="false"
+				header="Change Password for #{userView.service.selected.userName}"
+				closeOnEscape="true" modal="true" showEffect="explode"
+				draggable="false" hideEffect="explode">
+				<p:panelGrid id="pwdPanel" columns="2" columnClasses="label, value">
+					<p:outputLabel value="New Password:" for="upwdch1" />
+					<p:password id="upwdch1" match="upwdch2"
+						value="#{userView.password}" required="true" feedback="true"
+						inline="true">
+						<f:validateLength minimum="6" maximum="10" />
+					</p:password>
+					<p:outputLabel value="Confirm:" for="upwdch2" />
+					<p:password id="upwdch2" value="#{userView.password}"
+						required="true">
+					</p:password>
+				</p:panelGrid>
+				<f:facet name="footer">
+					<p:commandButton id="btnPwdSave" value="Save" icon="fa fa-save"
+						oncomplete="handelPwdSaveRequest(xhr, status, args)"
+						validateClient="true" ajax="true" partialSubmit="true"
+						actionListener="#{userView.onSaveButtonClicked}"
+						process="pwdPanel,@this"
+						update="usersForm:usersDTid,pwdPanel, msgs" />
+					<p:commandButton value="Cancel" icon="fa fa-ban"
+						oncomplete="PF('pwdChDlgWv').hide()" validateClient="true"
+						ajax="true" partialSubmit="true"
+						actionListener="#{userView.onCancelButtonClicked}" process="@this"
+						update="pwdPanel, msgs">
+						<p:resetInput target="pwdPanel" />
+					</p:commandButton>
+				</f:facet>
+			</p:dialog>
+			<script type="text/javascript">
+				function handelUserSaveRequest(xhr, status, args) {
+					if (args.validationFailed) {
+						PF('userDlgWv').jq.effect("shake", {
+							times : 5
+						}, 100);
+					} else {
+						PF('userDlgWv').hide();
+					}
+				}
+				function handelPwdSaveRequest(xhr, status, args) {
+					if (args.validationFailed) {
+						PF('pwdChDlgWv').jq.effect("shake", {
+							times : 5
+						}, 100);
+					} else {
+						PF('pwdChDlgWv').hide();
+					}
+				}
+			</script>
+		</h:form>
+		<h:form id="codingForm">
+			<p:growl id="msg" showDetail="true" />
+			<p:panel header="Meta-data configuration">
+				<p:dashboard id="board" model="#{visitView.dashboardModel}">
+					<p:panel id="symptoms" header="symptoms" toggleable="true"
+						collapsed="true">
+						<p:panel style="width: 100%; height: 100%" id="symptomComp">
+							<f:facet name="header">
+								<p:commandButton value="Refresh" icon="fa fa-refresh"
+									actionListener="#{symptomView.onRefreshButtonClicked}"
+									update="symptomComp" process="@this" />
+							</f:facet>
+							<p:dataTable id="symptomsDT" dir="ltr"
+								value="#{symptomView.list}" disabledTextSelection="true"
+								resizableColumns="true" selectionMode="single"
+								selection="#{symptomView.service.selected}" var="sm"
+								rowKey="#{sm.id}" rows="10" paginator="true"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								rowsPerPageTemplate="5,10,15">
+								<p:ajax event="rowSelect" listener="#{symptomView.onRowSelect}"
+									process="symptomsDT" update=":codingForm:smptmEditButton" />
+								<p:ajax event="rowUnselect"
+									listener="#{symptomView.onRowUnSelect}" process="symptomsDT"
+									update=":codingForm:smptmEditButton" />
+								<p:column headerText="Code" sortBy="#{sm.id}"
+									filterBy="#{sm.id}" width="40">
+									<p:outputLabel value="#{sm.id}" />
+								</p:column>
+								<p:column headerText="Name" sortBy="#{sm.name}"
+									filterBy="#{sm.name}" width="40">
+									<p:outputLabel value="#{sm.name}" />
+								</p:column>
+								<p:column headerText="Description" sortBy="#{sm.description}"
+									width="80" filterBy="#{sm.description}">
+									<p:outputLabel value="#{sm.description}" />
+								</p:column>
+								<p:column headerText="Notes" sortBy="#{sm.notes}" width="80"
+									filterBy="#{sm.notes}">
+									<p:outputLabel value="#{sm.notes}" />
+								</p:column>
+							</p:dataTable>
+							<f:facet name="footer">
+								<p:commandButton value="New" icon="fa fa-plus"
+									oncomplete="PF('smptmDlg').show()" process="@this"
+									update="smptmDlg"
+									actionListener="#{symptomView.onAddNewDialogOpen}" />
+								<p:commandButton id="smptmEditButton" value="Edit"
+									icon="fa fa-edit" oncomplete="PF('smptmDlg').show()"
+									process="@this"
+									disabled="#{symptomView.service.selected eq null}"
+									update="smptmDlg"
+									actionListener="#{symptomView.onEditSelectedDialogOpen}" />
+							</f:facet>
+							<p:dialog id="smptmDlg" widgetVar="smptmDlg" modal="true"
+								closable="false">
+								<f:facet name="header">
+									<p:outputLabel
+										value="#{symptomView.service.selected.id ne 0 ? 'New Symptom' : symptomView.service.selected.name }" />
+								</f:facet>
+								<p:panelGrid columns="2" columnClasses="label, value"
+									id="smptmPanel">
+									<p:outputLabel for="smptmName" value="Name: " />
+									<p:inputText id="smptmName"
+										requiredMessage="You must enter a name for the symptom."
+										value="#{symptomView.service.selected.name}"
+										placeholder="name" required="true" />
+									<p:outputLabel for="smptmDesc" value="Description: " />
+									<p:inputText id="smptmDesc"
+										requiredMessage="You must enter a description for the symptom."
+										value="#{symptomView.service.selected.description}"
+										placeholder="description" required="true" />
+
+									<p:outputLabel value="Notes: " />
+									<p:inputText value="#{symptomView.service.selected.notes}"
+										placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton value="Save" icon="fa fa-save"
+										oncomplete="handelSmptmSaveRequest(xhr, status, args)"
+										process="smptmDlg, @this" update="msg,symptomsDT,smptmPanel"
+										actionListener="#{symptomView.onSaveButtonClicked}" />
+									<p:commandButton value="Cancel" icon="fa fa-remove"
+										oncomplete="PF('smptmDlg').hide()" process="@this"
+										update="msg,symptomComp"
+										actionListener="#{symptomView.onCancelButtonClicked}">
+										<p:resetInput target="smptmDlg"></p:resetInput>
+									</p:commandButton>
+								</f:facet>
+
+							</p:dialog>
+						</p:panel>
+						<script type="text/javascript">
+							function handelSmptmSaveRequest(xhr, status, args) {
+								if (args.validationFailed) {
+									PF('smptmDlg').jq.effect("shake", {
+										times : 5
+									}, 100);
+								} else {
+									PF('smptmDlg').hide();
+								}
+							}
+						</script>
+					</p:panel>
+					<p:panel id="measurments" header="measurments" toggleable="true"
+						collapsed="true">
+						<p:panel style="width: 100%; height: 100%" id="msrmntComp">
+							<f:facet name="header">
+								<p:commandButton value="Refresh" icon="fa fa-refresh"
+									actionListener="#{measurmentView.onRefreshButtonClicked}"
+									update="msrmntComp" process="@this" />
+							</f:facet>
+							<p:dataTable id="msrmntsDT" dir="ltr"
+								value="#{measurmentView.list}" disabledTextSelection="true"
+								resizableColumns="true" selectionMode="single"
+								selection="#{measurmentView.service.selected}" var="me"
+								rowKey="#{me.id}" rows="10" paginator="true"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								rowsPerPageTemplate="5,10,15">
+								<p:ajax event="rowSelect"
+									listener="#{measurmentView.onRowSelect}" process="msrmntsDT"
+									update=":codingForm:msrmntEditButton" />
+								<p:ajax event="rowUnselect"
+									listener="#{measurmentView.onRowUnSelect}" process="msrmntsDT"
+									update=":codingForm:msrmntEditButton" />
+								<p:column headerText="Code" sortBy="#{me.id}"
+									filterBy="#{me.id}" width="40">
+									<p:outputLabel value="#{me.id}" />
+								</p:column>
+								<p:column headerText="Name" sortBy="#{me.name}"
+									filterBy="#{me.name}" width="40">
+									<p:outputLabel value="#{me.name}" />
+								</p:column>
+								<p:column headerText="Description" sortBy="#{me.description}"
+									width="80" filterBy="#{me.description}">
+									<p:outputLabel value="#{me.description}" />
+								</p:column>
+								<p:column headerText="Notes" sortBy="#{me.notes}" width="80"
+									filterBy="#{me.notes}">
+									<p:outputLabel value="#{me.notes}" />
+								</p:column>
+							</p:dataTable>
+							<f:facet name="footer">
+								<p:commandButton value="New" icon="fa fa-plus"
+									oncomplete="PF('msrmntDlg').show()" process="@this"
+									update="msrmntComp"
+									actionListener="#{measurmentView.onAddNewDialogOpen}" />
+								<p:commandButton id="msrmntEditButton" value="Edit"
+									icon="fa fa-edit" oncomplete="PF('msrmntDlg').show()"
+									process="@this,msrmntsDT" update="msrmntComp"
+									disabled="#{measurmentView.service.selected eq null}"
+									actionListener="#{measurmentView.onEditSelectedDialogOpen}" />
+							</f:facet>
+							<p:dialog id="msrmntDlg" widgetVar="msrmntDlg" modal="true">
+								<f:facet name="header">
+									<p:outputLabel
+										value="#{measurmentView.service.selected.id ne 0 ? 'New Measurment Meta Data' : msrmntView.msrmntService.selected.name }" />
+								</f:facet>
+								<p:panelGrid columns="3" columnClasses="label, value, message"
+									id="msrmntPanel">
+									<p:outputLabel for="msrmntName" value="Name: " />
+									<p:inputText id="msrmntName"
+										requiredMessage="You must enter a name for the Measurment."
+										value="#{measurmentView.service.selected.name}"
+										placeholder="name" required="true" />
+									<p:message for="msrmntName" />
+
+									<p:outputLabel for="msrmntDesc" value="Description: " />
+									<p:inputText id="msrmntDesc"
+										requiredMessage="You must enter a description for the Measurment."
+										value="#{measurmentView.service.selected.description}"
+										placeholder="description" required="true" />
+									<p:message for="msrmntDesc" />
+									<p:outputLabel value="Notes: " />
+									<p:inputText value="#{measurmentView.service.selected.notes}"
+										placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton value="Save" icon="fa fa-save"
+										oncomplete="handelMsrmntSaveRequest(xhr, status, args)"
+										process="msrmntDlg, @this" update="msrmntsDT, msg,msrmntPanel"
+										actionListener="#{measurmentView.onSaveButtonClicked}" />
+									<p:commandButton value="Cancel" icon="fa fa-remove"
+										oncomplete="PF('msrmntDlg').hide()" process="@this"
+										update="msrmntsDT,msg"
+										actionListener="#{measurmentView.onCancelButtonClicked}" />
+								</f:facet>
+							</p:dialog>
+						</p:panel>
+						<script type="text/javascript">
+							function handelMsrmntSaveRequest(xhr, status, args) {
+								if (args.validationFailed) {
+									PF('msrmntDlg').jq.effect("shake", {
+										times : 5
+									}, 100);
+								} else {
+									PF('msrmntDlg').hide();
+								}
+							}
+						</script>
+					</p:panel>
+					<p:panel id="diaganosis" header="diaganosis" toggleable="true"
+						collapsed="true">
+						<p:panel style="width: 100%; height: 100%" id="dgnssComp">
+							<f:facet name="header">
+								<p:commandButton value="Refresh" icon="fa fa-refresh"
+									actionListener="#{dgnssView.onRefreshButtonClicked}"
+									update="dgnssComp" process="@this" />
+							</f:facet>
+							<p:dataTable id="dgnsssDT" dir="ltr"
+								value="#{diaganosisView.list}" disabledTextSelection="true"
+								resizableColumns="true"
+								selection="#{diaganosisView.service.selected}" var="tr"
+								rowKey="#{tr.id}" rows="10" paginator="true"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								rowsPerPageTemplate="5,10,15">
+								<p:column headerText="Code" sortBy="#{tr.id}"
+									filterBy="#{tr.id}" width="40">
+									<p:outputLabel value="#{tr.id}" />
+								</p:column>
+								<p:column headerText="Name" sortBy="#{tr.name}"
+									filterBy="#{tr.name}" width="40">
+									<p:outputLabel value="#{tr.name}" />
+								</p:column>
+								<p:column headerText="Description" sortBy="#{tr.description}"
+									width="80" filterBy="#{tr.description}">
+									<p:outputLabel value="#{tr.description}" />
+								</p:column>
+								<p:column headerText="Notes" sortBy="#{tr.notes}" width="80"
+									filterBy="#{tr.notes}">
+									<p:outputLabel value="#{tr.notes}" />
+								</p:column>
+							</p:dataTable>
+							<f:facet name="footer">
+								<p:commandButton value="New" icon="fa fa-plus"
+									oncomplete="PF('dgnssDlg').show()" process="@this"
+									update="dgnssComp"
+									actionListener="#{diaganosisView.onAddNewDialogOpen}" />
+								<p:commandButton value="Edit" icon="fa fa-edit"
+									oncomplete="PF('dgnssDlg').show()" process="@this,dgnsssDT"
+									update="dgnssComp"
+									actionListener="#{diaganosisView.onEditSelectedDialogOpen}" />
+							</f:facet>
+							<p:dialog id="dgnssDlg" widgetVar="dgnssDlg" modal="true">
+								<f:facet name="header">
+									<p:outputLabel
+										value="#{diaganosisView.service.selected.id ne 0 ? 'New Diaganosis Meta Data' : dgnssView.dgnssService.selected.name }" />
+								</f:facet>
+								<p:panelGrid columns="3" columnClasses="label, value, message"
+									id="dgnssPanel">
+									<p:outputLabel for="dgnssName" value="Name: " />
+									<p:inputText id="dgnssName"
+										requiredMessage="You must enter a name for the Diaganosis."
+										value="#{diaganosisView.service.selected.name}"
+										placeholder="name" required="true" />
+									<p:message for="dgnssName" />
+
+									<p:outputLabel for="dgnssDesc" value="Description: " />
+									<p:inputText id="dgnssDesc"
+										requiredMessage="You must enter a description for the Diaganosis."
+										value="#{diaganosisView.service.selected.description}"
+										placeholder="description" required="true" />
+									<p:message for="dgnssDesc" />
+									<p:outputLabel value="Notes: " />
+									<p:inputText value="#{diaganosisView.service.selected.notes}"
+										placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton value="Save" icon="fa fa-save"
+										oncomplete="handelDgssSaveRequest(xhr, status, args)"
+										process="dgnssDlg, @this" update="dgnsssDT,dgnssPanel, msg"
+										actionListener="#{diaganosisView.onSaveButtonClicked}" />
+									<p:commandButton value="Cancel" icon="fa fa-remove"
+										oncomplete="PF('dgnssDlg').hide()" process="@this"
+										update="msg"
+										actionListener="#{diaganosisView.onCancelButtonClicked}" />
+								</f:facet>
+							</p:dialog>
+						</p:panel>
+						<script type="text/javascript">
+							function handelDgssSaveRequest(xhr, status, args) {
+								if (args.validationFailed) {
+									PF('dgnssDlg').jq.effect("shake", {
+										times : 5
+									}, 100);
+								} else {
+									PF('dgnssDlg').hide();
+
+								}
+							}
+						</script>
+					</p:panel>
+					<p:panel id="treatments" header="treatments" toggleable="true"
+						collapsed="true">
+						<p:panel style="width: 100%; height: 100%" id="trtmntComp">
+							<f:facet name="header">
+								<p:commandButton value="Refresh" icon="fa fa-refresh"
+									actionListener="#{treatmentView.onRefreshButtonClicked}"
+									update="trtmntComp" process="@this" />
+							</f:facet>
+							<p:dataTable id="trtmntsDT" dir="ltr"
+								value="#{treatmentView.list}" disabledTextSelection="true"
+								resizableColumns="true"
+								selection="#{treatmentView.service.selected}" var="tr"
+								rowKey="#{tr.id}" selectionMode="single" rows="10"
+								paginator="true"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+								rowsPerPageTemplate="5,10,15">
+								<p:ajax event="rowSelect"
+									listener="#{treatmentView.onRowSelect}" process="trtmntsDT"
+									update=":codingForm:trtmntEditButton" />
+								<p:ajax event="rowUnselect"
+									listener="#{treatmentView.onRowUnSelect}" process="trtmntsDT"
+									update=":codingForm:trtmntEditButton" />
+								<p:column headerText="Code" sortBy="#{tr.id}"
+									filterBy="#{tr.id}" width="40">
+									<p:outputLabel value="#{tr.id}" />
+								</p:column>
+								<p:column headerText="Name" sortBy="#{tr.name}"
+									filterBy="#{tr.name}" width="40">
+									<p:outputLabel value="#{tr.name}" />
+								</p:column>
+								<p:column headerText="Type" sortBy="#{tr.type}" width="80"
+									filterBy="#{tr.type}">
+									<p:outputLabel value="#{tr.type}" />
+								</p:column>
+								<p:column headerText="Description" sortBy="#{tr.description}"
+									width="80" filterBy="#{tr.description}">
+									<p:outputLabel value="#{tr.description}" />
+								</p:column>
+							</p:dataTable>
+							<f:facet name="footer">
+								<p:commandButton value="New" icon="fa fa-plus"
+									oncomplete="PF('trtmntDlg').show()" process="@this"
+									update="trtmntComp"
+									actionListener="#{treatmentView.onAddNewDialogOpen}" />
+								<p:commandButton id="trtmntEditButton" value="Edit"
+									icon="fa fa-edit" oncomplete="PF('trtmntDlg').show()"
+									process="@this,trtmntsDT" update="trtmntComp"
+									disabled="#{not treatmentView.rowSelected}"
+									actionListener="#{treatmentView.onEditSelectedDialogOpen}" />
+							</f:facet>
+							<p:dialog id="trtmntDlg" widgetVar="trtmntDlg" modal="true">
+								<f:facet name="header">
+									<p:outputLabel
+										value="#{treatmentView.service.selected.id ne 0 ? 'New Treatment Meta Data' : trtmntView.trtmntService.selected.name }" />
+								</f:facet>
+								<p:panelGrid columns="3" columnClasses="label, value, message"
+									id="trtmntPanel">
+									<p:outputLabel for="trtmntName" value="Name: " />
+									<p:inputText id="trtmntName"
+										requiredMessage="You must enter a name for the Treatment."
+										value="#{treatmentView.service.selected.name}"
+										placeholder="name" required="true" />
+									<p:message for="trtmntName" />
+									<p:outputLabel for="trtmntType" value="Type: " />
+									<p:inputText id="trtmntType" required="true"
+										requiredMessage="You must enter a type for the Treatment."
+										value="#{treatmentView.service.selected.type}"
+										placeholder="type" />
+									<p:message for="trtmntType" />
+									<p:outputLabel for="trtmntDesc" value="Description: " />
+									<p:inputText id="trtmntDesc"
+										requiredMessage="You must enter a description for the Treatment."
+										value="#{treatmentView.service.selected.description}"
+										placeholder="description" required="true" />
+									<p:message for="trtmntDesc" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton value="Save" icon="fa fa-save"
+										oncomplete="handelSaveRequest(xhr, status, args)"
+										process="trtmntDlg, @this" update="trtmntsDT,trtmntPanel, msg"
+										actionListener="#{treatmentView.onSaveButtonClicked}" />
+									<p:commandButton value="Cancel" icon="fa fa-remove"
+										oncomplete="PF('trtmntDlg').hide()" process="@this"
+										update="msg"
+										actionListener="#{treatmentView.onCancelButtonClicked}" />
+								</f:facet>
+							</p:dialog>
+						</p:panel>
+						<script type="text/javascript">
+							function handelSaveRequest(xhr, status, args) {
+								if (args.validationFailed) {
+									PF('trtmntDlg').jq.effect("shake", {
+										times : 5
+									}, 100);
+								} else {
+									PF('trtmntDlg').hide();
+								}
+							}
+						</script>
+					</p:panel>
+					<p:panel id="orders" header="orders" visible="false"
+						toggleable="true" collapsed="true">cont</p:panel>
+					<p:panel id="documents" header="documents" visible="false"
+						toggleable="true" collapsed="true">cont</p:panel>
+				</p:dashboard>
+				<div style="clear: both" />
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

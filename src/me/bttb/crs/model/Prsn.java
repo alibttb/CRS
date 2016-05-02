@@ -1,16 +1,29 @@
 package me.bttb.crs.model;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.DETACH;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REFRESH;
+import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.InheritanceType.JOINED;
+
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import static javax.persistence.InheritanceType.JOINED;
-import static javax.persistence.CascadeType.PERSIST;
-import static javax.persistence.CascadeType.MERGE;
-import static javax.persistence.CascadeType.REMOVE;
-import static javax.persistence.CascadeType.DETACH;
-import static javax.persistence.CascadeType.REFRESH;
-import static javax.persistence.CascadeType.ALL;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the PRSN database table.
@@ -151,8 +164,16 @@ public class Prsn implements Serializable {
 	public ContactInfo removeContactInfoList(ContactInfo contactInfoList) {
 		getContactInfoList().remove(contactInfoList);
 		contactInfoList.setPrsn(null);
-
 		return contactInfoList;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Prsn) {
+			Prsn p = (Prsn) obj;
+			return p.getPid().equals(this.getPid());
+		}
+		return super.equals(obj);
 	}
 
 }

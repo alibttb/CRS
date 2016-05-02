@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="title">Patient: #{patientProfileView.fullName} - #{visitView.visitService.selectedVisit.vstDate}</ui:define>
+
+	<ui:define name="content">
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+			<p:panel id="bigPanel">
+				<f:facet name="header">
+					<p:panelGrid columns="4" style="width: 100%">
+						<p:outputLabel value="Patient Name: " />
+						<p:outputLabel value="#{patientProfileView.fullName}" />
+						<p:outputLabel value="Patient Number: " />
+						<p:outputLabel
+							value="#{patientProfileView.patientService.selectedPatient.pid}" />
+					</p:panelGrid>
+				</f:facet>
+				<div style="width: 100%; height: 100%">
+					<p:dashboard id="board" model="#{visitView.dashboardModel}">
+						<p:panel id="symptoms" header="symptoms">
+							<ui:include src="/WEB-INF/fragments/visit/symptoms.xhtml" />
+						</p:panel>
+						<p:panel id="measurments" header="measurments">cont</p:panel>
+						<p:panel id="diaganosis" header="diaganosis">cont</p:panel>
+						<p:panel id="treatments" header="treatments">cont</p:panel>
+						<p:panel id="orders" header="orders">cont</p:panel>
+						<p:panel id="documents" header="documents">cont</p:panel>
+					</p:dashboard>
+
+					<div style="clear: both" />
+				</div>
+			</p:panel>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

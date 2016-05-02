@@ -1,8 +1,16 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the PTNT database table.
@@ -46,4 +54,16 @@ public class Ptnt extends Prsn implements Serializable {
 		return visit;
 	}
 
+	public Integer getAge() {
+		LocalDate bDate = this.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		return (int) ChronoUnit.YEARS.between(LocalDate.now(), bDate);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Ptnt) {
+			return ((Ptnt) obj).getPid() == this.getPid();
+		}
+		return super.equals(obj);
+	}
 }

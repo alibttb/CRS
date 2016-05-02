@@ -7,6 +7,9 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="title">Clinic Record System 0.1</ui:define>
+
+	<ui:define name="userControl"></ui:define>
+
 	<ui:define name="header">
 		<p style="margin: 5px">Welcome to CRS</p>
 		<p style="margin: 5px; font: smaller lighter italic;">The Simplest
@@ -17,6 +20,7 @@
 
 	<ui:define name="content">
 		<h:form>
+			<p:growl id="msgs" showDetail="true" />
 			<p:panel id="panel" header="Login"
 				style="margin:0 auto; top:100; margin-bottom:10px; width:400px; height:190px;">
 				<p:growl id="messages" />
@@ -33,7 +37,7 @@
 						validatorMessage="Password can't be empty" />
 				</p:panelGrid>
 				<p:commandButton value="Login" style="float:right; margin:5px"
-					action="#{userBean.authenticate}" />
+					update="msgs" action="#{userBean.authenticate}" />
 			</p:panel>
 		</h:form>
 	</ui:define>

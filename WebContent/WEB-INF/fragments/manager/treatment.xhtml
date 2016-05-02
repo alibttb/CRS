@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<p:panel style="width: 100%; height: 100%" id="trtmntComp">
+		<f:facet name="header">
+			<p:commandButton value="Refresh" icon="fa fa-refresh"
+				actionListener="#{treatmentView.onRefreshButtonClicked}"
+				update="trtmntComp" process="@this" />
+		</f:facet>
+		<p:dataTable id="trtmntsDT" dir="ltr" value="#{treatmentView.list}"
+			disabledTextSelection="true" resizableColumns="true"
+			selection="#{treatmentView.service.selected}" var="tr"
+			rowKey="#{tr.id}" selectionMode="single" rows="10" paginator="true"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10,15">
+			<p:ajax event="rowSelect" listener="#{treatmentView.onRowSelect}"
+				process="trtmntsDT" update=":codingForm:trtmntEditButton" />
+			<p:ajax event="rowUnselect" listener="#{treatmentView.onRowUnSelect}"
+				process="trtmntsDT" update=":codingForm:trtmntEditButton" />
+			<p:column headerText="Code" sortBy="#{tr.id}" filterBy="#{tr.id}"
+				width="40">
+				<p:outputLabel value="#{tr.id}" />
+			</p:column>
+			<p:column headerText="Name" sortBy="#{tr.name}" filterBy="#{tr.name}"
+				width="40">
+				<p:outputLabel value="#{tr.name}" />
+			</p:column>
+			<p:column headerText="Type" sortBy="#{tr.type}" width="80"
+				filterBy="#{tr.type}">
+				<p:outputLabel value="#{tr.type}" />
+			</p:column>
+			<p:column headerText="Description" sortBy="#{tr.description}"
+				width="80" filterBy="#{tr.description}">
+				<p:outputLabel value="#{tr.description}" />
+			</p:column>
+		</p:dataTable>
+		<f:facet name="footer">
+			<p:commandButton value="New" icon="fa fa-plus"
+				oncomplete="PF('trtmntDlg').show()" process="@this"
+				update="trtmntComp"
+				actionListener="#{treatmentView.onAddNewDialogOpen}" />
+			<p:commandButton id="trtmntEditButton" value="Edit" icon="fa fa-edit"
+				oncomplete="PF('trtmntDlg').show()" process="@this,trtmntsDT"
+				update="trtmntComp" disabled="#{not treatmentView.rowSelected}"
+				actionListener="#{treatmentView.onEditSelectedDialogOpen}" />
+		</f:facet>
+		<p:dialog id="trtmntDlg" widgetVar="trtmntDlg">
+			<f:facet name="header">
+				<p:outputLabel
+					value="#{treatmentView.service.selected.id ne 0 ? 'New Treatment Meta Data' : trtmntView.trtmntService.selected.name }" />
+			</f:facet>
+			<p:panelGrid columns="3" columnClasses="label, value, message"
+				id="trtmntPanel">
+				<p:outputLabel for="trtmntName" value="Name: " />
+				<p:inputText id="trtmntName"
+					requiredMessage="You must enter a name for the Treatment."
+					value="#{treatmentView.service.selected.name}" placeholder="name"
+					required="true" />
+				<p:message for="trtmntName" />
+				<p:outputLabel for="trtmntType" value="Type: " />
+				<p:inputText id="trtmntType" required="true"
+					requiredMessage="You must enter a type for the Treatment."
+					value="#{treatmentView.service.selected.type}" placeholder="type" />
+				<p:message for="trtmntType" />
+				<p:outputLabel for="trtmntDesc" value="Description: " />
+				<p:inputText id="trtmntDesc"
+					requiredMessage="You must enter a description for the Treatment."
+					value="#{treatmentView.service.selected.description}"
+					placeholder="description" required="true" />
+				<p:message for="trtmntDesc" />
+			</p:panelGrid>
+			<f:facet name="footer">
+				<p:commandButton value="Save" icon="fa fa-save"
+					oncomplete="handelSaveRequest(xhr, status, args)"
+					process="trtmntDlg, @this" update="trtmntsDT,trtmntPanel, msg"
+					actionListener="#{treatmentView.onSaveButtonClicked}" />
+				<p:commandButton value="Cancel" icon="fa fa-remove"
+					oncomplete="PF('trtmntDlg').hide()" process="@this" update="msg"
+					actionListener="#{treatmentView.onCancelButtonClicked}" />
+			</f:facet>
+		</p:dialog>
+	</p:panel>
+	<script type="text/javascript">
+		function handelSaveRequest(xhr, status, args) {
+			// 			alert(status);
+			// 			alert(xhr);
+			if (args.validationFailed) {
+				PF('trtmntDlg').jq.effect("shake", {
+					times : 5
+				}, 100);
+			} else {
+				PF('trtmntDlg').hide();
+				$('#loginLink').fadeOut();
+			}
+		}
+	</script>
+</ui:composition>
+</html>

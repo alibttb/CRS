@@ -1,12 +1,17 @@
 @CHARSET "UTF-8";
 
 html {
-	background-color: #e8ce75;
+	/* 	background-color: #e8ce75; */
 	border: thin;
 }
 
 body {
 	border: thin;
+}
+
+.new {
+	background-color: aqua;
+	color: green;
 }
 
 .userControl {
@@ -33,8 +38,8 @@ body {
 	width: 100%;
 	font-size: 36px;
 	line-height: 48px;
-	background-color: #ed9320;
-	color: white;
+	/* 	background-color: #ed9320; */
+	/* 	color: white; */
 	position: relative;
 }
 
@@ -51,7 +56,7 @@ body {
 	padding: 5px;
 	top: 3em;
 	z-index: 5;
-	background-color: #f7ca70;
+	/* 	background-color: #f7ca70; */
 	border: 1px solid #ccc;
 }
 
@@ -63,8 +68,9 @@ body {
 	margin-right: 1px;
 	bottom: 0px;
 	z-index: 10;
-	background-color: #ed9320;
+	 	background-color: #a1b5d7; 
+	 	
 	width: 100%;
-	color: white;
+	/* 	color: white; */
 	text-align: center;
 }

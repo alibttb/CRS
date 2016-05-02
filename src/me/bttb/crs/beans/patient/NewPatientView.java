@@ -3,13 +3,14 @@ package me.bttb.crs.beans.patient;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 
-import org.primefaces.context.RequestContext;
 import org.primefaces.event.RowEditEvent;
 
 import me.bttb.crs.model.ContactInfo;
@@ -18,7 +19,9 @@ import me.bttb.crs.model.Ptnt;
 @ManagedBean
 @ViewScoped
 public class NewPatientView {
-	private Ptnt patient;
+	@ManagedProperty(value = "#{patientService}")
+	private PatientService service;
+
 	private List<ContactInfo> cntctInfoList;
 	private ContactInfo cntctInfo;
 	private boolean addContactInfoDisabled = false;
@@ -27,9 +30,9 @@ public class NewPatientView {
 	boolean confirm = false;
 
 	public NewPatientView() {
-		init();
 	}
 
+	@PostConstruct
 	public void init() {
 		this.setPatient(new Ptnt());
 		this.setCntctInfoList(new ArrayList<>());
@@ -38,9 +41,9 @@ public class NewPatientView {
 
 	/////////////// EVENTS//////////////////
 	public void onAddNewContactInfo(ActionEvent event) {
-		if (patient.getContactInfoList() == null)
-			patient.setContactInfoList(new ArrayList<>());
-		boolean hasNewRow = patient.getContactInfoList().stream()
+		if (this.getService().getSelected().getContactInfoList() == null)
+			this.getService().getSelected().setContactInfoList(new ArrayList<>());
+		boolean hasNewRow = this.getService().getSelected().getContactInfoList().stream()
 				.filter(ci -> ci.getEmail() == null && ci.getPhone() == null).count() >= 1;
 		if (hasNewRow) {
 			FacesMessage msg = new FacesMessage("Can't add new row", "There is an empty row already!!");
@@ -48,8 +51,8 @@ public class NewPatientView {
 		} else {
 			ContactInfo cntctInfo = new ContactInfo();
 			cntctInfo.setType("Main");
-			cntctInfo.setPrsn(patient);
-			patient.getContactInfoList().add(cntctInfo);
+			cntctInfo.setPrsn(this.getPatient());
+			this.getService().getSelected().getContactInfoList().add(cntctInfo);
 		}
 	}
 
@@ -66,10 +69,10 @@ public class NewPatientView {
 		this.setDeleteSelectedContactInfoDisabled(true);
 		this.setAddContactInfoDisabled(false);
 		ContactInfo editedContactInfo = (ContactInfo) event.getObject();
-		boolean moreThanOne = patient.getContactInfoList().stream().filter(ci -> ci.equals(editedContactInfo))
-				.count() > 1;
+		boolean moreThanOne = this.getService().getSelected().getContactInfoList().stream()
+				.filter(ci -> ci.equals(editedContactInfo)).count() > 1;
 		if (moreThanOne) {
-			patient.getContactInfoList().remove(editedContactInfo);
+			this.getService().getSelected().getContactInfoList().remove(editedContactInfo);
 			FacesMessage msg = new FacesMessage("Row Removed", "The contact information provided is redundent!!");
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
@@ -88,14 +91,21 @@ public class NewPatientView {
 		this.setAddContactInfoDisabled(false);
 	}
 
-	public void onDialogCancel() {
-		RequestContext.getCurrentInstance().closeDialog(null);
+	public String onCancelButtonClicked() {
 		this.init();
+		return "/main-page?faces-redirect=true";
 	}
 
-	public void onDialogApprove() {
-		RequestContext.getCurrentInstance().closeDialog(patient);
-		this.init();
+	public String onSaveButtonClicked() {
+		if (this.getService().save()) {
+			this.init();
+			return "/patient-prfile?faces-redirect=true";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Nothing saved there was an error!!", ""));
+			return null;
+		}
+
 	}
 	// public void onRowSelect(SelectEvent event) {
 	// this.setDeleteSelectedContactInfoDisabled(false);
@@ -118,11 +128,11 @@ public class NewPatientView {
 	///////////////////////////////////////
 
 	public Ptnt getPatient() {
-		return patient;
+		return this.getService().getSelected();
 	}
 
 	public void setPatient(Ptnt patient) {
-		this.patient = patient;
+		this.getService().setSelected(patient);
 	}
 
 	public ContactInfo getCntctInfo() {
@@ -155,6 +165,14 @@ public class NewPatientView {
 
 	public void setCntctInfoList(List<ContactInfo> cntctInfoList) {
 		this.cntctInfoList = cntctInfoList;
+	}
+
+	public PatientService getService() {
+		return service;
+	}
+
+	public void setService(PatientService service) {
+		this.service = service;
 	}
 
 }

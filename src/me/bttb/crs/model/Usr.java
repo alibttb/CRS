@@ -1,8 +1,16 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * The persistent class for the USR database table.
@@ -48,7 +56,7 @@ public class Usr extends Prsn implements Serializable {
 	}
 
 	public String getRole() {
-		return this.role;
+		return "Admin";
 	}
 
 	public void setRole(String role) {
@@ -87,4 +95,13 @@ public class Usr extends Prsn implements Serializable {
 		this.email = email;
 	}
 
+	@Transient
+	public boolean isAdmin() {
+		return true;
+	}
+
+	@Transient
+	public boolean isUser() {
+		return true;
+	}
 }

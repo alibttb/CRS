@@ -22,6 +22,11 @@ public class Dctr extends Usr implements Serializable {
 	public Dctr() {
 	}
 
+	@Override
+	public String getRole() {
+		return "Doctor";
+	}
+
 	public String getDctrMainSpec() {
 		return this.dctrMainSpec;
 	}

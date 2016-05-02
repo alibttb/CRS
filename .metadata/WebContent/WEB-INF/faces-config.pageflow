@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14601085683570" configfile="/CRS/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="72" y="96" id="pf14601233185372" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14604572049510 pf14604572671772" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="login-page.xhtml" x="192" y="216" id="pf14604572049511" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf14609789848310" inlinks="pf14604572049510 pf14604572671773" path="/login-page.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="manager/first-user.xhtml" x="300" y="96" id="pf14604572671774" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14604572671773" inlinks="pf14604572671772" path="/manager/first-user.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="home/index.xhtml" x="189" y="372" id="pf14609789848311" inlinks="pf14609789848310" path="/home/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login-page.xhtml" x="192" y="216" id="pf14604572049511" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14609789848310" inlinks="pf14604572049510 pf14604572671773" path="/login-page.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="first-user.xhtml" x="324" y="96" id="pf14604572671774" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14604572671773" inlinks="pf14604572671772" path="/first-user.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="main-page.xhtml" x="193" y="360" id="pf14609789848311" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14609789848310" path="/main-page.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="configuration.xhtml" x="463" y="108" id="pf14622083659430" path="/configuration.xhtml"/>
   <links id="pf14604572049510" target="pf14604572049511" source="pf14601233185372" outcome="not-first-user">
     <bendPoints d1Width="2" d1Height="120" d2Width="-133"/>
   </links>
   <links id="pf14604572671772" target="pf14604572671774" source="pf14601233185372" outcome="fisrt-user"/>
   <links id="pf14604572671773" target="pf14604572049511" source="pf14604572671774" outcome="success">
-    <bendPoints d1Width="1" d1Height="120" d2Width="130"/>
+    <bendPoints d1Width="-2" d1Height="119" d2Width="124" d2Height="-1"/>
   </links>
   <links id="pf14609789848310" target="pf14609789848311" source="pf14604572049511" outcome="good" redirect="true"/>
 </pageflow:Pageflow>

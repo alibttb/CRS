@@ -12,21 +12,95 @@
 </h:head>
 
 <h:body>
-	<ui:debug hotkey="x"
-		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
+	<!-- 		<ui:debug hotkey="x" -->
+	<!-- 			rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" /> -->
 
-	<div id="userControl" class="userControl">
-		<ui:insert name="userControl">
-			<p:panelGrid columns="4">
-				<p:outputLabel id="userName"
-					value="Welcome, #{userBean.userInDb.firstName} #{userBean.userInDb.familyName}!"></p:outputLabel>
-				<h:form id="userForm">
-					<p:commandButton value="Log Out" icon="icon-logout"
-						action="#{userBean.logout}"></p:commandButton>
-				</h:form>
-			</p:panelGrid>
-		</ui:insert>
-	</div>
+
+	<ui:insert name="userControl">
+		<h:form id="userForm" rendered="#{userBean.authenticated}">
+			<div class="userControl">
+				<p:panelGrid columns="4">
+					<p:outputLabel id="userName"
+						value="Welcome, #{userBean.userInDb.firstName} #{userBean.userInDb.familyName}!"></p:outputLabel>
+
+					<p:commandButton value="Log Out" icon="fa fa-sign-out"
+						action="#{userBean.logout}" />
+				</p:panelGrid>
+			</div>
+		</h:form>
+		<h:form id="tmplStckMenuForm" rendered="#{userBean.authenticated}">
+			<p:stack icon="/resources/img/dock/stack.png" expanded="true">
+				<p:menuitem value="Home" icon="/resources/img/dock/home.png"
+					outcome="/main-page.xhtml" />
+				<p:menuitem value="password"
+					oncomplete="PF('tmplUserChPwdWv').show()"
+					actionListener="#{changePasswordView.onChPwdButtonClicked}"
+					update="tmplChPwdDlgFrm:tmplUserChPwd"
+					icon="/resources/img/dock/chpwd.png" />
+				<p:menuitem value="Sign-out" icon="/resources/img/dock/Logout.png"
+					action="#{userBean.logout}" />
+				<p:menuitem value="Management" rendered="#{userBean.admin}"
+					icon="/resources/img/dock/portfolio.png" url="/management.xhtml" />
+			</p:stack>
+		</h:form>
+		<h:form id="tmplChPwdDlgFrm" rendered="#{userBean.authenticated}">
+			<p:growl id="msgs" showDetail="true" showIcon="true">
+				<p:effect type="pulsate" event="load" delay="500" />
+			</p:growl>
+			<p:dialog id="tmplUserChPwd" widgetVar="tmplUserChPwdWv"
+				closable="false" header="Change Your Password" closeOnEscape="true"
+				modal="true" showEffect="explode" draggable="false"
+				hideEffect="explode">
+
+				<p:panelGrid id="tmplPwdPanel" columns="2"
+					columnClasses="label, value">
+					<p:outputLabel value="Old Password:" for="oldtmplupwdch" />
+					<p:password id="oldtmplupwdch" redisplay="true"
+						value="#{changePasswordView.oldPass}" required="true" />
+
+					<p:outputLabel value="New Password:" for="newtmplupwdch1" />
+					<p:password id="newtmplupwdch1" match="newtmplupwdch2"
+						value="#{changePasswordView.newPass}" required="true"
+						feedback="true" inline="true">
+						<f:validateLength minimum="6" maximum="10" />
+					</p:password>
+
+					<p:outputLabel value="Confirm:" for="newtmplupwdch2" />
+					<p:password id="newtmplupwdch2"
+						value="#{changePasswordView.newPass}" required="true">
+					</p:password>
+				</p:panelGrid>
+				<f:facet name="footer">
+					<p:commandButton value="Save" icon="fa fa-save"
+						oncomplete="handelPwdChTmplSaveRequest(xhr, status, args)"
+						actionListener="#{changePasswordView.onSaveButtonClicked}"
+						process="@form,@this" update="tmplPwdPanel,msgs" />
+					<p:commandButton value="Cancel" icon="fa fa-ban"
+						oncomplete="PF('tmplUserChPwdWv').hide()"
+						actionListener="#{changePasswordView.onCancelButtonClicked}"
+						process="@this" update="tmplPwdPanel, msgs">
+						<p:resetInput target="tmplPwdPanel" />
+					</p:commandButton>
+				</f:facet>
+			</p:dialog>
+		</h:form>
+		<script type="text/javascript">
+			function handelPwdChTmplSaveRequest(xhr, status, args) {
+				if (args.validationFailed) {
+					PF('tmplUserChPwdWv').jq.effect("shake", {
+						times : 5
+					}, 100);
+				} else {
+					PF('tmplUserChPwdWv').hide();
+				}
+			}
+		</script>
+
+
+
+
+	</ui:insert>
+
 
 	<div id="header" class="header">
 		<ui:insert name="header">
@@ -46,7 +120,6 @@
 			<ui:include src="footer.xhtml" />
 		</ui:insert>
 	</div>
-
 </h:body>
 
 </html>
