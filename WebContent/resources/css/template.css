@@ -1,14 +1,5 @@
 @CHARSET "UTF-8";
 
-html {
-	/* 	background-color: #e8ce75; */
-	border: thin;
-}
-
-body {
-	border: thin;
-}
-
 .new {
 	background-color: aqua;
 	color: green;
@@ -64,13 +55,18 @@ body {
 	position: fixed;
 	left: 1px;
 	right: 1px;
-	margin-left: 1px;
-	margin-right: 1px;
+	border-radius: 100px 100px 0px 0px;
+	margin-left: 10%;
+	margin-right: 10%;
 	bottom: 0px;
-	z-index: 10;
-	 	background-color: #a1b5d7; 
-	 	
-	width: 100%;
-	/* 	color: white; */
+	z-index: 2;
+	background: -webkit-linear-gradient(top, rgba(12, 50, 150, 1),
+		rgba(12, 50, 150, 0.3));
+	background: -o-linear-gradient(bottom, rgba(12, 50, 150, 1),
+		rgba(12, 50, 150, 00.3));
+	background: -moz-linear-gradient(bottom, rgba(12, 50, 150, 1),
+		rgba(12, 50, 150, 0.3));
+	background: linear-gradient(to bottom, rgba(12, 50, 150, 1),
+		rgba(12, 50, 150, 0.3));
 	text-align: center;
 }

@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+
+html {
+	background-color: #d2f5ff !important;
+	border: thin;
+}
+
+body {
+	border: thin;
+}
+
+.dctr {
+	background: blue;
+	color: white;
+}
+
+.nrs {
+	background: white;
+	color: red;
+}
+
+.usr {
+	background: blue;
+	color: white;
+}

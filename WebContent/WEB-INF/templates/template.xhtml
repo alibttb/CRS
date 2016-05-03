@@ -19,12 +19,15 @@
 	<ui:insert name="userControl">
 		<h:form id="userForm" rendered="#{userBean.authenticated}">
 			<div class="userControl">
-				<p:panelGrid columns="4">
+				<p:panelGrid columns="4" styleClass="#{userBean.userInDb.prsnType}">
 					<p:outputLabel id="userName"
 						value="Welcome, #{userBean.userInDb.firstName} #{userBean.userInDb.familyName}!"></p:outputLabel>
-
-					<p:commandButton value="Log Out" icon="fa fa-sign-out"
-						action="#{userBean.logout}" />
+					<p:graphicImage value="/resources/img/users/admin.png" height="50"
+						width="50" rendered="#{userBean.admin}" />
+					<p:graphicImage value="/resources/img/users/doctor.png" height="50"
+						width="50" rendered="#{userBean.doctor}" />
+					<p:graphicImage value="/resources/img/users/nurse.png" height="50"
+						width="50" rendered="#{userBean.nurse}" />
 				</p:panelGrid>
 			</div>
 		</h:form>

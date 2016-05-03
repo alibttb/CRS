@@ -99,7 +99,7 @@ public class NewPatientView {
 	public String onSaveButtonClicked() {
 		if (this.getService().save()) {
 			this.init();
-			return "/patient-prfile?faces-redirect=true";
+			return "/patient-profile?faces-redirect=true";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Nothing saved there was an error!!", ""));
