@@ -13,8 +13,10 @@ import javax.persistence.*;
 public class DiaganosedWith implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private DiaganosedWithPK id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
+	private long id;
 
 	@Column(length = 255)
 	private String notes;
@@ -35,13 +37,6 @@ public class DiaganosedWith implements Serializable {
 	public DiaganosedWith() {
 	}
 
-	public DiaganosedWithPK getId() {
-		return this.id;
-	}
-
-	public void setId(DiaganosedWithPK id) {
-		this.id = id;
-	}
 
 	public String getNotes() {
 		return this.notes;
@@ -73,6 +68,16 @@ public class DiaganosedWith implements Serializable {
 
 	public void setVisit(Visit visit) {
 		this.visit = visit;
+	}
+
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

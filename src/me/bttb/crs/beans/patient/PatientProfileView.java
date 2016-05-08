@@ -26,7 +26,7 @@ public class PatientProfileView {
 
 	//////// ACTIONS///////////////////////////////////
 	public String openVisit() {
-		if (visitService.getSelectedVisit() == null) {
+		if (visitService.getSelected() == null) {
 			FacesContext fc = FacesContext.getCurrentInstance();
 			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No visit is selected",
 					"you need to select a visit before opening it."));
@@ -64,14 +64,6 @@ public class PatientProfileView {
 
 	public List<Visit> getPatientVisits() {
 		return visitService.getVisitsForPatient(patientService.getSelected());
-	}
-
-	public Visit getSelectedVisit() {
-		return getVisitService().getSelectedVisit();
-	}
-
-	public void setSelectedVisit(Visit vst) {
-		getVisitService().setSelectedVisit(vst);
 	}
 
 	public VisitService getVisitService() {

@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
-import me.bttb.crs.model.Dctr;
-import me.bttb.crs.model.Nrs;
 import me.bttb.crs.model.Usr;
 
 @Repository
@@ -43,13 +41,13 @@ public class UserDAO {
 	public List<Usr> getAllUsers() {
 		EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
 		List<Usr> users = em.createNamedQuery("Usr.findAll", Usr.class).getResultList();
-		List<Dctr> dctrs = em.createNamedQuery("Dctr.findAll", Dctr.class).getResultList();
-		List<Nrs> nurses = em.createNamedQuery("Nrs.findAll", Nrs.class).getResultList();
+		//List<Dctr> dctrs = em.createNamedQuery("Dctr.findAll", Dctr.class).getResultList();
+		//List<Nrs> nurses = em.createNamedQuery("Nrs.findAll", Nrs.class).getResultList();
 		em.close();
-		users.removeAll(dctrs);
-		users.addAll(dctrs);
-		users.removeAll(nurses);
-		users.addAll(nurses);
+//		users.removeAll(dctrs);
+//		users.addAll(dctrs);
+//		users.removeAll(nurses);
+//		users.addAll(nurses);
 		return users;
 	}
 

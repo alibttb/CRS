@@ -14,9 +14,10 @@ import java.math.BigDecimal;
 public class TkMsrmnt implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private TkMsrmntPK id;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
+	private long id;
 	@Column(length = 255)
 	private String notes;
 
@@ -39,13 +40,6 @@ public class TkMsrmnt implements Serializable {
 	public TkMsrmnt() {
 	}
 
-	public TkMsrmntPK getId() {
-		return this.id;
-	}
-
-	public void setId(TkMsrmntPK id) {
-		this.id = id;
-	}
 
 	public String getNotes() {
 		return this.notes;
@@ -85,6 +79,16 @@ public class TkMsrmnt implements Serializable {
 
 	public void setVisit(Visit visit) {
 		this.visit = visit;
+	}
+
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

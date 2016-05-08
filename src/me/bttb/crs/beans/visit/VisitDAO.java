@@ -59,7 +59,6 @@ public class VisitDAO {
 		List<Predicate> lsp = new ArrayList<>(2);
 		lsp.add(cb.equal(r.get(Visit_.ptnt), patient));
 		cqv.where(lsp.toArray(new Predicate[] {}));
-		patient.setVisits(em.createQuery(cqv).getResultList());
-		return patient.getVisits();
+		return em.createQuery(cqv).getResultList();
 	}
 }

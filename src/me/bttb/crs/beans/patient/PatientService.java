@@ -1,6 +1,7 @@
 package me.bttb.crs.beans.patient;
 
 import java.util.List;
+import java.util.Observable;
 
 import javax.annotation.PostConstruct;
 
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import me.bttb.crs.model.Ptnt;
-import me.bttb.crs.model.Visit;
 
 @Service
 @Scope("session")
@@ -17,10 +17,11 @@ public class PatientService {
 	@Autowired
 	private PatientDAO dao;
 	private Ptnt selected;
+	private Observable obs = new Observable();
 
 	@PostConstruct
 	public void init() {
-		selected = null;
+		this.setSelected(null);
 	}
 
 	public PatientService() {
@@ -44,6 +45,7 @@ public class PatientService {
 
 	public void setSelected(Ptnt selectedPatient) {
 		this.selected = selectedPatient;
+		obs.notifyObservers();
 	}
 
 	public List<Ptnt> getPatientsByName(String firstName, String familyName) {
@@ -58,7 +60,11 @@ public class PatientService {
 		return dao.findPatientsByFullNameSearch(fullNameSearchTerm);
 	}
 
-	public List<Visit> getVisits() {
-		return selected.getVisits();
+	public Observable getObs() {
+		return obs;
+	}
+
+	public void setObs(Observable obs) {
+		this.obs = obs;
 	}
 }

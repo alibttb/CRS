@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
@@ -23,8 +25,10 @@ import javax.persistence.TemporalType;
 public class HasSymptom implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private HasSymptomPK id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19, name = "ID")
+	private long id;
 
 	@Column(length = 255)
 	private String notes;
@@ -50,14 +54,6 @@ public class HasSymptom implements Serializable {
 	private Visit visit;
 
 	public HasSymptom() {
-	}
-
-	public HasSymptomPK getId() {
-		return this.id;
-	}
-
-	public void setId(HasSymptomPK id) {
-		this.id = id;
 	}
 
 	public String getNotes() {
@@ -106,6 +102,14 @@ public class HasSymptom implements Serializable {
 
 	public void setVisit(Visit visit) {
 		this.visit = visit;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

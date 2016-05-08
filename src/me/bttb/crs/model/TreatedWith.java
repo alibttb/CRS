@@ -1,8 +1,17 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the TREATED_WITH database table.
@@ -14,8 +23,10 @@ import java.math.BigDecimal;
 public class TreatedWith implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private TreatedWithPK id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(precision = 19)
+	private long id;
 
 	@Column(precision = 38)
 	private BigDecimal dosage;
@@ -45,13 +56,6 @@ public class TreatedWith implements Serializable {
 	public TreatedWith() {
 	}
 
-	public TreatedWithPK getId() {
-		return this.id;
-	}
-
-	public void setId(TreatedWithPK id) {
-		this.id = id;
-	}
 
 	public BigDecimal getDosage() {
 		return this.dosage;
@@ -107,6 +111,14 @@ public class TreatedWith implements Serializable {
 
 	public void setVisit(Visit visit) {
 		this.visit = visit;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

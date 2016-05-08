@@ -10,11 +10,15 @@ import org.primefaces.model.DashboardModel;
 import org.primefaces.model.DefaultDashboardColumn;
 import org.primefaces.model.DefaultDashboardModel;
 
+import me.bttb.crs.beans.hssmptm.HasSymptomService;
+
 @ManagedBean
 @ViewScoped
 public class VisitView {
 	@ManagedProperty(value = "#{visitService}")
-	private VisitService visitService;
+	private VisitService service;
+	private HasSymptomService hasSymptomService;
+
 	private DashboardModel dashboardModel;
 
 	public VisitView() {
@@ -35,20 +39,28 @@ public class VisitView {
 		dashboardModel.addColumn(c2);
 	}
 
-	public VisitService getVisitService() {
-		return visitService;
-	}
-
-	public void setVisitService(VisitService visitService) {
-		this.visitService = visitService;
-	}
-
 	public DashboardModel getDashboardModel() {
 		return dashboardModel;
 	}
 
 	public void setDashboardModel(DashboardModel dashboardModel) {
 		this.dashboardModel = dashboardModel;
+	}
+
+	public HasSymptomService getHasSymptomService() {
+		return hasSymptomService;
+	}
+
+	public void setHasSymptomService(HasSymptomService hasSymptomService) {
+		this.hasSymptomService = hasSymptomService;
+	}
+
+	public VisitService getService() {
+		return service;
+	}
+
+	public void setService(VisitService service) {
+		this.service = service;
 	}
 
 }

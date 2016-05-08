@@ -14,9 +14,9 @@
 				actionListener="#{symptomView.onRefreshButtonClicked}"
 				update="symptomComp" process="@this" />
 		</f:facet>
-		<p:dataTable id="symptomsDT" dir="ltr" value="#{symptomView.symptoms}"
+		<p:dataTable id="symptomsDT" dir="ltr" value="#{symptomView.list}"
 			disabledTextSelection="true" resizableColumns="true" 
-			selection="#{symptomView.symptomService.selected}" var="sm"
+			selection="#{symptomView.service.selected}" var="sm"
 			rowKey="#{sm.id}" rows="10" paginator="true"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 			rowsPerPageTemplate="5,10,15">
@@ -51,25 +51,25 @@
 		<p:dialog id="smptmDlg" widgetVar="smptmDlg">
 			<f:facet name="header">
 				<p:outputLabel
-					value="#{symptomView.symptomService.selected.id ne 0 ? 'New Symptom' : symptomView.symptomService.selected.name }" />
+					value="#{symptomView.service.selected.id ne 0 ? 'New Symptom' : symptomView.service.selected.name }" />
 			</f:facet>
 			<p:panelGrid columns="3" columnClasses="label, value, message"
 				id="smptmPanel">
 				<p:outputLabel for="smptmName" value="Name: " />
 				<p:inputText id="smptmName"
 					requiredMessage="You must enter a name for the symptom."
-					value="#{symptomView.symptomService.selected.name}"
+					value="#{symptomView.service.selected.name}"
 					placeholder="name" required="true" />
 				<p:message for="smptmName" />
 
 				<p:outputLabel for="smptmDesc" value="Description: " />
 				<p:inputText id="smptmDesc"
 					requiredMessage="You must enter a description for the symptom."
-					value="#{symptomView.symptomService.selected.description}"
+					value="#{symptomView.service.selected.description}"
 					placeholder="description" required="true" />
 				<p:message for="smptmDesc" />
 				<p:outputLabel value="Notes: " />
-				<p:inputText value="#{symptomView.symptomService.selected.notes}"
+				<p:inputText value="#{symptomView.service.selected.notes}"
 					placeholder="notes" />
 			</p:panelGrid>
 			<f:facet name="footer">

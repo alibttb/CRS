@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+html {
+	background-color: #d2f5ff !important;
+}
+
 .new {
 	background-color: aqua;
 	color: green;
@@ -28,7 +32,7 @@
 	z-index: 10;
 	width: 100%;
 	font-size: 36px;
-	line-height: 48px;
+	line-height: 47px;
 	/* 	background-color: #ed9320; */
 	/* 	color: white; */
 	position: relative;
@@ -60,13 +64,9 @@
 	margin-right: 10%;
 	bottom: 0px;
 	z-index: 2;
-	background: -webkit-linear-gradient(top, rgba(12, 50, 150, 1),
-		rgba(12, 50, 150, 0.3));
-	background: -o-linear-gradient(bottom, rgba(12, 50, 150, 1),
-		rgba(12, 50, 150, 00.3));
-	background: -moz-linear-gradient(bottom, rgba(12, 50, 150, 1),
-		rgba(12, 50, 150, 0.3));
-	background: linear-gradient(to bottom, rgba(12, 50, 150, 1),
-		rgba(12, 50, 150, 0.3));
+	background: -webkit-linear-gradient(top, #d2f5ff, rgba(12, 50, 150, 0.3));
+	background: -o-linear-gradient(bottom, #d2f5ff, rgba(12, 50, 150, 00.3));
+	background: -moz-linear-gradient(bottom, #d2f5ff, rgba(12, 50, 150, 0.3));
+	background: linear-gradient(to bottom, #d2f5ff, rgba(12, 50, 150, 0.3));
 	text-align: center;
 }

@@ -5,10 +5,10 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="Dali", date="2016-04-24T22:49:20.437+0300")
+@Generated(value="Dali", date="2016-05-06T19:53:45.761+0300")
 @StaticMetamodel(HasSymptom.class)
 public class HasSymptom_ {
-	public static volatile SingularAttribute<HasSymptom, HasSymptomPK> id;
+	public static volatile SingularAttribute<HasSymptom, Long> id;
 	public static volatile SingularAttribute<HasSymptom, String> notes;
 	public static volatile SingularAttribute<HasSymptom, String> repetation;
 	public static volatile SingularAttribute<HasSymptom, String> severity;

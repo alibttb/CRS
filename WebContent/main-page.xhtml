@@ -65,12 +65,17 @@
 				selectionMode="single" widgetVar="patientsTable" lazy="false"
 				selection="#{patientsView.selectedPatient}" rowKey="#{patient.pid}">
 				<f:facet name="header">
-					<p:outputPanel>
-						<h:outputText value="Search all fields:  " />
-						<p:inputText id="globalFilter"
-							onkeyup="PF('patientsTable').filter()" style="width:180px"
-							placeholder="Enter search keyword" />
-					</p:outputPanel>
+
+					<h:outputText value="Search all fields:  " />
+					<p:inputText id="globalFilter"
+						onkeyup="PF('patientsTable').filter()" style="width:180px"
+						placeholder="Enter search keyword" />
+					<p:spacer width="40px" height="20px" />
+					<p:commandButton value="New Patient" icon="fa fa-plus"
+						action="/new-patient.xhtml?faces-redirect=true">
+					</p:commandButton>
+					<p:commandButton value="Open profile" icon="fa fa-folder-open"
+						action="#{patientsView.openProfile}" />
 				</f:facet>
 				<p:column headerText="Patient Id" filterBy="#{patient.pid}">
 					<f:facet name="filter">
@@ -97,13 +102,7 @@
 					<h:outputText value="#{patient.birthDate}" />
 				</p:column>
 				<f:facet name="footer">
-					<p:outputPanel>
-						<p:commandButton value="New Patient" icon="ui-icon-plus"
-							action="/new-patient.xhtml?faces-redirect=true">
-						</p:commandButton>
-						<p:commandButton value="Open profile" icon="fa fa-file"
-							action="#{patientsView.openProfile}" />
-					</p:outputPanel>
+
 				</f:facet>
 			</p:dataTable>
 		</h:form>

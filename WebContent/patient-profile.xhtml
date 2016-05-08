@@ -29,7 +29,7 @@
 					rowStyleClass="#{vst.vstType eq 'New' ? 'new' : null}"
 					value="#{patientProfileView.patientVisits}" var="vst"
 					selectionMode="single" dir="rtl" rowKey="#{vst.id}"
-					selection="#{patientProfileView.selectedVisit}">
+					selection="#{patientProfileView.visitService.selected}">
 					<f:facet name="header"></f:facet>
 					<p:column headerText="Visit Type">
 						<h:outputText value="#{vst.vstType}" />
