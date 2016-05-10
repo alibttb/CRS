@@ -8,9 +8,9 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name = "DIAGANOSED_WITH")
-@NamedQuery(name = "DiaganosedWith.findAll", query = "SELECT d FROM DiaganosedWith d")
-public class DiaganosedWith implements Serializable {
+@Table(name = "DIAGNOSED_WITH")
+@NamedQuery(name = "DiagnosedWith.findAll", query = "SELECT d FROM DiagnosedWith d")
+public class DiagnosedWith implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,17 +24,17 @@ public class DiaganosedWith implements Serializable {
 	@Column(length = 255)
 	private String severity;
 
-	// bi-directional many-to-one association to Diaganosis
+	// bi-directional many-to-one association to Diagnosis
 	@ManyToOne
 	@JoinColumn(name = "DGNSS_ID", nullable = false, insertable = true, updatable = false)
-	private Diaganosis diaganosis;
+	private Diagnosis diagnosis;
 
 	// bi-directional many-to-one association to Visit
 	@ManyToOne
 	@JoinColumn(name = "VST_ID", nullable = false, insertable = true, updatable = false)
 	private Visit visit;
 
-	public DiaganosedWith() {
+	public DiagnosedWith() {
 	}
 
 
@@ -54,12 +54,12 @@ public class DiaganosedWith implements Serializable {
 		this.severity = severity;
 	}
 
-	public Diaganosis getDiaganosis() {
-		return this.diaganosis;
+	public Diagnosis getDiagnosis() {
+		return this.diagnosis;
 	}
 
-	public void setDiaganosis(Diaganosis diaganosis) {
-		this.diaganosis = diaganosis;
+	public void setDiagnosis(Diagnosis diagnosis) {
+		this.diagnosis = diagnosis;
 	}
 
 	public Visit getVisit() {

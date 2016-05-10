@@ -11,11 +11,15 @@
 	<ui:define name="userControl"></ui:define>
 
 	<ui:define name="header">
-		<p style="margin: 5px">Welcome to CRS</p>
-		<p style="margin: 5px; font: smaller lighter italic;">The Simplest
-			Clinic Record System</p>
-		<p style="margin: 5px; font: small lighter italic;">please login
-			to use the application</p>
+		<p:panel>
+			<f:facet name="header">
+				Welcome to CRS
+			</f:facet>
+			<p style="margin: 5px; font: smaller lighter italic;">The
+				Simplest Clinic Record System</p>
+			<!-- 		<p style="margin: 5px; font: small lighter italic;">please login -->
+			<!-- 			to use the application</p> -->
+		</p:panel>
 	</ui:define>
 
 	<ui:define name="content">

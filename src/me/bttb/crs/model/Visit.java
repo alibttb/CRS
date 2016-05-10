@@ -34,9 +34,9 @@ public class Visit implements Serializable {
 	@OneToMany(mappedBy = "visit")
 	private List<DctrOrder> dctrOrders;
 
-	// bi-directional many-to-one association to DiaganosedWith
+	// bi-directional many-to-one association to DiagnosedWith
 	@OneToMany(mappedBy = "visit")
-	private List<DiaganosedWith> diaganosedWithList;
+	private List<DiagnosedWith> diagnosedWithList;
 
 	// bi-directional many-to-one association to Document
 	@OneToMany(mappedBy = "visit")
@@ -116,26 +116,26 @@ public class Visit implements Serializable {
 		return dctrOrder;
 	}
 
-	public List<DiaganosedWith> getDiaganosedWithList() {
-		return this.diaganosedWithList;
+	public List<DiagnosedWith> getDiagnosedWithList() {
+		return this.diagnosedWithList;
 	}
 
-	public void setDiaganosedWithList(List<DiaganosedWith> diaganosedWithList) {
-		this.diaganosedWithList = diaganosedWithList;
+	public void setDiagnosedWithList(List<DiagnosedWith> diagnosedWithList) {
+		this.diagnosedWithList = diagnosedWithList;
 	}
 
-	public DiaganosedWith addDiaganosedWithList(DiaganosedWith diaganosedWithList) {
-		getDiaganosedWithList().add(diaganosedWithList);
-		diaganosedWithList.setVisit(this);
+	public DiagnosedWith addDiagnosedWithList(DiagnosedWith diagnosedWithList) {
+		getDiagnosedWithList().add(diagnosedWithList);
+		diagnosedWithList.setVisit(this);
 
-		return diaganosedWithList;
+		return diagnosedWithList;
 	}
 
-	public DiaganosedWith removeDiaganosedWithList(DiaganosedWith diaganosedWithList) {
-		getDiaganosedWithList().remove(diaganosedWithList);
-		diaganosedWithList.setVisit(null);
+	public DiagnosedWith removeDiagnosedWithList(DiagnosedWith diagnosedWithList) {
+		getDiagnosedWithList().remove(diagnosedWithList);
+		diagnosedWithList.setVisit(null);
 
-		return diaganosedWithList;
+		return diagnosedWithList;
 	}
 
 	public List<Document> getDocuments() {

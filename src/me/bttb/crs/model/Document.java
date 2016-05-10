@@ -1,7 +1,17 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the DOCUMENT database table.
@@ -22,7 +32,7 @@ public class Document implements Serializable {
 	private byte[] content;
 
 	@Column(length = 255)
-	private String describtion;
+	private String description;
 
 	@Column(name = "DOC_TYPE", length = 255)
 	private String docType;
@@ -62,12 +72,12 @@ public class Document implements Serializable {
 		this.content = content;
 	}
 
-	public String getDescribtion() {
-		return this.describtion;
+	public String getDescription() {
+		return this.description;
 	}
 
-	public void setDescribtion(String describtion) {
-		this.describtion = describtion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getDocType() {

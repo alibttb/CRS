@@ -23,7 +23,11 @@ public class ManagerView {
 		DashboardColumn c1 = new DefaultDashboardColumn();
 		DashboardColumn c2 = new DefaultDashboardColumn();
 		c1.addWidget("symptoms");
-
+		c1.addWidget("measurments");
+		c1.addWidget("documents");
+		c2.addWidget("diagnoses");
+		c2.addWidget("treatments");
+		c2.addWidget("orders");
 		model.addColumn(c1);
 		model.addColumn(c2);
 	}

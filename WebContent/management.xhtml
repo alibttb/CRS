@@ -202,7 +202,7 @@
 		<h:form id="codingForm">
 			<p:growl id="msg" showDetail="true" />
 			<p:panel header="Meta-data configuration">
-				<p:dashboard id="board" model="#{visitView.dashboardModel}">
+				<p:dashboard id="board" model="#{managerView.model}">
 					<p:panel id="symptoms" header="symptoms" toggleable="true"
 						collapsed="true">
 						<p:panel style="width: 100%; height: 100%" id="symptomComp">
@@ -223,10 +223,10 @@
 								<p:ajax event="rowUnselect"
 									listener="#{symptomView.onRowUnSelect}" process="symptomsDT"
 									update=":codingForm:smptmEditButton" />
-								<p:column headerText="Code" sortBy="#{sm.id}"
-									filterBy="#{sm.id}" width="40">
-									<p:outputLabel value="#{sm.id}" />
-								</p:column>
+<!-- 								<p:column headerText="Code" sortBy="#{sm.id}" -->
+<!-- 									filterBy="#{sm.id}" width="40"> -->
+<!-- 									<p:outputLabel value="#{sm.id}" /> -->
+<!-- 								</p:column> -->
 								<p:column headerText="Name" sortBy="#{sm.name}"
 									filterBy="#{sm.name}" width="40">
 									<p:outputLabel value="#{sm.name}" />
@@ -323,10 +323,10 @@
 								<p:ajax event="rowUnselect"
 									listener="#{measurmentView.onRowUnSelect}" process="msrmntsDT"
 									update=":codingForm:msrmntEditButton" />
-								<p:column headerText="Code" sortBy="#{me.id}"
-									filterBy="#{me.id}" width="40">
-									<p:outputLabel value="#{me.id}" />
-								</p:column>
+<!-- 								<p:column headerText="Code" sortBy="#{me.id}" -->
+<!-- 									filterBy="#{me.id}" width="40"> -->
+<!-- 									<p:outputLabel value="#{me.id}" /> -->
+<!-- 								</p:column> -->
 								<p:column headerText="Name" sortBy="#{me.name}"
 									filterBy="#{me.name}" width="40">
 									<p:outputLabel value="#{me.name}" />
@@ -399,8 +399,8 @@
 							}
 						</script>
 					</p:panel>
-					<p:panel id="diaganosis" header="diaganosis" toggleable="true"
-						collapsed="true">
+					<p:panel id="diagnoses" header="diagnosis" toggleable="true"
+						visible="true" collapsed="true">
 						<p:panel style="width: 100%; height: 100%" id="dgnssComp">
 							<f:facet name="header">
 								<p:commandButton value="Refresh" icon="fa fa-refresh"
@@ -408,72 +408,73 @@
 									update="dgnssComp" process="@this" />
 							</f:facet>
 							<p:dataTable id="dgnsssDT" dir="ltr"
-								value="#{diaganosisView.list}" disabledTextSelection="true"
+								value="#{diagnosisView.list}" disabledTextSelection="true"
 								resizableColumns="true"
-								selection="#{diaganosisView.service.selected}" var="tr"
-								rowKey="#{tr.id}" rows="10" paginator="true"
+								selection="#{diagnosisView.service.selected}" var="di"
+								rowKey="#{di.id}" rows="10" paginator="true"
 								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 								rowsPerPageTemplate="5,10,15">
-								<p:column headerText="Code" sortBy="#{tr.id}"
-									filterBy="#{tr.id}" width="40">
+								<p:column headerText="Code" sortBy="#{di.id}"
+									filterBy="#{di.id}" width="40">
 									<p:outputLabel value="#{tr.id}" />
 								</p:column>
-								<p:column headerText="Name" sortBy="#{tr.name}"
-									filterBy="#{tr.name}" width="40">
-									<p:outputLabel value="#{tr.name}" />
+								<p:column headerText="Name" sortBy="#{di.name}"
+									filterBy="#{di.name}" width="40">
+									<p:outputLabel value="#{di.name}" />
 								</p:column>
-								<p:column headerText="Description" sortBy="#{tr.description}"
-									width="80" filterBy="#{tr.description}">
-									<p:outputLabel value="#{tr.description}" />
+								<p:column headerText="Describtion" sortBy="#{di.describtion}"
+									width="80" filterBy="#{di.describtion}">
+									<p:outputLabel value="#{di.describtion}" />
 								</p:column>
-								<p:column headerText="Notes" sortBy="#{tr.notes}" width="80"
-									filterBy="#{tr.notes}">
-									<p:outputLabel value="#{tr.notes}" />
-								</p:column>
+<!-- 								<p:column headerText="Notes" sortBy="#{di.notes}" width="80" -->
+<!-- 									filterBy="#{di.notes}"> -->
+<!-- 									<p:outputLabel value="#{di.notes}" /> -->
+<!-- 								</p:column> -->
 							</p:dataTable>
 							<f:facet name="footer">
 								<p:commandButton value="New" icon="fa fa-plus"
 									oncomplete="PF('dgnssDlg').show()" process="@this"
 									update="dgnssComp"
-									actionListener="#{diaganosisView.onAddNewDialogOpen}" />
+									actionListener="#{diagnosisView.onAddNewDialogOpen}" />
 								<p:commandButton value="Edit" icon="fa fa-edit"
 									oncomplete="PF('dgnssDlg').show()" process="@this,dgnsssDT"
 									update="dgnssComp"
-									actionListener="#{diaganosisView.onEditSelectedDialogOpen}" />
+									actionListener="#{diagnosisView.onEditSelectedDialogOpen}" />
 							</f:facet>
 							<p:dialog id="dgnssDlg" widgetVar="dgnssDlg" modal="true">
 								<f:facet name="header">
 									<p:outputLabel
-										value="#{diaganosisView.service.selected.id ne 0 ? 'New Diaganosis Meta Data' : dgnssView.dgnssService.selected.name }" />
+										value="#{diagnosisView.service.selected.id ne 0 ? 'New Diagnosis Meta Data' : dgnssView.dgnssService.selected.name }" />
 								</f:facet>
 								<p:panelGrid columns="3" columnClasses="label, value, message"
 									id="dgnssPanel">
 									<p:outputLabel for="dgnssName" value="Name: " />
 									<p:inputText id="dgnssName"
-										requiredMessage="You must enter a name for the Diaganosis."
-										value="#{diaganosisView.service.selected.name}"
+										requiredMessage="You must enter a name for the Diagnosis."
+										value="#{diagnosisView.service.selected.name}"
 										placeholder="name" required="true" />
 									<p:message for="dgnssName" />
-
+									<p:outputLabel for="dgnssCode" value="Code (ICD): " />
+									<p:inputText id="dgnssCode"
+										value="#{diagnosisView.service.selected.code}"
+										placeholder="Code" />
+									<p:message for="dgnssCode" />
 									<p:outputLabel for="dgnssDesc" value="Description: " />
 									<p:inputText id="dgnssDesc"
-										requiredMessage="You must enter a description for the Diaganosis."
-										value="#{diaganosisView.service.selected.description}"
+										requiredMessage="You must enter a description for the Diagnosis."
+										value="#{diagnosisView.service.selected.describtion}"
 										placeholder="description" required="true" />
 									<p:message for="dgnssDesc" />
-									<p:outputLabel value="Notes: " />
-									<p:inputText value="#{diaganosisView.service.selected.notes}"
-										placeholder="notes" />
 								</p:panelGrid>
 								<f:facet name="footer">
 									<p:commandButton value="Save" icon="fa fa-save"
 										oncomplete="handelDgssSaveRequest(xhr, status, args)"
 										process="dgnssDlg, @this" update="dgnsssDT,dgnssPanel, msg"
-										actionListener="#{diaganosisView.onSaveButtonClicked}" />
+										actionListener="#{diagnosisView.onSaveButtonClicked}" />
 									<p:commandButton value="Cancel" icon="fa fa-remove"
 										oncomplete="PF('dgnssDlg').hide()" process="@this"
 										update="msg"
-										actionListener="#{diaganosisView.onCancelButtonClicked}" />
+										actionListener="#{diagnosisView.onCancelButtonClicked}" />
 								</f:facet>
 							</p:dialog>
 						</p:panel>
@@ -485,7 +486,6 @@
 									}, 100);
 								} else {
 									PF('dgnssDlg').hide();
-
 								}
 							}
 						</script>
@@ -512,10 +512,10 @@
 								<p:ajax event="rowUnselect"
 									listener="#{treatmentView.onRowUnSelect}" process="trtmntsDT"
 									update=":codingForm:trtmntEditButton" />
-								<p:column headerText="Code" sortBy="#{tr.id}"
-									filterBy="#{tr.id}" width="40">
-									<p:outputLabel value="#{tr.id}" />
-								</p:column>
+<!-- 								<p:column headerText="Code" sortBy="#{tr.id}" -->
+<!-- 									filterBy="#{tr.id}" width="40"> -->
+<!-- 									<p:outputLabel value="#{tr.id}" /> -->
+<!-- 								</p:column> -->
 								<p:column headerText="Name" sortBy="#{tr.name}"
 									filterBy="#{tr.name}" width="40">
 									<p:outputLabel value="#{tr.name}" />
@@ -568,7 +568,7 @@
 								</p:panelGrid>
 								<f:facet name="footer">
 									<p:commandButton value="Save" icon="fa fa-save"
-										oncomplete="handelSaveRequest(xhr, status, args)"
+										oncomplete="handelTreatmentSaveRequest(xhr, status, args)"
 										process="trtmntDlg, @this" update="trtmntsDT,trtmntPanel, msg"
 										actionListener="#{treatmentView.onSaveButtonClicked}" />
 									<p:commandButton value="Cancel" icon="fa fa-remove"
@@ -579,7 +579,8 @@
 							</p:dialog>
 						</p:panel>
 						<script type="text/javascript">
-							function handelSaveRequest(xhr, status, args) {
+							function handelTreatmentSaveRequest(xhr, status,
+									args) {
 								if (args.validationFailed) {
 									PF('trtmntDlg').jq.effect("shake", {
 										times : 5

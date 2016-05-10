@@ -238,13 +238,411 @@
 								}
 							</script>
 						</h:form>
+					</p:panel>
+					<p:panel id="diaganosis" header="diaganosis">
+						<h:form id="dgnssFrm">
+							<p:growl id="msgs" showDetail="true" />
+							<p:dataTable id="dtId" value="#{diagnosedWithView.service.list}"
+								selection="#{diagnosedWithView.service.selected}"
+								selectionMode="single" var="item" rowKey="#{item.id}">
+								<p:ajax event="rowSelect" update="editBtn, deleteBtn" />
+								<p:ajax event="rowUnselect" update="editBtn, deleteBtn" />
+								<p:column headerText="Diagnosis Name">
+									<h:outputText id="dgnssName" value="#{item.diagnosis.name}" />
+									<p:tooltip for="dgnssName"
+										value="#{item.diagnosis.describtion}" />
+								</p:column>
+								<p:column headerText="Severity">
+									<h:outputText value="#{item.severity}" />
+								</p:column>
+								<p:column headerText="Notes">
+									<h:outputText value="#{item.notes}" />
+								</p:column>
+								<f:facet name="footer">
+									<p:commandButton value="Add" icon="fa fa-plus" process="@this"
+										actionListener="#{diagnosedWithView.onAddButtonClicked}"
+										update="@widgetVar(dgnssDlgWv)"
+										oncomplete="PF('dgnssDlgWv').show()" />
+									<p:commandButton value="Edit" icon="fa fa-pencil"
+										process="@this" id="editBtn"
+										actionListener="#{diagnosedWithView.onEditButtonClicked}"
+										update="@widgetVar(dgnssDlgWv)"
+										disabled="#{diagnosedWithView.service.selected eq null}"
+										oncomplete="PF('dgnssDlgWv').show()" />
+									<p:commandButton value="Delete" icon="fa fa-remove"
+										process="@this" id="deleteBtn" update="@form"
+										disabled="#{diagnosedWithView.service.selected eq null}"
+										actionListener="#{diagnosedWithView.onDeleteButtonClicked}">
+										<p:confirm header="Confirmation"
+											message="Are you sure you want to delete #{diagnosedWithView.service.selected.diagnosis.name}"
+											icon="fa fa-remove" />
+									</p:commandButton>
+								</f:facet>
+							</p:dataTable>
+							<p:dialog id="dgnssDlg" widgetVar="dgnssDlgWv" modal="true"
+								closable="false" showEffect="explode" hideEffect="explode">
+								<p:panelGrid id="dgnssPanel" columns="2"
+									columnClasses="label, value">
+									<p:outputLabel value="Diagnosis:" for="dgnssName" />
+									<p:autoComplete id="dgnssName" required="true"
+										placeholder="Diagnosis"
+										requiredMessage="Diagnosis name is manadotry."
+										value="#{diagnosedWithView.service.selected.diagnosis}"
+										completeMethod="#{diagnosedWithView.completeDiagnosis}"
+										var="dgw" itemLabel="#{dgw.name}" itemValue="#{dgw}"
+										forceSelection="true" maxResults="12"
+										converter="diagnosisConveter">
+										<p:tooltip for="dgnssName" value="#{dgw.description}" />
+									</p:autoComplete>
+
+									<p:outputLabel value="Severity:" for="dgnssSev" />
+									<p:selectOneButton id="dgnssSev"
+										value="#{diagnosedWithView.service.selected.severity}"
+										required="true" requiredMessage="Severity is manadotry">
+										<f:selectItem itemLabel="Mild" itemValue="Mild" />
+										<f:selectItem itemLabel="Moderate" itemValue="Moderate" />
+										<f:selectItem itemLabel="Strong" itemValue="Strong" />
+									</p:selectOneButton>
+									<p:outputLabel value="Notes:" for="dgnssNotes" />
+									<p:inputTextarea id="dgnssNotes"
+										value="#{diagnosedWithView.service.selected.notes}"
+										maxlength="210" placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton id="dgnssSave" value="Save" icon="fa fa-save"
+										oncomplete="handelDgnssSaveRequest(xhr, status, args)"
+										process="dgnssPanel, @this"
+										actionListener="#{diagnosedWithView.onSaveButtonClicked}"
+										update="dgnssPanel, dgnssFrm:dtId, dgnssFrm:msgs" />
+									<p:commandButton id="dgnssCancel" value="Cancel"
+										process="@this"
+										update="dgnssPanel, dgnssFrm:dtId, dgnssFrm:msgs"
+										actionListener="#{diagnosedWithView.onCancelButtonClicked}"
+										icon="fa fa-remove" oncomplete="PF('dgnssDlgWv').hide()">
+										<p:resetInput target="dgnssPanel" />
+									</p:commandButton>
+								</f:facet>
+							</p:dialog>
+							<script>
+								function handelDgnssSaveRequest(xhr, status,
+										args) {
+									if (args.validationFailed) {
+										PF('dgnssDlgWv').jq.effect("shake", {
+											times : 5
+										}, 100);
+									} else {
+										PF('dgnssDlgWv').hide();
+									}
+								}
+							</script>
+						</h:form>
+					</p:panel>
+					<p:panel id="treatments" header="treatments">
+						<h:form id="trtmntFrm">
+							<p:growl id="msgs" showDetail="true" />
+							<p:dataTable id="dtId" value="#{treatedWithView.service.list}"
+								selection="#{treatedWithView.service.selected}"
+								selectionMode="single" var="item" rowKey="#{item.id}">
+								<p:ajax event="rowSelect" update="editBtn, deleteBtn" />
+								<p:ajax event="rowUnselect" update="editBtn, deleteBtn" />
+								<p:column headerText="Treatment Name">
+									<h:outputText id="trtmntName" value="#{item.treatment.name}" />
+									<p:tooltip for="trtmntName"
+										value="#{item.treatment.description}" />
+								</p:column>
+								<p:column headerText="Dosage">
+									<h:outputText value="#{item.dosage}" />
+								</p:column>
+								<p:column headerText="Unit">
+									<h:outputText value="#{item.unit}" />
+								</p:column>
+								<p:column headerText="Repetation">
+									<h:outputText value="#{item.repetation}" />
+								</p:column>
+								<p:column headerText="Dutraion (Days)">
+									<h:outputText value="#{item.durationDays}" />
+								</p:column>
+								<p:column headerText="Notes">
+									<h:outputText value="#{item.notes}" />
+								</p:column>
+								<f:facet name="footer">
+									<p:commandButton value="Add" icon="fa fa-plus" process="@this"
+										actionListener="#{treatedWithView.onAddButtonClicked}"
+										update="@widgetVar(trtmntDlgWv)"
+										oncomplete="PF('trtmntDlgWv').show()" />
+									<p:commandButton value="Edit" icon="fa fa-pencil"
+										process="@this" id="editBtn"
+										actionListener="#{treatedWithView.onEditButtonClicked}"
+										update="@widgetVar(trtmntDlgWv)"
+										disabled="#{treatedWithView.service.selected eq null}"
+										oncomplete="PF('trtmntDlgWv').show()" />
+									<p:commandButton value="Delete" icon="fa fa-remove"
+										process="@this" id="deleteBtn" update="@form"
+										disabled="#{treatedWithView.service.selected eq null}"
+										actionListener="#{treatedWithView.onDeleteButtonClicked}">
+										<p:confirm header="Confirmation"
+											message="Are you sure you want to delete #{treatedWithView.service.selected.treatment.name}"
+											icon="fa fa-remove" />
+									</p:commandButton>
+								</f:facet>
+							</p:dataTable>
+							<p:dialog id="trtmntDlg" widgetVar="trtmntDlgWv" modal="true"
+								closable="false" showEffect="explode" hideEffect="explode">
+								<p:panelGrid id="trtmntPanel" columns="2"
+									columnClasses="label, value">
+									<p:outputLabel value="Treatment:" for="trtmntName" />
+									<p:autoComplete id="trtmntName" required="true"
+										placeholder="Treatment"
+										requiredMessage="Treatment name is manadotry."
+										value="#{treatedWithView.service.selected.treatment}"
+										completeMethod="#{treatedWithView.completeTreatment}"
+										var="trw" itemLabel="#{trw.name}" itemValue="#{trw}"
+										forceSelection="true" maxResults="12"
+										converter="treatmentConveter">
+										<p:tooltip for="trtmntName" value="#{trw.description}" />
+									</p:autoComplete>
+
+									<p:outputLabel value="Dosage:" for="trtmntDos" />
+									<p:spinner id="trtmntDos"
+										value="#{treatedWithView.service.selected.dosage}">
+										<f:validateDoubleRange minimum="0" />
+									</p:spinner>
+									<p:outputLabel for="trtmntUn" value="Unit" />
+									<p:inputText id="trtmntUn"
+										value="#{treatedWithView.service.selected.unit}" />
+									<p:outputLabel for="trtmntRep" value="Repetation" />
+									<p:inputText id="trtmntRep"
+										value="#{treatedWithView.service.selected.repetation}" />
+									<p:outputLabel for="trtmntDuration" value="Duration (Days)" />
+									<p:spinner id="trtmntDuration"
+										value="#{treatedWithView.service.selected.durationDays}">
+										<f:validateDoubleRange minimum="0" />
+									</p:spinner>
+									<p:outputLabel value="Notes:" for="dgnssNotes" />
+									<p:inputTextarea id="dgnssNotes"
+										value="#{treatedWithView.service.selected.notes}"
+										maxlength="210" placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton id="dtrtmntSave" value="Save"
+										icon="fa fa-save"
+										oncomplete="handelTrtmntSaveRequest(xhr, status, args)"
+										process="trtmntPanel, @this"
+										actionListener="#{treatedWithView.onSaveButtonClicked}"
+										update="trtmntPanel, trtmntFrm:dtId, trtmntFrm:msgs" />
+									<p:commandButton id="trtmntCancel" value="Cancel"
+										process="@this"
+										update="trtmntPanel, trtmntFrm:dtId, trtmntFrm:msgs"
+										actionListener="#{treatedWithView.onCancelButtonClicked}"
+										icon="fa fa-remove" oncomplete="PF('trtmntDlgWv').hide()">
+										<p:resetInput target="trtmntPanel" />
+									</p:commandButton>
+								</f:facet>
+							</p:dialog>
+							<script>
+								function handelTrtmntSaveRequest(xhr, status,
+										args) {
+									if (args.validationFailed) {
+										PF('trtmntDlgWv').jq.effect("shake", {
+											times : 5
+										}, 100);
+									} else {
+										PF('trtmntDlgWv').hide();
+									}
+								}
+							</script>
+						</h:form>
+					</p:panel>
+					<p:panel id="orders" header="orders">
+						<!-- Orders form start  -->
+						<h:form id="ordrsFrm">
+							<p:growl id="msgs" showDetail="true" />
+							<p:dataTable id="dtId" value="#{dctrOrderView.service.list}"
+								selection="#{dctrOrderView.service.selected}"
+								selectionMode="single" var="item" rowKey="#{item.id}">
+								<p:ajax event="rowSelect" update="editBtn, deleteBtn" />
+								<p:ajax event="rowUnselect" update="editBtn, deleteBtn" />
+								<p:column headerText="Order Type">
+									<h:outputText value="#{item.rdrType}" />
+								</p:column>
+								<p:column headerText="Order Name">
+									<h:outputText value="#{item.name}" />
+								</p:column>
+								<p:column headerText="Description">
+									<h:outputText value="#{item.description}" />
+								</p:column>
+								<p:column headerText="Notes">
+									<h:outputText value="#{item.notes}" />
+								</p:column>
+								<f:facet name="footer">
+									<p:commandButton value="Add" icon="fa fa-plus" process="@this"
+										actionListener="#{dctrOrderView.onAddButtonClicked}"
+										update="@widgetVar(dctrOrderDlgWv)"
+										oncomplete="PF('dctrOrderDlgWv').show()" />
+									<p:commandButton value="Edit" icon="fa fa-pencil"
+										process="@this" id="editBtn"
+										actionListener="#{dctrOrderView.onEditButtonClicked}"
+										update="@widgetVar(dctrOrderDlgWv)"
+										disabled="#{dctrOrderView.service.selected eq null}"
+										oncomplete="PF('dctrOrderDlgWv').show()" />
+									<p:commandButton value="Delete" icon="fa fa-remove"
+										process="@this" id="deleteBtn" update="@form"
+										disabled="#{dctrOrderView.service.selected eq null}"
+										actionListener="#{dctrOrderView.onDeleteButtonClicked}">
+										<p:confirm header="Confirmation"
+											message="Are you sure you want to delete #{dctrOrderView.service.selected.name}"
+											icon="fa fa-remove" />
+									</p:commandButton>
+								</f:facet>
+							</p:dataTable>
+							<p:dialog id="dctrOrderDlg" widgetVar="dctrOrderDlgWv"
+								modal="true" closable="false" showEffect="explode"
+								hideEffect="explode">
+								<p:panelGrid id="dctrOrderPanel" columns="2"
+									columnClasses="label, value">
+									<p:outputLabel value="Type:" for="dctrOrderType" />
+									<p:autoComplete id="dctrOrderType" required="true"
+										placeholder="Type" requiredMessage="Type name is manadotry."
+										value="#{dctrOrderView.service.selected.rdrType}"
+										completeMethod="#{dctrOrderView.completeDctrOrderType}"
+										var="dot" itemLabel="#{dot}" itemValue="#{dot}"
+										forceSelection="false" />
+									<p:outputLabel value="Description" for="dctrOrderDesc" />
+									<p:inputTextarea id="dctrOrderDesc" maxlength="210"
+										value="#{dctrOrderView.service.selected.description}" />
+									<p:outputLabel value="Name:" for="dctrOrderName" />
+									<p:autoComplete id="dctrOrderName" required="true"
+										requiredMessage="Order name is manadotry" placeholder="Name"
+										value="#{dctrOrderView.service.selected.name}"
+										completeMethod="#{dctrOrderView.completeDctrOrderName}"
+										var="don" itemLabel="#{don}" itemValue="#{don}"
+										forceSelection="false" />
+									<p:outputLabel value="Notes:" for="dctrOrderNotes" />
+									<p:inputTextarea id="dctrOrderNotes"
+										value="#{dctrOrderView.service.selected.notes}"
+										maxlength="210" placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton id="dctrOrderSave" value="Save"
+										icon="fa fa-save"
+										oncomplete="handelDctrOrderSaveRequest(xhr, status, args)"
+										process="dctrOrderPanel, @this"
+										actionListener="#{dctrOrderView.onSaveButtonClicked}"
+										update="dctrOrderPanel, ordrsFrm:dtId, ordrsFrm:msgs" />
+									<p:commandButton id="dctrOrderCancel" value="Cancel"
+										process="@this"
+										update="dctrOrderPanel, ordrsFrm:dtId, ordrsFrm:msgs"
+										actionListener="#{dctrOrderView.onCancelButtonClicked}"
+										icon="fa fa-remove" oncomplete="PF('dctrOrderDlgWv').hide()">
+										<p:resetInput target="dctrOrderPanel" />
+									</p:commandButton>
+								</f:facet>
+							</p:dialog>
+							<script>
+								function handelDctrOrderSaveRequest(xhr,
+										status, args) {
+									if (args.validationFailed) {
+										PF('dctrOrderDlgWv').jq.effect("shake",
+												{
+													times : 5
+												}, 100);
+									} else {
+										PF('dctrOrderDlgWv').hide();
+									}
+								}
+							</script>
+						</h:form>
+						<!-- Orders form end -->
+					</p:panel>
+					<p:panel id="documents" header="documents">
+						<h:form id="docuFrm">
+							<p:growl id="msgs" showDetail="true" />
+							<p:dataTable id="dtId" value="#{documentView.service.list}"
+								selection="#{documentView.service.selected}"
+								selectionMode="single" var="item" rowKey="#{item.id}">
+								<p:ajax event="rowSelect" update="editBtn, deleteBtn" />
+								<p:ajax event="rowUnselect" update="editBtn, deleteBtn" />
+								<p:column headerText="Name">
+									<h:outputText value="#{item.name}" />
+								</p:column>
+								<p:column headerText="Description">
+									<h:outputText value="#{item.description}" />
+								</p:column>
+								<p:column headerText="Notes">
+									<h:outputText value="#{item.notes}" />
+								</p:column>
+								<f:facet name="footer">
+									<p:commandButton value="Add" icon="fa fa-plus" process="@this"
+										actionListener="#{documentView.onAddButtonClicked}"
+										update="@widgetVar(docuDlgWv)"
+										oncomplete="PF('docuDlgWv').show()" />
+									<p:commandButton value="Edit" icon="fa fa-pencil"
+										process="@this" id="editBtn"
+										actionListener="#{documentView.onEditButtonClicked}"
+										update="@widgetVar(docuDlgWv)"
+										disabled="#{documentView.service.selected eq null}"
+										oncomplete="PF('docuDlgWv').show()" />
+									<p:commandButton value="Delete" icon="fa fa-remove"
+										process="@this" id="deleteBtn" update="@form"
+										disabled="#{documentView.service.selected eq null}"
+										actionListener="#{documentView.onDeleteButtonClicked}">
+										<p:confirm header="Confirmation"
+											message="Are you sure you want to delete #{documentView.service.selected.name}"
+											icon="fa fa-remove" />
+									</p:commandButton>
+								</f:facet>
+							</p:dataTable>
+							<p:dialog id="docuDlg" widgetVar="docuDlgWv" modal="true"
+								closable="false" showEffect="explode" hideEffect="explode">
+								<p:panelGrid id="docuPanel" columns="2"
+									columnClasses="label, value">
+									<p:outputLabel value="Type:" for="docuType" />
+									<p:autoComplete id="docuType" required="true"
+										placeholder="Name" requiredMessage="Type name is manadotry."
+										value="#{documentView.service.selected.name}"
+										completeMethod="#{documentView.completeDocumentName}"
+										var="doc" itemLabel="#{doc}" itemValue="#{doc}"
+										forceSelection="false" />
+									<p:outputLabel value="Description" for="docuDesc" />
+									<p:inputTextarea id="docuDesc" maxlength="210"
+										value="#{documentView.service.selected.description}" />
+
+									<p:outputLabel value="Notes:" for="docuNotes" />
+									<p:inputTextarea id="docuNotes"
+										value="#{documentView.service.selected.notes}" maxlength="210"
+										placeholder="notes" />
+								</p:panelGrid>
+								<f:facet name="footer">
+									<p:commandButton id="docuSave" value="Save" icon="fa fa-save"
+										oncomplete="handelDocumentSaveRequest(xhr, status, args)"
+										process="docuPanel, @this"
+										actionListener="#{documentView.onSaveButtonClicked}"
+										update="docuPanel, docuFrm:dtId, docuFrm:msgs" />
+									<p:commandButton id="docuCancel" value="Cancel" process="@this"
+										update="docuPanel, docuFrm:dtId, docuFrm:msgs"
+										actionListener="#{documentView.onCancelButtonClicked}"
+										icon="fa fa-remove" oncomplete="PF('docuDlgWv').hide()">
+										<p:resetInput target="docuPanel" />
+									</p:commandButton>
+								</f:facet>
+							</p:dialog>
+							<script>
+								function handelDocumentSaveRequest(xhr, status,
+										args) {
+									if (args.validationFailed) {
+										PF('docuDlgWv').jq.effect("shake", {
+											times : 5
+										}, 100);
+									} else {
+										PF('docuDlgWv').hide();
+									}
+								}
+							</script>
+						</h:form>
+
 
 
 					</p:panel>
-					<p:panel id="diaganosis" header="diaganosis">cont</p:panel>
-					<p:panel id="treatments" header="treatments">cont</p:panel>
-					<p:panel id="orders" header="orders">cont</p:panel>
-					<p:panel id="documents" header="documents">cont</p:panel>
 				</p:dashboard>
 
 				<div style="clear: both" />

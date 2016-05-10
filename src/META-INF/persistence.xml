@@ -6,8 +6,8 @@
 		<class>me.bttb.crs.model.ContactInfo</class>
 		<class>me.bttb.crs.model.Dctr</class>
 		<class>me.bttb.crs.model.DctrOrder</class>
-		<class>me.bttb.crs.model.DiaganosedWith</class>
-		<class>me.bttb.crs.model.Diaganosis</class>
+		<class>me.bttb.crs.model.DiagnosedWith</class>
+		<class>me.bttb.crs.model.Diagnosis</class>
 		<class>me.bttb.crs.model.Document</class>
 		<class>me.bttb.crs.model.HasSymptom</class>
 		<class>me.bttb.crs.model.Lctn</class>

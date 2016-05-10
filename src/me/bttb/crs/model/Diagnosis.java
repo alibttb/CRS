@@ -9,9 +9,9 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name = "DIAGANOSIS")
-@NamedQuery(name = "Diaganosis.findAll", query = "SELECT d FROM Diaganosis d")
-public class Diaganosis implements Serializable {
+@Table(name = "DIAGNOSIS")
+@NamedQuery(name = "Diagnosis.findAll", query = "SELECT d FROM Diagnosis d")
+public class Diagnosis implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -31,11 +31,11 @@ public class Diaganosis implements Serializable {
 	@Column(length = 255)
 	private String name;
 
-	// bi-directional many-to-one association to DiaganosedWith
-	@OneToMany(mappedBy = "diaganosis")
-	private List<DiaganosedWith> diaganosedWithList;
+	// bi-directional many-to-one association to DiagnosedWith
+	@OneToMany(mappedBy = "diagnosis")
+	private List<DiagnosedWith> diaganosedWithList;
 
-	public Diaganosis() {
+	public Diagnosis() {
 	}
 
 	public long getId() {
@@ -78,24 +78,24 @@ public class Diaganosis implements Serializable {
 		this.name = name;
 	}
 
-	public List<DiaganosedWith> getDiaganosedWithList() {
+	public List<DiagnosedWith> getDiagnosedWithList() {
 		return this.diaganosedWithList;
 	}
 
-	public void setDiaganosedWithList(List<DiaganosedWith> diaganosedWithList) {
+	public void setDiagnosedWithList(List<DiagnosedWith> diaganosedWithList) {
 		this.diaganosedWithList = diaganosedWithList;
 	}
 
-	public DiaganosedWith addDiaganosedWithList(DiaganosedWith diaganosedWithList) {
-		getDiaganosedWithList().add(diaganosedWithList);
-		diaganosedWithList.setDiaganosis(this);
+	public DiagnosedWith addDiagnosedWithList(DiagnosedWith diaganosedWithList) {
+		getDiagnosedWithList().add(diaganosedWithList);
+		diaganosedWithList.setDiagnosis(this);
 
 		return diaganosedWithList;
 	}
 
-	public DiaganosedWith removeDiaganosedWithList(DiaganosedWith diaganosedWithList) {
-		getDiaganosedWithList().remove(diaganosedWithList);
-		diaganosedWithList.setDiaganosis(null);
+	public DiagnosedWith removeDiagnosedWithList(DiagnosedWith diaganosedWithList) {
+		getDiagnosedWithList().remove(diaganosedWithList);
+		diaganosedWithList.setDiagnosis(null);
 
 		return diaganosedWithList;
 	}
