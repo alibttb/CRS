@@ -11,16 +11,16 @@
 	<!-- 	<ui:define name="header"> -->
 	<!-- 	    Add your header here or delete to use the default -->
 	<!-- 	</ui:define> -->
-	<ui:define name="title">Patient: #{patientProfileView.fullName}</ui:define>
+	<ui:define name="title">#{msg.Patient}: #{patientProfileView.fullName}</ui:define>
 	<ui:define name="content">
 		<h:form id="form">
 			<p:growl id="growl" showDetail="true" />
 			<p:panel id="patient">
 				<f:facet name="header">
 					<p:panelGrid columns="4" style="width: 100%">
-						<p:outputLabel value="Patient Name: " />
+						<p:outputLabel value="#{msg.Patient_Name}: " />
 						<p:outputLabel value="#{patientProfileView.fullName}" />
-						<p:outputLabel value="Patient Number: " />
+						<p:outputLabel value="#{msg.Patient_Number}: " />
 						<p:outputLabel
 							value="#{patientProfileView.patientService.selected.pid}" />
 					</p:panelGrid>
@@ -31,30 +31,30 @@
 					selectionMode="single" dir="rtl" rowKey="#{vst.id}"
 					selection="#{patientProfileView.visitService.selected}">
 					<f:facet name="header"></f:facet>
-					<p:column headerText="Visit Type">
+					<p:column headerText="#{msg.Visit_Type}">
 						<h:outputText value="#{vst.vstType}" />
 					</p:column>
-					<p:column headerText="Visit Date">
-						<h:outputText value="#{vst.vstDate}" />
+					<p:column headerText="#{msg.Visit_Date}">
+						<h:outputText value="#{vst.vstDate}">
+							<f:convertDateTime dateStyle="medium" type="date"></f:convertDateTime>
+						</h:outputText>
 					</p:column>
-					<p:column headerText="Visit Notes">
+					<p:column headerText="#{msg.Visit_Notes}">
 						<h:outputText value="#{vst.notes}" />
 					</p:column>
 					<f:facet name="footer">
-						<p:commandButton value="New" icon="fa fa-plus"
+						<p:commandButton value="#{msg.New}" icon="fa fa-plus"
 							update="visitsTable, :form:growl" rendered="#{userBean.nurse}"
 							actionListener="#{patientProfileView.onAddNewVisit}"
 							process="@this" />
-						<p:commandButton value="Open" icon="fa fa-folder-open-o"
-							rendered="#{userBean.doctor}" update=":form:growl"
-							action="#{patientProfileView.openVisit}" process="@form" />
+						<p:commandButton value="#{msg.Open}" icon="fa fa-folder-open-o"
+							rendered="#{userBean.doctor or userBean.nurse}"
+							update=":form:growl" action="#{patientProfileView.openVisit}"
+							process="@form" />
 					</f:facet>
 				</p:dataTable>
 			</p:panel>
 		</h:form>
 	</ui:define>
-	<!-- 	<ui:define name="footer"> -->
-	<!-- 	    Add your footer here or delete to use the default -->
-	<!-- 	</ui:define> -->
 </ui:composition>
 </html>

@@ -13,6 +13,7 @@ import me.bttb.crs.model.Usr;
 @ManagedBean
 @ViewScoped
 public class NewUserWizard {
+
 	@Autowired
 	private UserDAO dao;
 

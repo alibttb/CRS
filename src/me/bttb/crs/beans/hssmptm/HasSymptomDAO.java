@@ -28,7 +28,7 @@ public class HasSymptomDAO {
 	public List<HasSymptom> findHasSymptomsInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
 		return em.createQuery("select hs from HasSymptom hs where hs.visit.id = :vst_id", HasSymptom.class)
-				.setParameter("vst_id", visit.getId()).getResultList();
+				.setParameter("vst_id",  visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addHasSymptom(HasSymptom hsmp) {

@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.visit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,11 @@ import me.bttb.crs.model.Visit;
 import me.bttb.crs.model.Visit_;
 
 @Repository
-public class VisitDAO {
+public class VisitDAO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6346081709934438419L;
 	@Autowired
 	JPAEntityManagerFactoryBean jemfb;
 

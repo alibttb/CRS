@@ -28,7 +28,7 @@ public class TreatedWithDAO {
 	public List<TreatedWith> findTreatedWithInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
 		return em.createQuery("select hs from TreatedWith hs where hs.visit.id = :vst_id", TreatedWith.class)
-				.setParameter("vst_id", visit.getId()).getResultList();
+				.setParameter("vst_id",  visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addTreatedWith(TreatedWith trtmn) {

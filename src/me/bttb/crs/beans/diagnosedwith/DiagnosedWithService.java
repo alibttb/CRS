@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.diagnosedwith;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -18,7 +19,11 @@ import me.bttb.crs.model.Diagnosis;
 
 @Service
 @Scope("session")
-public class DiagnosedWithService implements Observer {
+public class DiagnosedWithService implements Serializable, Observer {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1285671232727270000L;
 	@Autowired
 	private VisitService visitService;
 	@Autowired

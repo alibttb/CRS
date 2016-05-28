@@ -32,7 +32,7 @@ public class DocumentDAO {
 	public List<Document> findDocumentsInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
 		return em.createQuery("select hs from Document hs where hs.visit.id = :vst_id", Document.class)
-				.setParameter("vst_id", visit.getId()).getResultList();
+				.setParameter("vst_id", visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addDocument(Document doc) {
@@ -80,5 +80,11 @@ public class DocumentDAO {
 		cq.distinct(true);
 		cq.select(from.get(Document_.name));
 		return em.createQuery(cq).getResultList();
+	}
+
+	public Document findDocumentById(Long documentId) {
+		EntityManager em = jemfb.createEntityManager();
+		Document doc = em.find(Document.class, documentId);
+		return doc;
 	}
 }

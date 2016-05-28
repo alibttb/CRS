@@ -9,118 +9,90 @@
 
 <ui:composition template="/WEB-INF/templates/template.xhtml">
 	<ui:define name="content">
-		<p:panel style="margin: 2px;">
-			<h:form id="form">
-				<p:growl id="msgs" showDetail="true" />
-				<p:panel title="Patient Personal Information"
-					header="Patient Personal Information">
-					<p:panelGrid style="margin: 2px 2px 2px 2px" columns="2"
-						columnClasses="label, value">
-						<p:outputLabel value="First Name: *"></p:outputLabel>
-						<p:inputText value="#{newPatientView.patient.firstName}"
-							required="true" label="First Name"></p:inputText>
-						<p:outputLabel value="Father Name: *"></p:outputLabel>
-						<p:inputText value="#{newPatientView.patient.fatherName}"
-							required="true" label="Father Name"></p:inputText>
-						<p:outputLabel value="Family Name: *"></p:outputLabel>
-						<p:inputText value="#{newPatientView.patient.familyName}"
-							required="true" label="Family Name"></p:inputText>
-						<p:outputLabel value="Mother Name: *"></p:outputLabel>
-						<p:inputText value="#{newPatientView.patient.motherName}"
-							required="true" label="Mother Name"></p:inputText>
-						<p:outputLabel value="Birth Date"></p:outputLabel>
-						<p:calendar id="bdate" value="#{newPatientView.patient.birthDate}"
-							locale="ar" navigator="true" yearRange="c-120:c" effect="fade"
-							mask="true" pattern="yyyy-MM-dd" required="true" />
-						<p:outputLabel value="Birth Place: "></p:outputLabel>
-						<p:inputText value="#{newPatientView.patient.birthPlace}"
-							required="false" label="Birth Place"></p:inputText>
-					</p:panelGrid>
-				</p:panel>
-				<p:panel title="Contact Information" header="Contact Information">
-					<p:remoteCommand name="updateButtonsStatus"
-						process="@this contactInfoTable:buttons"
-						update="contactInfoTable:buttons"></p:remoteCommand>
-					<p:dataTable id="contactInfoTable" var="cntctInfo"
-						selectionMode="single" rowKey="#{cntctInfo}"
-						selection="#{newPatientView.cntctInfo}"
-						value="#{newPatientView.patient.contactInfoList}" editable="true"
-						widgetVar="cellCntctInfo">
-						<p:ajax event="rowEditInit"
-							listener="#{newPatientView.onRowEditInit}"
-							oncomplete="updateButtonsStatus()" />
-						<p:ajax event="rowEdit" immediate="true"
-							listener="#{newPatientView.onRowEdit}" update=":form:msgs"
-							oncomplete="updateButtonsStatus()" />
-						<p:ajax event="rowEditCancel"
-							listener="#{newPatientView.onRowCancel}"
-							oncomplete="updateButtonsStatus()" />
-						<p:column headerText="Email">
-							<p:cellEditor>
-								<f:facet name="output">
-									<h:outputText value="#{cntctInfo.email}" />
-								</f:facet>
-								<f:facet name="input">
-									<p:inputText id="emailInput" value="#{cntctInfo.email}"
-										style="width:95%" />
-								</f:facet>
-							</p:cellEditor>
-						</p:column>
-						<p:column headerText="Phone">
-							<p:cellEditor>
-								<f:facet name="output">
-									<h:outputText value="#{cntctInfo.phone}" />
-								</f:facet>
-								<f:facet name="input">
-									<p:inputText id="phoneInput" value="#{cntctInfo.phone}"
-										style="width:95%" />
-								</f:facet>
-							</p:cellEditor>
-						</p:column>
-						<p:column headerText="Type">
-							<p:cellEditor>
-								<f:facet name="output">
-									<h:outputText value="#{cntctInfo.type}" />
-								</f:facet>
-								<f:facet name="input">
-									<p:selectOneMenu id="typeInput" value="#{cntctInfo.type}"
-										style="width:100%; height: 95%">
-										<f:selectItem itemLabel="Main" itemValue="Main"></f:selectItem>
-										<f:selectItem itemLabel="Home" itemValue="Home"></f:selectItem>
-										<f:selectItem itemLabel="Work" itemValue="Work"></f:selectItem>
-										<f:selectItem itemLabel="Perm" itemValue="Perm"></f:selectItem>
-										<f:selectItem itemLabel="Curr" itemValue="Curr"></f:selectItem>
-									</p:selectOneMenu>
-								</f:facet>
-							</p:cellEditor>
-						</p:column>
-						<p:column headerText="Edit" style="width:32px">
-							<p:rowEditor />
-						</p:column>
-						<f:facet name="footer">
-							<p:outputPanel id="buttons" autoUpdate="true">
-								<p:commandButton value="Add New"
-									process="@this contactInfoTable"
-									actionListener="#{newPatientView.onAddNewContactInfo}"
-									update="contactInfoTable :form:msgs"
-									disabled="#{newPatientView.addContactInfoDisabled}" />
-								<p:commandButton value="Delete Seleced"
-									process="@this contactInfoTable"
-									actionListener="#{newPatientView.onDeleteSelectedContactInfo}"
-									update="contactInfoTable :form:msgs"
-									disabled="#{newPatientView.deleteSelectedContactInfoDisabled}" />
-							</p:outputPanel>
-						</f:facet>
-					</p:dataTable>
-				</p:panel>
-				<p:panel>
-					<p:commandButton value="Save" update="msgs"
-						action="#{newPatientView.onSaveButtonClicked}" />
-					<p:commandButton value="Discard" process="@this"
-						action="#{newPatientView.onCancelButtonClicked}" />
-				</p:panel>
-			</h:form>
-		</p:panel>
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+			<p:panel title="#{msg.Patient_Personal_Information}"
+				header="#{msg.Patient_Personal_Information}">
+				<p:panelGrid columns="2" styleClass="centerd"
+					columnClasses="label, value">
+					<p:outputLabel for="fnametb" value="#{msg.First_Name}: "></p:outputLabel>
+					<p:inputText id="fnametb"
+						value="#{newPatientView.patient.firstName}" required="true"
+						label="First Name"></p:inputText>
+					<p:outputLabel for="fanametb" value="#{msg.Father_Name}: "></p:outputLabel>
+					<p:inputText id="fanametb"
+						value="#{newPatientView.patient.fatherName}" required="true"
+						label="Father Name"></p:inputText>
+					<p:outputLabel for="famnametb" value="#{msg.Family_Name}: "></p:outputLabel>
+					<p:inputText id="famnametb"
+						value="#{newPatientView.patient.familyName}" required="true"
+						label="#{msg.Family_Name}"></p:inputText>
+					<p:outputLabel for="mnametb" value="#{msg.Mother_Name}: "></p:outputLabel>
+					<p:inputText id="mnametb"
+						value="#{newPatientView.patient.motherName}" required="true"
+						label="#{msg.Mother_Name}"></p:inputText>
+					<p:outputLabel for="bdate" value="#{msg.Birth_Date}: "></p:outputLabel>
+					<p:calendar id="bdate" value="#{newPatientView.patient.birthDate}"
+						navigator="true" yearRange="c-120:c" effect="fade" mask="true"
+						required="true" pattern="#{localeManager.mediumLocaleDateFormat}">
+					</p:calendar>
+
+					<p:outputLabel value="#{msg.Birth_Place}: "></p:outputLabel>
+					<p:inputText value="#{newPatientView.patient.birthPlace}"
+						required="false" label="#{msg.Birth_Place}"></p:inputText>
+				</p:panelGrid>
+			</p:panel>
+			<p:panel header="#{msg.Contact_Information}">
+				<h:panelGrid id="cntctInfoInput" columns="2" cellpadding="5">
+					<h:outputText value="#{msg.Type}" />
+					<p:selectOneMenu id="typeInput"
+						value="#{newPatientView.cntctInfo.type}"
+						style="width:100%; height: 95%">
+						<f:selectItem itemLabel="#{msg.Main}" itemValue="Main"></f:selectItem>
+						<f:selectItem itemLabel="#{msg.Home}" itemValue="Home"></f:selectItem>
+						<f:selectItem itemLabel="#{msg.Work}" itemValue="Work"></f:selectItem>
+						<f:selectItem itemLabel="#{msg.Perm}" itemValue="Perm"></f:selectItem>
+						<f:selectItem itemLabel="#{msg.Curr}" itemValue="Curr"></f:selectItem>
+					</p:selectOneMenu>
+					<h:outputText value="#{msg.Phone}: " />
+					<p:inputText id="phoneInput"
+						value="#{newPatientView.cntctInfo.phone}" style="width:95%" />
+					<h:outputText value="#{msg.Email}: " />
+					<p:inputText id="emailInput"
+						value="#{newPatientView.cntctInfo.email}" style="width:95%" />
+					<p:commandButton value="#{msg.Add}"
+						actionListener="#{newPatientView.onAddNewContactInfoClicked}"
+						process="cntctInfoInput" update="contactInfoTable, cntctInfoInput" />
+					<p:commandButton value="#{msg.Reset}"
+						actionListener="#{newPatientView.onResetContactInfoInputClicked}"
+						process="cntctInfoInput" update="contactInfoTable, cntctInfoInput" />
+				</h:panelGrid>
+
+				<p:dataTable id="contactInfoTable" var="cntctInfo"
+					value="#{newPatientView.cntctInfoList}" widgetVar="cellCntctInfo">
+					<p:column headerText="#{msg.Type}">
+						<h:outputText value="#{cntctInfo.type}" />
+					</p:column>
+					<p:column headerText="#{msg.Email}">
+						<h:outputText value="#{cntctInfo.email}" />
+					</p:column>
+					<p:column headerText="#{msg.Phone}">
+						<h:outputText value="#{cntctInfo.phone}" />
+					</p:column>
+					<p:column headerText="#{msg.Action}">
+						<p:commandButton value="#{msg.Delete}" process="contactInfoTable"
+							update="contactInfoTable, :form:msgs">
+							<p:collector value="#{cntctInfo}"
+								removeFrom="#{newPatientView.cntctInfoList}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+			<p:commandButton value="#{msg.Save}" process="@all" update="@form"
+				action="#{newPatientView.onSaveButtonClicked}" />
+			<p:commandButton value="#{msg.Cancel}" process="@this"
+				action="#{newPatientView.onCancelButtonClicked}" />
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

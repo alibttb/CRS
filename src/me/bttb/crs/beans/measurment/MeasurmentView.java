@@ -1,6 +1,8 @@
 package me.bttb.crs.beans.measurment;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -18,10 +20,16 @@ import me.bttb.crs.model.Measurment;
 
 @ManagedBean
 @ViewScoped
-public class MeasurmentView implements MetaDataTableEventHandler {
+public class MeasurmentView implements MetaDataTableEventHandler,Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3263587909004513021L;
 	@ManagedProperty(value = "#{measurmentService}")
 	private MeasurmentService service;
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
 	private List<Measurment> list;
 
 	public MeasurmentView() {
@@ -68,10 +76,10 @@ public class MeasurmentView implements MetaDataTableEventHandler {
 	@Override
 	public void onSaveButtonClicked(ActionEvent event) {
 		if (service.save()) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Measurment meta data saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg.getString("Measurment_meta_data_saved")));
 			init();
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("There was an error, notiong saved!"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg.getString("SaveError")));
 		}
 
 	}
@@ -79,7 +87,7 @@ public class MeasurmentView implements MetaDataTableEventHandler {
 	@Override
 	public void onCancelButtonClicked(ActionEvent event) {
 		service.cancel();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Canceled"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(msg.getString("Canceled")));
 	}
 
 	@Override
@@ -90,6 +98,14 @@ public class MeasurmentView implements MetaDataTableEventHandler {
 	@Override
 	public void onRowUnSelect(UnselectEvent event) {
 
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

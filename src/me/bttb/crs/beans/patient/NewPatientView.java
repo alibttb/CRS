@@ -2,16 +2,15 @@ package me.bttb.crs.beans.patient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.faces.view.ViewScoped;
-
-import org.primefaces.event.RowEditEvent;
 
 import me.bttb.crs.model.ContactInfo;
 import me.bttb.crs.model.Ptnt;
@@ -21,8 +20,9 @@ import me.bttb.crs.model.Ptnt;
 public class NewPatientView {
 	@ManagedProperty(value = "#{patientService}")
 	private PatientService service;
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
 
-	private List<ContactInfo> cntctInfoList;
 	private ContactInfo cntctInfo;
 	private boolean addContactInfoDisabled = false;
 	private boolean deleteSelectedContactInfoDisabled = true;
@@ -34,61 +34,23 @@ public class NewPatientView {
 
 	@PostConstruct
 	public void init() {
-		this.setPatient(new Ptnt());
-		this.setCntctInfoList(new ArrayList<>());
-		this.getPatient().setContactInfoList(this.getCntctInfoList());
+		if (this.getPatient() == null) {
+			this.setPatient(new Ptnt());
+			this.setCntctInfoList(new ArrayList<>());
+		}
+		this.setCntctInfo(new ContactInfo());
+		this.getCntctInfo().setPrsn(getPatient());
 	}
 
 	/////////////// EVENTS//////////////////
-	public void onAddNewContactInfo(ActionEvent event) {
-		if (this.getService().getSelected().getContactInfoList() == null)
-			this.getService().getSelected().setContactInfoList(new ArrayList<>());
-		boolean hasNewRow = this.getService().getSelected().getContactInfoList().stream()
-				.filter(ci -> ci.getEmail() == null && ci.getPhone() == null).count() >= 1;
-		if (hasNewRow) {
-			FacesMessage msg = new FacesMessage("Can't add new row", "There is an empty row already!!");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		} else {
-			ContactInfo cntctInfo = new ContactInfo();
-			cntctInfo.setType("Main");
-			cntctInfo.setPrsn(this.getPatient());
-			this.getService().getSelected().getContactInfoList().add(cntctInfo);
-		}
+
+	public void onAddNewContactInfoClicked(ActionEvent e) {
+		this.getCntctInfoList().add(getCntctInfo());
+		this.setCntctInfo(new ContactInfo());
 	}
 
-	public void onDeleteSelectedContactInfo(ActionEvent event) {
-		if (cntctInfo != null) {
-			cntctInfoList.remove(cntctInfo);
-			cntctInfo = null;
-		}
-		this.setDeleteSelectedContactInfoDisabled(true);
-		this.setAddContactInfoDisabled(false);
-	}
-
-	public void onRowEdit(RowEditEvent event) {
-		this.setDeleteSelectedContactInfoDisabled(true);
-		this.setAddContactInfoDisabled(false);
-		ContactInfo editedContactInfo = (ContactInfo) event.getObject();
-		boolean moreThanOne = this.getService().getSelected().getContactInfoList().stream()
-				.filter(ci -> ci.equals(editedContactInfo)).count() > 1;
-		if (moreThanOne) {
-			this.getService().getSelected().getContactInfoList().remove(editedContactInfo);
-			FacesMessage msg = new FacesMessage("Row Removed", "The contact information provided is redundent!!");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}
-	}
-
-	public void onRowEditInit(RowEditEvent event) {
-		if (event.getObject() instanceof ContactInfo) {
-			this.setCntctInfo((ContactInfo) event.getObject());
-			this.setDeleteSelectedContactInfoDisabled(false);
-		}
-		this.setAddContactInfoDisabled(true);
-	}
-
-	public void onRowCancel(RowEditEvent event) {
-		this.setDeleteSelectedContactInfoDisabled(true);
-		this.setAddContactInfoDisabled(false);
+	public void onResetContactInfoInputClicked(ActionEvent e) {
+		this.setCntctInfo(new ContactInfo());
 	}
 
 	public String onCancelButtonClicked() {
@@ -98,33 +60,16 @@ public class NewPatientView {
 
 	public String onSaveButtonClicked() {
 		if (this.getService().save()) {
-			this.init();
+			this.getService().setSelected(this.getPatient());
+			// this.init();
 			return "/patient-profile?faces-redirect=true";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Nothing saved there was an error!!", ""));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, getMsg().getString("SaveError"), ""));
 			return null;
 		}
-
 	}
-	// public void onRowSelect(SelectEvent event) {
-	// this.setDeleteSelectedContactInfoDisabled(false);
-	// }
-	//
-	// public void onRowUnselect(SelectEvent event) {
-	// this.setDeleteSelectedContactInfoDisabled(true);
-	// }
-	// public void onCellEdit(CellEditEvent event) {
-	// Object oldValue = event.getOldValue();
-	// Object newValue = event.getNewValue();
-	//
-	// if (newValue != null && !newValue.equals(oldValue)) {
-	// FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell
-	// Changed",
-	// "Old: " + oldValue + ", New:" + newValue);
-	// FacesContext.getCurrentInstance().addMessage(null, msg);
-	// }
-	// }
+
 	///////////////////////////////////////
 
 	public Ptnt getPatient() {
@@ -160,11 +105,11 @@ public class NewPatientView {
 	}
 
 	public List<ContactInfo> getCntctInfoList() {
-		return cntctInfoList;
+		return getService().getSelected().getContactInfoList();
 	}
 
 	public void setCntctInfoList(List<ContactInfo> cntctInfoList) {
-		this.cntctInfoList = cntctInfoList;
+		this.getService().getSelected().setContactInfoList(cntctInfoList);
 	}
 
 	public PatientService getService() {
@@ -173,6 +118,14 @@ public class NewPatientView {
 
 	public void setService(PatientService service) {
 		this.service = service;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

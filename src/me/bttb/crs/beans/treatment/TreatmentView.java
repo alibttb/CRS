@@ -1,6 +1,8 @@
 package me.bttb.crs.beans.treatment;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -18,10 +20,16 @@ import me.bttb.crs.model.Treatment;
 
 @ManagedBean
 @ViewScoped
-public class TreatmentView implements MetaDataTableEventHandler {
+public class TreatmentView implements Serializable,MetaDataTableEventHandler {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 734878836954655082L;
 	@ManagedProperty(value = "#{treatmentService}")
 	private TreatmentService service;
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
 	private List<Treatment> list;
 	private boolean rowSelected;
 
@@ -82,10 +90,10 @@ public class TreatmentView implements MetaDataTableEventHandler {
 	@Override
 	public void onSaveButtonClicked(ActionEvent event) {
 		if (service.save()) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Treatment meta data saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("TreatmentDataSaved")));
 			init();
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("There was an error, notiong saved!"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("SaveError")));
 		}
 
 	}
@@ -104,6 +112,14 @@ public class TreatmentView implements MetaDataTableEventHandler {
 	@Override
 	public void onRowUnSelect(UnselectEvent event) {
 		refreshSelectedState();
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

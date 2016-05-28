@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.diagnosis;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,7 +14,11 @@ import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
 import me.bttb.crs.model.Diagnosis;
 
 @Repository
-public class DiagnosisDAO {
+public class DiagnosisDAO implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7132693099841605710L;
 	@Autowired
 	private JPAEntityManagerFactoryBean jemfb;
 

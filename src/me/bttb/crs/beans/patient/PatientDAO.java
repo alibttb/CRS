@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.patient;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,11 @@ import me.bttb.crs.model.Ptnt;
 import me.bttb.crs.model.Ptnt_;
 
 @Repository
-public class PatientDAO {
+public class PatientDAO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5332156723664781596L;
 	@Autowired
 	JPAEntityManagerFactoryBean jpaEntityManagerFactoryBean;
 
@@ -124,6 +129,21 @@ public class PatientDAO {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
 			em.persist(patient);
+			et.commit();
+			em.close();
+			return true;
+		} catch (PersistenceException pe) {
+			return false;
+		}
+
+	}
+
+	public boolean updatePatient(Ptnt patient) {
+		try {
+			EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
+			EntityTransaction et = em.getTransaction();
+			et.begin();
+			em.merge(patient);
 			et.commit();
 			em.close();
 			return true;

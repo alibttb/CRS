@@ -1,5 +1,8 @@
 package me.bttb.crs.beans.user;
 
+import java.io.Serializable;
+import java.util.ResourceBundle;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -10,9 +13,15 @@ import javax.faces.event.ActionEvent;
 
 @ManagedBean
 @ViewScoped
-public class ChangePasswordView {
+public class ChangePasswordView implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8561243563047405096L;
 	@ManagedProperty(value = "#{userBean}")
 	private UserBean userBean;
+	@ManagedProperty(value="#{msg}")
+	private ResourceBundle msg;
 	private String oldPass;
 	private String newPass;
 
@@ -26,10 +35,10 @@ public class ChangePasswordView {
 	public void onSaveButtonClicked(ActionEvent e) {
 		if (userBean.changePassWord(oldPass, newPass)) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Password changed", "You're going to be logged out, you should login with the new password!!"));
+					getMsg().getString("Password_changed"), msg.getString("pwdChLogOff")));
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_WARN, "Wrong password", "You're going to be logged out!!"));
+					new FacesMessage(FacesMessage.SEVERITY_WARN, msg.getString("Wrong_password"), msg.getString("WrngPwd")));
 		}
 		init();
 	}
@@ -64,6 +73,14 @@ public class ChangePasswordView {
 
 	public void setUserBean(UserBean userBean) {
 		this.userBean = userBean;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

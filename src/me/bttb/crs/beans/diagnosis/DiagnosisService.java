@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.diagnosis;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,11 @@ import me.bttb.crs.model.Diagnosis;
 
 @Service
 @Scope("session")
-public class DiagnosisService {
+public class DiagnosisService implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7022611354344778633L;
 	@Autowired
 	private DiagnosisDAO dao;
 	private Diagnosis selected;

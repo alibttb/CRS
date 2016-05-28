@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.user;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,11 @@ import me.bttb.crs.model.Usr;
 
 @Service
 @Scope("session")
-public class UserService {
+public class UserService implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7781962674903009686L;
 	@Autowired
 	UserDAO uDao;
 	@Autowired

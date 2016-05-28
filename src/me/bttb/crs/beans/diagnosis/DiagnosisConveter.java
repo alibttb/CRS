@@ -1,5 +1,7 @@
 package me.bttb.crs.beans.diagnosis;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
@@ -14,7 +16,12 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import me.bttb.crs.model.Diagnosis;
 
 @FacesConverter("diagnosisConveter")
-public class DiagnosisConveter implements Converter {
+public class DiagnosisConveter implements Serializable , Converter {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1711240228918672893L;
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {

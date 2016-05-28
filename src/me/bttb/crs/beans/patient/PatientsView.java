@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -22,6 +23,8 @@ public class PatientsView {
 	/////////////////////////////////////////////
 	@ManagedProperty(value = "#{patientService}")
 	private PatientService patientService;
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
 	/////////////////////////////////////////////
 	private Long pid;
 	private String fullName;
@@ -63,21 +66,32 @@ public class PatientsView {
 				this.setSelectedPatient(rs);
 			} catch (NoResultException nre) {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-						"No patient:", "There was no patients with this pid."));
+						msg.getString("No_patient"), "NoPatientErrorDetails"));
 				this.setPatients(Arrays.asList());
 			}
 		}
 	}
 
-
 	public String openProfile() {
 		if (this.getSelectedPatient() == null) {
-			
 			return null;
 		} else {
 			return "/patient-profile.xhtml?faces-redirect=true";
 		}
+	}
 
+	public String editPatient() {
+		if (this.getSelectedPatient() == null) {
+			return null;
+		} else {
+			return "/new-patient.xhtml?faces-redirect=true";
+		}
+	}
+
+	//// new-patient.xhtml?faces-redirect=true
+	public String newPatient() {
+		this.setSelectedPatient(null);
+		return "/new-patient.xhtml?faces-redirect=true";
 	}
 
 	///////////////////// Properties///////////////
@@ -151,6 +165,14 @@ public class PatientsView {
 
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

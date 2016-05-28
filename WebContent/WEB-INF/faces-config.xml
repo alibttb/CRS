@@ -8,6 +8,14 @@
 		<action-listener>org.primefaces.application.DialogActionListener</action-listener>
 		<navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
 		<view-handler>org.primefaces.application.DialogViewHandler</view-handler>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>ar</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>me.bttb.crs.beans.i18n.bundle</base-name>
+			<var>msg</var>
+		</resource-bundle>
 	</application>
 	<navigation-rule>
 		<display-name>index.xhtml</display-name>

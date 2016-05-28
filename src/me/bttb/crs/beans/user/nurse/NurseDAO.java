@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.user.nurse;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,7 +15,11 @@ import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
 import me.bttb.crs.model.Nrs;
 
 @Repository
-public class NurseDAO {
+public class NurseDAO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3594390326226501006L;
 	@Autowired
 	JPAEntityManagerFactoryBean jemfb;
 

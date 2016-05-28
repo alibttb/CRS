@@ -28,7 +28,7 @@ public class TkMsrmntDAO {
 	public List<TkMsrmnt> findTkMsrmntInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
 		return em.createQuery("select hs from TkMsrmnt hs where hs.visit.id = :vst_id", TkMsrmnt.class)
-				.setParameter("vst_id", visit.getId()).getResultList();
+				.setParameter("vst_id",  visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addTkMsrmnt(TkMsrmnt tmsnt) {

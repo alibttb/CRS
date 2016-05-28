@@ -1,6 +1,8 @@
 package me.bttb.crs.beans.diagnosis;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -18,13 +20,19 @@ import me.bttb.crs.model.Diagnosis;
 
 @ManagedBean
 @ViewScoped
-public class DiagnosisView implements MetaDataTableEventHandler {
+public class DiagnosisView implements  MetaDataTableEventHandler,Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9192563217258821724L;
 	@ManagedProperty(value = "#{diagnosisService}")
 	private DiagnosisService service;
 	private List<Diagnosis> list;
 	private boolean rowSelected;
 
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
 	public DiagnosisView() {
 	}
 
@@ -82,10 +90,10 @@ public class DiagnosisView implements MetaDataTableEventHandler {
 	@Override
 	public void onSaveButtonClicked(ActionEvent event) {
 		if (service.save()) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Diagnosis meta data saved"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("Diagnosis meta data saved")));
 			init();
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("There was an error, notiong saved!"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("SaveError")));
 		}
 
 	}
@@ -93,7 +101,7 @@ public class DiagnosisView implements MetaDataTableEventHandler {
 	@Override
 	public void onCancelButtonClicked(ActionEvent event) {
 		service.cancel();
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Canceled"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("Canceled")));
 	}
 
 	@Override
@@ -104,6 +112,14 @@ public class DiagnosisView implements MetaDataTableEventHandler {
 	@Override
 	public void onRowUnSelect(UnselectEvent event) {
 		refreshSelectedState();
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

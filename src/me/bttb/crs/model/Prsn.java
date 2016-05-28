@@ -24,6 +24,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import static javax.persistence.FetchType.EAGER;
 
 /**
  * The persistent class for the PRSN database table.
@@ -68,7 +69,7 @@ public class Prsn implements Serializable {
 	private String prsnType;
 
 	// bi-directional many-to-one association to ContactInfo
-	@OneToMany(mappedBy = "prsn", cascade = { PERSIST, MERGE, REMOVE, DETACH, REFRESH, ALL })
+	@OneToMany(mappedBy = "prsn", cascade = { PERSIST, MERGE, REMOVE, DETACH, REFRESH, ALL }, fetch = EAGER)
 	private List<ContactInfo> contactInfoList;
 
 	public Prsn() {

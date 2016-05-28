@@ -14,7 +14,7 @@
 			<div style="width: 150px; margin: auto;">
 				<p:remoteCommand autoRun="true" delay="1"
 					action="#{usersBean.isFirstUser}"></p:remoteCommand>
-				<p:button value="Login to CRS" outcome="#{usersBean.isFirstUser()}" />
+				<p:button value="#{msg['Login_to_CRS']}" outcome="#{usersBean.isFirstUser()}" />
 			</div>
 		</h:form>
 	</ui:define>

@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.measurment;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,11 @@ import me.bttb.crs.model.Measurment;
 
 @Service
 @Scope("session")
-public class MeasurmentService {
+public class MeasurmentService implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1709885674696822580L;
 	@Autowired
 	private MeasurmentDAO dao;
 	private Measurment selected;

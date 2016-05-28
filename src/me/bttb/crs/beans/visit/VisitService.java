@@ -1,8 +1,8 @@
 package me.bttb.crs.beans.visit;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Observable;
 import java.util.Observer;
 
 import javax.annotation.PostConstruct;
@@ -14,10 +14,15 @@ import org.springframework.stereotype.Service;
 import me.bttb.crs.beans.patient.PatientService;
 import me.bttb.crs.model.Ptnt;
 import me.bttb.crs.model.Visit;
+import me.bttb.crs.utils.Observable;
 
 @Service
 @Scope(value = "session")
-public class VisitService implements Observer {
+public class VisitService implements Serializable, Observer {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8356218974422561509L;
 	private List<Visit> list;
 	private Visit selected;
 	@Autowired
@@ -38,6 +43,7 @@ public class VisitService implements Observer {
 	private void refresh() {
 		this.setSelected(null);
 		list = getVisitsForPatient(patientService.getSelected());
+		this.obs.forceNotifyAllObservers();
 	}
 
 	public boolean addNewVisit() {
@@ -49,6 +55,7 @@ public class VisitService implements Observer {
 			vst.setPtnt(patientService.getSelected());
 			vst.setVstDate(new Date());
 			dao.saveVisit(vst);
+			this.refresh();
 			return true;
 		}
 
@@ -80,7 +87,7 @@ public class VisitService implements Observer {
 
 	public void setSelected(Visit selected) {
 		this.selected = selected;
-		this.obs.notifyObservers();
+		this.obs.forceNotifyAllObservers();
 	}
 
 	public VisitDAO getDao() {
@@ -92,7 +99,7 @@ public class VisitService implements Observer {
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(java.util.Observable o, Object arg) {
 		if (o == patientService.getObs()) {
 			refresh();
 		}
@@ -105,6 +112,24 @@ public class VisitService implements Observer {
 
 	public void setObs(Observable obs) {
 		this.obs = obs;
+	}
+
+	public void endVisit() {
+		selected.setVstType("Old");
+		dao.updateVisit(selected);
+		this.obs.forceNotifyAllObservers();
+	}
+
+	public void openVisit() {
+		selected.setVstType("New");
+		dao.updateVisit(selected);
+		this.obs.forceNotifyAllObservers();
+	}
+
+	public boolean saveVisit() {
+		dao.updateVisit(selected);
+		return true;
+
 	}
 
 }

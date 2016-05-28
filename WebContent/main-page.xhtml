@@ -12,70 +12,68 @@
 			<p:growl id="growl" showDetail="true" />
 			<p:panel>
 				<p:accordionPanel multiple="false">
-					<p:tab title="Basic search:">
-						<p:panelGrid columns="2" columnClasses="label,value">
+					<p:tab title="#{msg['Basic_search']}:">
+						<p:panelGrid columns="2" columnClasses="label,value"
+							styleClass="centerd">
 							<f:facet name="header"></f:facet>
-							<p:outputLabel value="Patient Number:" />
+							<p:outputLabel value="#{msg['Patient_Number']}:" />
 							<p:inputText value="#{patientsView.pid}" />
-							<p:outputLabel value="Full name search:"></p:outputLabel>
+							<p:outputLabel value="#{msg['Full_name_search']}:"></p:outputLabel>
 							<p:inputText value="#{patientsView.fullName}"></p:inputText>
 							<f:facet name="footer">
-								<p:commandButton value="Find" update="@form"
+								<p:commandButton value="#{msg['Find']}" update="@form"
 									actionListener="#{patientsView.onSearchByGeneralTerms}"></p:commandButton>
 							</f:facet>
 						</p:panelGrid>
 					</p:tab>
-					<p:tab title="Detailed search:">
+					<p:tab title="#{msg['Detailed_search']}:">
 						<f:facet name="header">
-							<p:outputLabel
-								value="You can use '%' as a wild card in the search fields." />
+							<p:outputLabel value="#{msg['DETAILED_SEARCH_NOTE']}" />
 						</f:facet>
 						<p:panelGrid id="detailedSearchPanel" columns="2"
-							columnClasses="grid grid">
+							styleClass="centerd" columnClasses="grid grid">
 							<p:panelGrid columns="2" columnClasses="label,value">
-								<p:outputLabel value="First Name: "></p:outputLabel>
+								<p:outputLabel value="#{msg['First_Name']}: "></p:outputLabel>
 								<p:inputText value="#{patientsView.example.firstName}"></p:inputText>
-								<p:outputLabel value="Father Name: "></p:outputLabel>
+								<p:outputLabel value="#{msg['Father_Name']}: "></p:outputLabel>
 								<p:inputText value="#{patientsView.example.fatherName}"></p:inputText>
-								<p:outputLabel value="Family Name: "></p:outputLabel>
+								<p:outputLabel value="#{msg['Family_Name']}: "></p:outputLabel>
 								<p:inputText value="#{patientsView.example.familyName}"></p:inputText>
-								<p:outputLabel value="Mother Name: "></p:outputLabel>
+								<p:outputLabel value="#{msg['Mother_Name']}: "></p:outputLabel>
 								<p:inputText value="#{patientsView.example.motherName}"></p:inputText>
 							</p:panelGrid>
 							<p:panelGrid columns="2" columnClasses="label,value">
-								<p:outputLabel value="Birth place: "></p:outputLabel>
+								<p:outputLabel value="#{msg['Birth_Place']}: "></p:outputLabel>
 								<p:inputText value="#{patientsView.example.birthPlace}"></p:inputText>
-								<p:outputLabel value="Birth Date: "></p:outputLabel>
+								<p:outputLabel value="#{msg['Birth_Date']}: "></p:outputLabel>
 								<p:calendar id="bdate" value="#{patientsView.example.birthDate}"
 									locale="ar" navigator="true" yearRange="c-120:c" effect="fade"
 									mask="true" pattern="yyyy-MM-dd" />
 							</p:panelGrid>
 							<f:facet name="footer">
-								<p:commandButton value="Find" update="@form"
+								<p:commandButton value="#{msg['Find']}" update="@form"
 									actionListener="#{patientsView.onSearchByDetailedExample}"></p:commandButton>
 							</f:facet>
 						</p:panelGrid>
 					</p:tab>
-					<!-- 					<p:tab title="Range Search"></p:tab> -->
-				</p:accordionPanel>
 
+				</p:accordionPanel>
 			</p:panel>
 			<p:dataTable id="patients" value="#{patientsView.patients}"
 				filteredValue="#{patientsView.filterdPatients}" var="patient"
 				selectionMode="single" widgetVar="patientsTable" lazy="false"
 				selection="#{patientsView.selectedPatient}" rowKey="#{patient.pid}">
 				<f:facet name="header">
-
-					<h:outputText value="Search all fields:  " />
+					<h:outputText value="#{msg['FilterAllFields']}:  " />
 					<p:inputText id="globalFilter"
 						onkeyup="PF('patientsTable').filter()" style="width:180px"
-						placeholder="Enter search keyword" />
+						placeholder="#{msg['Enter_search_keyword']}" />
 					<p:spacer width="40px" height="20px" />
-					<p:commandButton value="New Patient" icon="fa fa-plus"
-						action="/new-patient.xhtml?faces-redirect=true">
-					</p:commandButton>
-					<p:commandButton value="Open profile" icon="fa fa-folder-open"
-						action="#{patientsView.openProfile}" />
+
+					<p:commandButton value="#{msg['Open_profile']}"
+						icon="fa fa-folder-open" action="#{patientsView.openProfile}" />
+					<p:commandButton value="#{msg['Edit_Patient']}" icon="fa fa-edit"
+						action="#{patientsView.editPatient}" />
 				</f:facet>
 				<p:column headerText="Patient Id" filterBy="#{patient.pid}">
 					<f:facet name="filter">
@@ -83,26 +81,31 @@
 					</f:facet>
 					<h:outputText value="#{patient.pid}" />
 				</p:column>
-				<p:column headerText="First Name" filterBy="#{patient.firstName}">
+				<p:column headerText="#{msg['First_Name']}"
+					filterBy="#{patient.firstName}">
 					<f:facet name="filter">
 						<p:outputLabel />
 					</f:facet>
 					<h:outputText value="#{patient.firstName}" />
 				</p:column>
-				<p:column headerText="Family Name" filterBy="#{patient.familyName}">
+				<p:column headerText="#{msg['Family_Name']}"
+					filterBy="#{patient.familyName}">
 					<f:facet name="filter">
 						<p:outputLabel />
 					</f:facet>
 					<h:outputText value="#{patient.familyName}" />
 				</p:column>
-				<p:column headerText="Birth Date">
+				<p:column headerText="#{msg['Birth_Date']}">
 					<f:facet name="filter">
 						<p:outputLabel />
 					</f:facet>
-					<h:outputText value="#{patient.birthDate}" />
+					<h:outputText value="#{patient.birthDate}">
+						<f:convertDateTime dateStyle="medium" type="date"></f:convertDateTime>
+					</h:outputText>
 				</p:column>
 				<f:facet name="footer">
-
+					<p:commandButton value="#{msg['New_Patient']}" icon="fa fa-plus"
+						action="#{patientsView.newPatient}" />
 				</f:facet>
 			</p:dataTable>
 		</h:form>

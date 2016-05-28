@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.user;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,7 +18,11 @@ import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
 import me.bttb.crs.model.Usr;
 
 @Repository
-public class UserDAO {
+public class UserDAO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9044552315251384579L;
 	@Autowired
 	@Qualifier("jpaEmfBean")
 	JPAEntityManagerFactoryBean jpaEntityManagerFactoryBean;
@@ -41,13 +46,15 @@ public class UserDAO {
 	public List<Usr> getAllUsers() {
 		EntityManager em = jpaEntityManagerFactoryBean.createEntityManager();
 		List<Usr> users = em.createNamedQuery("Usr.findAll", Usr.class).getResultList();
-		//List<Dctr> dctrs = em.createNamedQuery("Dctr.findAll", Dctr.class).getResultList();
-		//List<Nrs> nurses = em.createNamedQuery("Nrs.findAll", Nrs.class).getResultList();
+		// List<Dctr> dctrs = em.createNamedQuery("Dctr.findAll",
+		// Dctr.class).getResultList();
+		// List<Nrs> nurses = em.createNamedQuery("Nrs.findAll",
+		// Nrs.class).getResultList();
 		em.close();
-//		users.removeAll(dctrs);
-//		users.addAll(dctrs);
-//		users.removeAll(nurses);
-//		users.addAll(nurses);
+		// users.removeAll(dctrs);
+		// users.addAll(dctrs);
+		// users.removeAll(nurses);
+		// users.addAll(nurses);
 		return users;
 	}
 

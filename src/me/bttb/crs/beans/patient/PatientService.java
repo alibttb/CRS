@@ -1,7 +1,7 @@
 package me.bttb.crs.beans.patient;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.Observable;
 
 import javax.annotation.PostConstruct;
 
@@ -10,10 +10,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import me.bttb.crs.model.Ptnt;
+import me.bttb.crs.utils.Observable;
 
 @Service
 @Scope("session")
-public class PatientService {
+public class PatientService implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4799202526644370574L;
 	@Autowired
 	private PatientDAO dao;
 	private Ptnt selected;
@@ -28,7 +33,11 @@ public class PatientService {
 	}
 
 	public boolean save() {
-		return dao.addPatient(selected);
+		if (selected.getPid() == null) {
+			return dao.addPatient(selected);
+		} else {
+			return dao.updatePatient(selected);
+		}
 	}
 
 	public PatientDAO getPatientDAO() {
@@ -45,7 +54,7 @@ public class PatientService {
 
 	public void setSelected(Ptnt selectedPatient) {
 		this.selected = selectedPatient;
-		obs.notifyObservers();
+		obs.forceNotifyAllObservers();
 	}
 
 	public List<Ptnt> getPatientsByName(String firstName, String familyName) {

@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.measurment;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,7 +14,11 @@ import me.bttb.crs.beans.db.JPAEntityManagerFactoryBean;
 import me.bttb.crs.model.Measurment;
 
 @Repository
-public class MeasurmentDAO {
+public class MeasurmentDAO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -357594578320674613L;
 	@Autowired
 	private JPAEntityManagerFactoryBean jemfb;
 

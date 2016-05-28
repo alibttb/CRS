@@ -1,5 +1,7 @@
 package me.bttb.crs.beans.manager;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -11,7 +13,11 @@ import org.primefaces.model.DefaultDashboardModel;
 
 @ManagedBean
 @ViewScoped
-public class ManagerView {
+public class ManagerView implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6831187100124197159L;
 	private DashboardModel model;
 
 	public ManagerView() {

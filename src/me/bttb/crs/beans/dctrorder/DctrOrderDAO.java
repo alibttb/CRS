@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.dctrorder;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,7 +18,11 @@ import me.bttb.crs.model.DctrOrder_;
 import me.bttb.crs.model.Visit;
 
 @Repository
-public class DctrOrderDAO {
+public class DctrOrderDAO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7619738749209521687L;
 	@Autowired
 	JPAEntityManagerFactoryBean jemfb;
 
@@ -32,7 +37,7 @@ public class DctrOrderDAO {
 	public List<DctrOrder> findDctrOrdersInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
 		return em.createQuery("select hs from DctrOrder hs where hs.visit.id = :vst_id", DctrOrder.class)
-				.setParameter("vst_id", visit.getId()).getResultList();
+				.setParameter("vst_id", visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addDctrOrder(DctrOrder hsmp) {

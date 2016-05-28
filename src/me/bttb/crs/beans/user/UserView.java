@@ -1,9 +1,11 @@
 package me.bttb.crs.beans.user;
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -19,9 +21,15 @@ import me.bttb.crs.model.Usr;
 
 @ManagedBean
 @ViewScoped
-public class UserView {
+public class UserView implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9082620423115254226L;
 	@ManagedProperty(value = "#{userService}")
 	private UserService service;
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
 	private List<Usr> list;
 	private boolean rowSelected;
 	private String password;
@@ -100,7 +108,7 @@ public class UserView {
 				user.setHashSha256(hash);
 			} catch (NoSuchAlgorithmException e) {
 				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error during save operation", e.getMessage()));
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, getMsg().getString("SaveError"), e.getMessage()));
 			}
 		}
 		service.save();
@@ -109,11 +117,10 @@ public class UserView {
 
 	public void onCancelButtonClicked(ActionEvent event) {
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Canceled", ""));
+				new FacesMessage(FacesMessage.SEVERITY_INFO, getMsg().getString("Canceled"), ""));
 		service.cancel();
 		init();
 	}
-
 
 	//////////////////////////// ACTIONS/////////////////////
 	public void unSelect() {
@@ -126,6 +133,14 @@ public class UserView {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

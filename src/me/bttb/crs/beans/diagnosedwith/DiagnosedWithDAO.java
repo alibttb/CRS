@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.diagnosedwith;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,7 +14,11 @@ import me.bttb.crs.model.DiagnosedWith;
 import me.bttb.crs.model.Visit;
 
 @Repository
-public class DiagnosedWithDAO {
+public class DiagnosedWithDAO implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5308578904776111715L;
 	@Autowired
 	JPAEntityManagerFactoryBean jemfb;
 
@@ -28,7 +33,7 @@ public class DiagnosedWithDAO {
 	public List<DiagnosedWith> findDiagnosedWithInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
 		return em.createQuery("select hs from DiagnosedWith hs where hs.visit.id = :vst_id", DiagnosedWith.class)
-				.setParameter("vst_id", visit.getId()).getResultList();
+				.setParameter("vst_id", visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addDiagnosedWith(DiagnosedWith dgnss) {

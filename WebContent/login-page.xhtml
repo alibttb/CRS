@@ -13,10 +13,10 @@
 	<ui:define name="header">
 		<p:panel>
 			<f:facet name="header">
-				Welcome to CRS
+				#{msg['Welcome_to_CRS']}
 			</f:facet>
-			<p style="margin: 5px; font: smaller lighter italic;">The
-				Simplest Clinic Record System</p>
+			<p style="margin: 5px; font: smaller lighter italic;">
+				#{msg['The_Simplest_Clinic_Record_System']}</p>
 			<!-- 		<p style="margin: 5px; font: small lighter italic;">please login -->
 			<!-- 			to use the application</p> -->
 		</p:panel>
@@ -24,24 +24,43 @@
 
 	<ui:define name="content">
 		<h:form>
-			<p:growl id="msgs" showDetail="true" />
-			<p:panel id="panel" header="Login"
-				style="margin:0 auto; top:100; margin-bottom:10px; width:400px; height:190px;">
+			<p:growl id="msgs" showDetail="false" />
+			<p:panel id="panel" header="#{msg.Login_to_CRS }" styleClass="centerd"
+				style="">
 				<p:growl id="messages" />
+
 				<p:remoteCommand autoRun="true"
 					action="#{userBean.isAlreadyLoggedIn}" />
-				<p:panelGrid columns="2" cellpadding="5" style="margin:5px">
-					<h:outputLabel for="username" value="Username:" />
-					<p:inputText id="username" required="true"
-						value="#{userBean.username}"
-						validatorMessage="You must input a user name" />
-
-					<h:outputText for="password" value="Password: " />
-					<p:password id="password" value="#{userBean.password}"
-						validatorMessage="Password can't be empty" />
+				<p:panelGrid styleClass="centerd">
+					<p:row>
+						<p:column>
+							<h:outputLabel for="username" value="#{msg['Username']}:"
+								style="white-space: nowrap;" />
+						</p:column>
+						<p:column>
+							<p:inputText id="username" required="true"
+								value="#{userBean.username}"
+								requiredMessage="#{msg['You_must_input_a_user_name']}" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column>
+							<h:outputText for="password" value="#{msg['Password']}:" />
+						</p:column>
+						<p:column>
+							<p:password id="password" value="#{userBean.password}"
+								required="true"
+								requiredMessage="#{msg['Password_can`t_be_empty']}" />
+						</p:column>
+					</p:row>
+					<p:row>
+						<p:column colspan="2">
+							<p:commandButton value="#{msg['Login']}" styleClass="loginButton"
+								update="msgs" action="#{userBean.authenticate}" />
+						</p:column>
+					</p:row>
 				</p:panelGrid>
-				<p:commandButton value="Login" style="float:right; margin:5px"
-					update="msgs" action="#{userBean.authenticate}" />
+
 			</p:panel>
 		</h:form>
 	</ui:define>

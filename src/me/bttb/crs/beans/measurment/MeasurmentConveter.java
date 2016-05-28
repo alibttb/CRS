@@ -1,5 +1,7 @@
 package me.bttb.crs.beans.measurment;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
@@ -14,7 +16,14 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import me.bttb.crs.model.Measurment;
 
 @FacesConverter("measurmentConveter")
-public class MeasurmentConveter implements Converter {
+public class MeasurmentConveter implements Converter, Serializable {
+
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4484359605998616789L;
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {

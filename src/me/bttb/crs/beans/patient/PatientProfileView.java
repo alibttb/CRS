@@ -1,6 +1,7 @@
 package me.bttb.crs.beans.patient;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -21,6 +22,9 @@ public class PatientProfileView {
 	@ManagedProperty(value = "#{visitService}")
 	private VisitService visitService;
 
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
+
 	public PatientProfileView() {
 	}
 
@@ -28,8 +32,8 @@ public class PatientProfileView {
 	public String openVisit() {
 		if (visitService.getSelected() == null) {
 			FacesContext fc = FacesContext.getCurrentInstance();
-			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "No visit is selected",
-					"you need to select a visit before opening it."));
+			fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, msg.getString("No_visit_is_selected"),
+					msg.getString("visit_must_be_selected")));
 			return null;
 		} else {
 			return "/visit-page?faces-redirect=true";
@@ -41,10 +45,10 @@ public class PatientProfileView {
 	public void onAddNewVisit(ActionEvent event) {
 		if (visitService.addNewVisit()) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "New visit added!!", null));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, msg.getString("New_visit_added"), null));
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Nothing Addes!!", "check if the patient has an empty visit."));
+					msg.getString("Nothing_Addes"), msg.getString("AddVisitErrorDetail")));
 		}
 	}
 
@@ -72,6 +76,14 @@ public class PatientProfileView {
 
 	public void setVisitService(VisitService visitService) {
 		this.visitService = visitService;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

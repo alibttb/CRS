@@ -94,4 +94,8 @@ public class DocumentService implements Observer, Serializable {
 		return dao.findAllDocumentNames().stream().filter(s -> s.toLowerCase().contains(query.toLowerCase()))
 				.collect(Collectors.toList());
 	}
+
+	public Document getDocumentById(Long documentId) {
+		return dao.findDocumentById(documentId);
+	}
 }

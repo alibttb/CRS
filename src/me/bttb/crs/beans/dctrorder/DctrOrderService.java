@@ -1,5 +1,6 @@
 package me.bttb.crs.beans.dctrorder;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -16,7 +17,11 @@ import me.bttb.crs.model.DctrOrder;
 
 @Service
 @Scope("session")
-public class DctrOrderService implements Observer {
+public class DctrOrderService implements Observer , Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6993810633624445018L;
 	@Autowired
 	private VisitService visitService;
 	@Autowired

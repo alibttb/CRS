@@ -1,6 +1,7 @@
 package me.bttb.crs.beans.user;
 ////trying to push this
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -17,13 +18,19 @@ import me.bttb.crs.model.Usr;
 
 @ManagedBean
 @SessionScoped
-public class UserBean {
+public class UserBean implements Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8723350275155916934L;
 	@ManagedProperty(value = "#{userDAO}")
 	private UserDAO userDAO;
 	private String username;
 	private String password;
 	private boolean authenticated;
 	private Usr userInDb;
+	
+	
 
 	public UserBean() {
 	}

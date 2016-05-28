@@ -1,6 +1,7 @@
 package me.bttb.crs.beans.hssmptm;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -17,6 +18,9 @@ public class HasSymptomView {
 	@ManagedProperty(value = "#{hasSymptomService}")
 	private HasSymptomService service;
 
+	@ManagedProperty(value="#{msg}")
+	private ResourceBundle msg;
+	
 	public HasSymptomView() {
 	}
 
@@ -24,10 +28,10 @@ public class HasSymptomView {
 	public void onSaveButtonClicked(ActionEvent event) {
 		if (service.save()) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Saved", ""));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, getMsg().getString("Saved"), ""));
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Not saved", "there was an error."));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, getMsg().getString("Not_saved"), getMsg().getString("there_was_an_error")));
 		}
 	}
 
@@ -45,10 +49,10 @@ public class HasSymptomView {
 	public void onDeleteButtonClicked(ActionEvent event) {
 		if (service.deleteSelected()) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Deleted", ""));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, getMsg().getString("Deleted"), ""));
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Not deleted", "there was an error."));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, getMsg().getString("Not_deleted"), getMsg().getString("there_was_an_error")));
 		}
 	}
 
@@ -63,6 +67,14 @@ public class HasSymptomView {
 
 	public void setService(HasSymptomService service) {
 		this.service = service;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }

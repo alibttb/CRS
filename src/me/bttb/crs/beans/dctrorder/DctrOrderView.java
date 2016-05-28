@@ -1,6 +1,7 @@
 package me.bttb.crs.beans.dctrorder;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,9 @@ public class DctrOrderView {
 	@ManagedProperty(value = "#{dctrOrderService}")
 	private DctrOrderService service;
 
+	@ManagedProperty(value = "#{msg}")
+	private ResourceBundle msg;
+	
 	public DctrOrderView() {
 	}
 
@@ -22,10 +26,10 @@ public class DctrOrderView {
 	public void onSaveButtonClicked(ActionEvent event) {
 		if (service.save()) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Saved", ""));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, msg.getString("Saved"), msg.getString("Saved_Detail"))); //$NON-NLS-1$ //$NON-NLS-2$
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Not saved", "there was an error."));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, msg.getString("Not_saved"), msg.getString("there_was_an_error"))); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -43,10 +47,10 @@ public class DctrOrderView {
 	public void onDeleteButtonClicked(ActionEvent event) {
 		if (service.deleteSelected()) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Deleted", ""));
+					new FacesMessage(FacesMessage.SEVERITY_INFO, msg.getString("Deleted"), msg.getString("Deleted_Detail"))); //$NON-NLS-1$ //$NON-NLS-2$
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Not deleted", "there was an error."));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, msg.getString("Not_deleted"), msg.getString("there_was_an_error"))); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -58,12 +62,21 @@ public class DctrOrderView {
 	public List<String> completeDctrOrderName(String query) {
 		return service.getDctrOrdersNamesContaining(query);
 	}
+
 	public DctrOrderService getService() {
 		return service;
 	}
 
 	public void setService(DctrOrderService service) {
 		this.service = service;
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 
 }
