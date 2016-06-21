@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="title">
+	    #{msg.data_mining_title}
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="growl" />
+			<p:panel header="#{msg.Measurment_Classes}">
+				<p:dataTable id="mcDt"
+					value="#{dataMiningView.mcService.allMeasurementClasses}" var="mc">
+					<p:column style="width: 16px">
+						<p:rowToggler />
+					</p:column>
+					<p:column headerText="#{msg.Class_Name}">
+						<p:outputLabel value="#{mc.name}" />
+					</p:column>
+					<p:column headerText="#{msg.count_of_visits}">
+						<p:outputLabel value="#{mc.countOfVisits}"></p:outputLabel>
+					</p:column>
+					<p:rowExpansion>
+						<p:dataTable value="#{mc.cmpnnts}" var="mcc">
+							<f:facet name="header">
+							#{msg.msrmnt_clss_cmpnnts}
+						</f:facet>
+							<p:column headerText="#{msg.Measurment}">
+								<p:outputLabel value="#{mcc.measurment.name}" />
+							</p:column>
+							<p:column headerText="#{msg.Description}">
+							#{mcc.measurment.description}
+						</p:column>
+						</p:dataTable>
+						<p:dataTable value="#{mc.features}" var="mcf">
+							<f:facet name="header">
+							#{msg.msrmnt_clss_features} -- #{msg.symptoms}
+						</f:facet>
+							<p:column headerText="#{msg.Symptom}">
+							#{mcf.symptom.name}
+						</p:column>
+							<p:column headerText="#{msg.Severity}">
+								<p:outputLabel
+									value="#{msg[dataMiningView.mcService.closestSeverity(mcf.severity)]}" />
+							</p:column>
+							<p:column headerText="#{msg.Repetition}">
+								<p:outputLabel
+									value="#{msg[dataMiningView.mcService.closestRepetation(mcf.repeat)]}" />
+							</p:column>
+							<p:column headerText="#{msg.times_appeared}">
+								<p:outputLabel value="#{mcf.timesAppeard}"></p:outputLabel>
+							</p:column>
+							<p:column headerText="#{msg.importance}">
+								<p:outputLabel value="#{mcf.importance}"></p:outputLabel>
+							</p:column>
+						</p:dataTable>
+						<p:separator style="width:500px;height:20px" />
+					</p:rowExpansion>
+				</p:dataTable>
+				<f:facet name="footer">
+					<p:commandButton id="mcStrt" value="#{msg.start_learning}"
+						actionListener="#{dataMiningView.startButtonPressed}"
+						onclick="PF('mcProgDlg').show()"
+						disabled="#{dataMiningView.working}" process="@this" />
+					<p:dialog widgetVar="mcProgDlg" closable="false" modal="true"
+						height="200px" width="400px" showEffect="explode"
+						hideEffect="explode"
+						onShow="PF('pbStep').start();PF('pbMain').start();"
+						onHide="PF('pbStep').cancel();PF('pbMain').cancel();"
+						visible="#{dataMiningView.working}" closeOnEscape="false"
+						fitViewport="false">
+						<p:outputPanel styleClass="centerd" autoUpdate="true">
+							#{dataMiningView.stepMsg}
+						</p:outputPanel>
+						<br />
+						<br />
+						<p:progressBar widgetVar="pbStep" ajax="true" interval="500"
+							value="#{dataMiningView.stepProgress}"
+							labelTemplate="#{msg.step_progress}: {value}%"
+							styleClass="animated" global="false">
+							<p:ajax event="complete"
+								listener="#{dataMiningView.onStepComplete}" update="growl" />
+						</p:progressBar>
+						<br />
+						<br />
+						<p:progressBar widgetVar="pbMain" ajax="true" interval="500"
+							value="#{dataMiningView.allProgress}"
+							labelTemplate="#{msg.all_progress}: {value}%"
+							styleClass="animated" global="false">
+							<p:ajax event="complete"
+								listener="#{dataMiningView.onAllComplete}" update="@all" />
+						</p:progressBar>
+					</p:dialog>
+				</f:facet>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,8 +1,17 @@
 package me.bttb.crs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the TK_MSRMNT database table.
@@ -37,9 +46,9 @@ public class TkMsrmnt implements Serializable {
 	@JoinColumn(name = "VST_ID", nullable = false, insertable = true, updatable = false)
 	private Visit visit;
 
+	
 	public TkMsrmnt() {
 	}
-
 
 	public String getNotes() {
 		return this.notes;
@@ -81,14 +90,13 @@ public class TkMsrmnt implements Serializable {
 		this.visit = visit;
 	}
 
-
 	public long getId() {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
+
 
 }

@@ -75,7 +75,7 @@
 					<p:commandButton value="#{msg['Edit_Patient']}" icon="fa fa-edit"
 						action="#{patientsView.editPatient}" />
 				</f:facet>
-				<p:column headerText="Patient Id" filterBy="#{patient.pid}">
+				<p:column headerText="#{msg.Patient_Number}" filterBy="#{patient.pid}">
 					<f:facet name="filter">
 						<p:outputLabel />
 					</f:facet>

@@ -11,6 +11,7 @@
 		<locale-config>
 			<default-locale>en</default-locale>
 			<supported-locale>ar</supported-locale>
+			<supported-locale>en</supported-locale>
 		</locale-config>
 		<resource-bundle>
 			<base-name>me.bttb.crs.beans.i18n.bundle</base-name>

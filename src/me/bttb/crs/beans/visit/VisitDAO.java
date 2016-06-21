@@ -66,4 +66,15 @@ public class VisitDAO implements Serializable {
 		cqv.where(lsp.toArray(new Predicate[] {}));
 		return em.createQuery(cqv).getResultList();
 	}
+
+	public List<Visit> findSavedVisits() {
+		EntityManager em = jemfb.createEntityManager();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Visit> cqv = cb.createQuery(Visit.class);
+		Root<Visit> r = cqv.from(Visit.class);
+		Predicate p0 = cb.equal(r.get(Visit_.vstType), "Old");
+		cqv.where(p0);
+		return em.createQuery(cqv).getResultList();
+	}
+
 }

@@ -75,10 +75,10 @@
 								<h:outputText value="#{smp.symptom.name}" />
 							</p:column>
 							<p:column headerText="#{msg.Repetition}">
-								<h:outputText value="#{smp.repetation}" />
+								<h:outputText value="#{msg[smp.repetation]}" />
 							</p:column>
 							<p:column headerText="#{msg.Severity}">
-								<h:outputText value="#{smp.severity}" />
+								<h:outputText value="#{msg[smp.severity]}" />
 							</p:column>
 							<p:column headerText="#{msg.Start_date}">
 								<h:outputText value="#{smp.startDate}">
@@ -187,11 +187,69 @@
 					</h:form>
 				</p:panel>
 				<p:panel id="measurments" header="#{msg.measurments}">
+					<div style="margin: 0; padding: 2px; line-height: 5px"></div>
 					<h:form id="msrmntFrm">
 						<p:growl id="msgs" showDetail="true" />
 						<p:dataTable id="dtId" value="#{tkMsrmntView.service.list}"
 							selection="#{tkMsrmntView.service.selected}"
 							selectionMode="single" var="item" rowKey="#{item.id}">
+							<f:facet name="header">
+								<p:commandButton value="#{msg.suggest}" icon="fa fa-gears"
+									process="@this"
+									rendered="#{visitView.service.selected.vstType eq 'New'}"
+									actionListener="#{mcsv.onSuggestButtonPressed}"
+									update="msrmntClssSugDlg"
+									oncomplete="PF('msrmntClssSugDlgWv').show()" />
+								<p:dialog id="msrmntClssSugDlg" widgetVar="msrmntClssSugDlgWv"
+									showEffect="explode" hideEffect="explode" modal="true"
+									header="#{mcsv.suggestedClass.name}">
+									<p:dataTable value="#{mcsv.suggestedClass.cmpnnts}" var="mcc">
+										<f:facet name="header">
+											#{msg.msrmnt_clss_cmpnnts}
+										</f:facet>
+										<p:column headerText="#{msg.Measurment}">
+											<p:outputLabel value="#{mcc.measurment.name}" />
+										</p:column>
+										<p:column headerText="#{msg.Description}">
+											#{mcc.measurment.description}
+										</p:column>
+									</p:dataTable>
+									<p:dataTable value="#{mcsv.suggestedClass.features}" var="mcf">
+										<f:facet name="header">
+											#{msg.msrmnt_clss_features} -- #{msg.symptoms}
+										</f:facet>
+										<p:column headerText="#{msg.Symptom}">
+											#{mcf.symptom.name}
+										</p:column>
+										<p:column headerText="#{msg.Severity}">
+											<p:outputLabel
+												value="#{msg[mcsv.service.closestSeverity(mcf.severity)]}" />
+										</p:column>
+										<p:column headerText="#{msg.Repetition}">
+											<p:outputLabel
+												value="#{msg[mcsv.service.closestRepetation(mcf.repeat)]}" />
+										</p:column>
+										<p:column headerText="#{msg.times_appeared}">
+											<p:outputLabel value="#{mcf.timesAppeard}"></p:outputLabel>
+										</p:column>
+										<p:column headerText="#{msg.importance}">
+											<p:outputLabel value="#{mcf.importance}"></p:outputLabel>
+										</p:column>
+									</p:dataTable>
+									<f:facet name="footer">
+										<p:commandButton id="msrmntSugAccept" value="#{msg.accept}"
+											icon="fa fa-check" process="@this"
+											oncomplete="PF('msrmntClssSugDlgWv').hide()"
+											actionListener="#{mcsv.onAcceptSuggestionPressed}"
+											update="msrmntFrm:dtId, msrmntFrm:msgs" />
+										<p:commandButton id="msrmntSugCancel" value="#{msg.Cancel}"
+											process="@this" update="msrmntFrm:dtId, msrmntFrm:msgs"
+											icon="fa fa-remove"
+											oncomplete="PF('msrmntClssSugDlgWv').hide()">
+										</p:commandButton>
+									</f:facet>
+								</p:dialog>
+							</f:facet>
 							<p:ajax event="rowSelect" update="editBtn, deleteBtn" />
 							<p:ajax event="rowUnselect" update="editBtn, deleteBtn" />
 							<p:column headerText="#{msg.Name}">
@@ -634,10 +692,20 @@
 								<h:outputText value="#{item.notes}" />
 							</p:column>
 							<p:rowExpansion>
-								<p:graphicImage height="300" width="300"
-									value="#{documentImageService.imageById}">
-									<f:param name="id" value="#{item.id}"></f:param>
-								</p:graphicImage>
+								<p:lightBox>
+									<h:outputLink>
+										<p:graphicImage height="300" width="400"
+											value="#{documentImageService.imageById}" cache="false">
+											<f:param name="id" value="#{item.id}"></f:param>
+										</p:graphicImage>
+									</h:outputLink>
+									<f:facet name="inline">
+										<p:graphicImage value="#{documentImageService.imageById}"
+											cache="false">
+											<f:param name="id" value="#{item.id}"></f:param>
+										</p:graphicImage>
+									</f:facet>
+								</p:lightBox>
 							</p:rowExpansion>
 							<f:facet name="footer">
 								<p:commandButton value="#{msg.Add}" icon="fa fa-plus"
@@ -667,41 +735,46 @@
 						<p:dialog id="docuDlg" widgetVar="docuDlgWv" modal="true"
 							closable="false" showEffect="explode" hideEffect="explode">
 							<p:panel id="docuPanel">
-								<p:panelGrid columns="2" columnClasses="label, value">
-									<p:outputLabel value="#{msg.Type}:" for="docuType" />
-									<p:autoComplete id="docuType" required="true"
-										placeholder="Name"
-										requiredMessage="#{msg.Type_name_is_manadotry}."
-										value="#{documentView.service.selected.name}"
-										completeMethod="#{documentView.completeDocumentName}"
-										var="doc" itemLabel="#{doc}" itemValue="#{doc}"
-										forceSelection="false" />
-									<p:outputLabel value="#{msg.Description}" for="docuDesc" />
-									<p:inputTextarea id="docuDesc" maxlength="210"
-										value="#{documentView.service.selected.description}" />
+								<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+									<p:panelGrid columns="2" columnClasses="label, value">
+										<p:outputLabel value="#{msg.Type}:" for="docuType" />
+										<p:autoComplete id="docuType" required="true"
+											placeholder="Name"
+											requiredMessage="#{msg.Type_name_is_manadotry}."
+											value="#{documentView.service.selected.name}"
+											completeMethod="#{documentView.completeDocumentName}"
+											var="doc" itemLabel="#{doc}" itemValue="#{doc}"
+											forceSelection="false" />
+										<p:outputLabel value="#{msg.Description}" for="docuDesc" />
+										<p:inputTextarea id="docuDesc" maxlength="210"
+											value="#{documentView.service.selected.description}" />
 
-									<p:outputLabel value="#{msg.Notes}:" for="docuNotes" />
-									<p:inputTextarea id="docuNotes"
-										value="#{documentView.service.selected.notes}" maxlength="210"
-										placeholder="#{msg.Notes}" />
-								</p:panelGrid>
-								<p:fileUpload
-									rendered="#{documentView.service.selected.content eq null}"
-									required="true" mode="advanced" fileLimit="1"
-									fileUploadListener="#{documentView.onFileUploaded}"
-									fileLimitMessage="#{msg.fileLimitMsg}!"
-									requiredMessage="#{msg.fileRequiredMsg}!"
-									update="msgs, docuPanel" process="@this"
-									allowTypes="/(\.|\/)(gif|jpe?g|png)$/" auto="true" />
-								<p:panel
-									rendered="#{documentView.service.selected.content ne null}">
-									<p:graphicImage height="300" width="300"
-										value="#{documentImageService.selectedDocumentImage}" />
-									<p:commandButton value="#{msg.Remove}" icon="fa fa-remove"
-										process="@this"
-										actionListener="#{documentView.onRemoveUploadedImageClicked}"
-										update="docuPanel" />
-								</p:panel>
+										<p:outputLabel value="#{msg.Notes}:" for="docuNotes" />
+										<p:inputTextarea id="docuNotes"
+											value="#{documentView.service.selected.notes}"
+											maxlength="210" placeholder="#{msg.Notes}" />
+									</p:panelGrid>
+									<p:panel id="picturePanel">
+										<p:fileUpload
+											rendered="#{documentView.service.selected.content eq null}"
+											required="true" mode="advanced" fileLimit="1"
+											fileUploadListener="#{documentView.onFileUploaded}"
+											fileLimitMessage="#{msg.fileLimitMsg}!"
+											requiredMessage="#{msg.fileRequiredMsg}!"
+											update="msgs, picturePanel, imgDocUp" process="@this"
+											allowTypes="/(\.|\/)(gif|jpe?g|png)$/" auto="true" />
+
+										<p:graphicImage height="300" width="300" id="imgDocUp"
+											cache="false"
+											rendered="#{documentView.service.selected.content ne null}"
+											value="#{documentImageService.selectedDocumentImage}" />
+										<p:commandButton value="#{msg.Remove}" icon="fa fa-remove"
+											process="@this"
+											rendered="#{documentView.service.selected.content ne null}"
+											actionListener="#{documentView.onRemoveUploadedImageClicked}"
+											update="picturePanel" />
+									</p:panel>
+								</h:panelGrid>
 							</p:panel>
 							<f:facet name="footer">
 								<p:commandButton id="docuSave" value="#{msg.Save}"

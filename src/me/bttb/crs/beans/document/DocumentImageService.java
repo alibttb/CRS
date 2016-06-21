@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
 
@@ -15,7 +15,7 @@ import org.primefaces.model.StreamedContent;
 import me.bttb.crs.model.Document;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class DocumentImageService {
 	@ManagedProperty(value = "#{documentService}")
 	private DocumentService service;

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -18,7 +19,7 @@ import me.bttb.crs.model.Usr;
 
 @ManagedBean
 @SessionScoped
-public class UserBean implements Serializable  {
+public class UserBean implements Serializable {
 	/**
 	 * 
 	 */
@@ -29,8 +30,8 @@ public class UserBean implements Serializable  {
 	private String password;
 	private boolean authenticated;
 	private Usr userInDb;
-	
-	
+	@ManagedProperty("#{msg}")
+	private ResourceBundle msg;
 
 	public UserBean() {
 	}
@@ -69,13 +70,19 @@ public class UserBean implements Serializable  {
 		userInDb = userDAO.getUserByName(getUsername());
 		if (userInDb == null) {
 			setAuthenticated(false);
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Wrong login credintals", "if you forgot your login information contact the system administrator"));
+			FacesContext.getCurrentInstance()
+					.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							msg.getString("Wrong_login_credintals"), msg.getString(
+									"if_you_forgot_your_login_information_contact_the_system_administrator")));
 			result = null;
 		} else {
 			if (checkGoodPassword(this.password)) {
 				setAuthenticated(true);
 				result = "good";
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+						msg.getString("Wrong_login_credintals"),
+						msg.getString("if_you_forgot_your_login_information_contact_the_system_administrator")));
 			}
 		}
 		return result;
@@ -162,5 +169,13 @@ public class UserBean implements Serializable  {
 			return false;
 		}
 		return userInDb instanceof Nrs && userInDb.getRole().equalsIgnoreCase("nurse");
+	}
+
+	public ResourceBundle getMsg() {
+		return msg;
+	}
+
+	public void setMsg(ResourceBundle msg) {
+		this.msg = msg;
 	}
 }

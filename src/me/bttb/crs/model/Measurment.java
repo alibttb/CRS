@@ -27,7 +27,7 @@ public class Measurment implements Serializable {
 	@Column(precision = 19)
 	private long id;
 
-	@Column(length = 255, name="DESCRIBTION")
+	@Column(length = 255, name = "DESCRIBTION")
 	private String description;
 
 	@Column(length = 255)
@@ -39,6 +39,9 @@ public class Measurment implements Serializable {
 	// bi-directional many-to-one association to TkMsrmnt
 	@OneToMany(mappedBy = "measurment")
 	private List<TkMsrmnt> tkMsrmntList;
+
+	@OneToMany(mappedBy = "measurment")
+	private List<MsrmntClssCmpnnt> msrmntClssCmpnntList;
 
 	public Measurment() {
 	}
@@ -83,6 +86,16 @@ public class Measurment implements Serializable {
 		this.tkMsrmntList = tkMsrmntList;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Measurment) {
+			Measurment msr = (Measurment) obj;
+			return msr.id == this.id;
+
+		}
+		return super.equals(obj);
+	}
+
 	public TkMsrmnt addTkMsrmntList(TkMsrmnt tkMsrmntList) {
 		getTkMsrmntList().add(tkMsrmntList);
 		tkMsrmntList.setMeasurment(this);
@@ -95,6 +108,14 @@ public class Measurment implements Serializable {
 		tkMsrmntList.setMeasurment(null);
 
 		return tkMsrmntList;
+	}
+
+	public List<MsrmntClssCmpnnt> getMsrmntClssCmpnntList() {
+		return msrmntClssCmpnntList;
+	}
+
+	public void setMsrmntClssCmpnntList(List<MsrmntClssCmpnnt> msrmntClssCmpnntList) {
+		this.msrmntClssCmpnntList = msrmntClssCmpnntList;
 	}
 
 }

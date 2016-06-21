@@ -5,4 +5,9 @@ public class Observable extends java.util.Observable {
 		this.setChanged();
 		this.notifyObservers();
 	}
+
+	public void forceNotifyObserversWithData(Object data) {
+		this.setChanged();
+		this.notifyObservers(data);
+	}
 }

@@ -39,6 +39,7 @@ public class TkMsrmntService implements Observer {
 		this.setList(dao.findTkMsrmntInVisit(visitService.getSelected()));
 	}
 
+
 	public boolean save() {
 		boolean res;
 		if (getSelected().getId() == 0) {

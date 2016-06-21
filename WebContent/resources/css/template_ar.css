@@ -6,6 +6,15 @@ html {
 	/* 	font-size: small; */
 }
 
+.animated .ui-progressbar-value {
+	background-image: url("/CRS/resources/img/pbar-ani.gif");
+}
+
+.ui-growl {
+	right: initial !important;
+	left: 20px;
+}
+
 .new {
 	background-color: aqua;
 	color: green;
@@ -18,46 +27,52 @@ html {
 
 .centerd {
 	margin: auto;
+	text-align: center;
 }
 
 .stackCnt {
 	
 }
 
-
-.langSelect{
+.langSelect {
 	float: left;
 }
-.ui-stack{
+
+.ui-stack {
 	left: 40px;
-	right: initial!important;
+	right: initial !important;
 }
 
-.ui-selectonemenu{
-	padding-right: initial!important;
+.ui-selectonemenu {
+	padding-right: initial !important;
 	padding-left: 2em;
 }
-.ui-selectonemenu .ui-selectonemenu-trigger{
-	right: initial!important;
-	left: 0!important;
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+	right: initial !important;
+	left: 0 !important;
 }
-.ui-selectonemenu-panel .ui-selectonemenu-list-item{
-	text-align: right!important;
+
+.ui-selectonemenu-panel .ui-selectonemenu-list-item {
+	text-align: right !important;
 }
-.ui-selectonemenu .ui-selectonemenu-label{
-	text-align: right!important;
+
+.ui-selectonemenu .ui-selectonemenu-label {
+	text-align: right !important;
 }
+
 .ui-stack .openStack li span {
 	white-space: nowrap;
 	opacity: .65 !important;
-	right: initial!important;
+	right: initial !important;
 	left: 60px;
 }
 
-.ui-stack ul li img{
-	margin-left: 0px!important;
+.ui-stack ul li img {
+	margin-left: 0px !important;
 	margin-right: 9px;
 }
+
 .userControl {
 	position: fixed;
 	top: 1px;
@@ -84,7 +99,7 @@ html {
 }
 
 .content {
-/* /margin-top: 100px; */
+	/* /margin-top: 100px; */
 	margin-bottom: 100px;
 	margin-left: auto;
 	margin-right: auto;

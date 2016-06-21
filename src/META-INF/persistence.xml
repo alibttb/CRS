@@ -12,6 +12,8 @@
 		<class>me.bttb.crs.model.HasSymptom</class>
 		<class>me.bttb.crs.model.Lctn</class>
 		<class>me.bttb.crs.model.Measurment</class>
+		<class>me.bttb.crs.model.MsrmntClss</class>
+		<class>me.bttb.crs.model.MsrmntClssCmpnnt</class>
 		<class>me.bttb.crs.model.Nrs</class>
 		<class>me.bttb.crs.model.Prsn</class>
 		<class>me.bttb.crs.model.Ptnt</class>

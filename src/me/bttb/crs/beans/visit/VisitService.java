@@ -132,4 +132,6 @@ public class VisitService implements Serializable, Observer {
 
 	}
 
+
+
 }

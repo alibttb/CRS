@@ -39,6 +39,7 @@ public class HasSymptomService implements Observer {
 		this.setList(dao.findHasSymptomsInVisit(visitService.getSelected()));
 	}
 
+
 	public boolean save() {
 		boolean res;
 		if (getSelected().getId() == 0) {

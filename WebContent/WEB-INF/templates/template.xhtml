@@ -12,9 +12,6 @@
 </h:head>
 <f:view locale="#{localeManager.locale}">
 	<h:body>
-		<!-- 		<ui:debug hotkey="x" -->
-		<!-- 			rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" /> -->
-
 		<div id="header" class="header">
 			<ui:insert name="header">
 				<ui:include src="header.xhtml" />
@@ -51,8 +48,8 @@
 						<p:row>
 							<p:column colspan="2">
 								<p:outputLabel value="#{msg.language}: " />
-								<h:selectOneMenu value="#{localeManager.language}"
-									onchange="submit()">
+								<h:selectOneMenu value="#{localeManager.language}"  
+									onchange="submit()" >
 									<f:selectItem itemValue="en" itemLabel="#{msg.English}" />
 									<f:selectItem itemValue="ar" itemLabel="#{msg.Arabic}" />
 								</h:selectOneMenu>
@@ -77,6 +74,9 @@
 							rendered="#{userBean.admin}"
 							icon="/resources/img/dock/portfolio.png"
 							action="management.xhtml?faces-redirect=true" />
+						<p:menuitem value="#{msg.data_mining}"
+							rendered="#{userBean.admin}" icon="/resources/img/dock/dm.png"
+							action="data-mining.xhtml?faces-redirect=true" />
 					</p:stack>
 				</div>
 			</h:form>

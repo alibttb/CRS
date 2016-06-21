@@ -25,10 +25,16 @@ public class TkMsrmntDAO {
 		return em.createQuery(em.getCriteriaBuilder().createQuery(TkMsrmnt.class)).getResultList();
 	}
 
+	public List<TkMsrmnt> findTkMsrmntInOldVisits() {
+		EntityManager em = jemfb.createEntityManager();
+		return em.createQuery("select hs from TkMsrmnt hs join hs.visit v where v.vstType = 'Old'", TkMsrmnt.class)
+				.getResultList();
+	}
+
 	public List<TkMsrmnt> findTkMsrmntInVisit(Visit visit) {
 		EntityManager em = jemfb.createEntityManager();
-		return em.createQuery("select hs from TkMsrmnt hs where hs.visit.id = :vst_id", TkMsrmnt.class)
-				.setParameter("vst_id",  visit == null ? -1 : visit.getId()).getResultList();
+		return em.createQuery("select hs from TkMsrmnt hs join hs.visit v where v.id = :vst_id", TkMsrmnt.class)
+				.setParameter("vst_id", visit == null ? -1 : visit.getId()).getResultList();
 	}
 
 	public boolean addTkMsrmnt(TkMsrmnt tmsnt) {

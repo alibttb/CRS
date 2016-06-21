@@ -20,14 +20,14 @@ import me.bttb.crs.model.Symptom;
 
 @ManagedBean
 @ViewScoped
-public class SymptomView implements MetaDataTableEventHandler , Serializable{
+public class SymptomView implements MetaDataTableEventHandler, Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6219418748016394782L;
 	@ManagedProperty(value = "#{symptomService}")
 	private SymptomService service;
-	@ManagedProperty (value="#{msg}")
+	@ManagedProperty(value = "#{msg}")
 	private ResourceBundle msg;
 	private List<Symptom> list;
 

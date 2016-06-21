@@ -5,6 +5,10 @@ html {
 	direction: ltr;
 }
 
+.animated .ui-progressbar-value {
+	background-image: url("/CRS/resources/img/pbar-ani.gif");
+}
+
 .new {
 	background-color: aqua;
 	color: green;
@@ -18,6 +22,7 @@ html {
 
 .centerd {
 	margin: auto;
+	text-align: center;
 }
 
 .langSelect {

@@ -89,4 +89,13 @@ public class Symptom implements Serializable {
 		return hasSymptomList;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Symptom) {
+			Symptom new_name = (Symptom) obj;
+			return new_name.id == this.id;
+		}
+		return super.equals(obj);
+	}
+
 }
