@@ -38,15 +38,31 @@ html {
 	opacity: .65 !important;
 }
 
+.ui-stack .openStack li a>span {
+	visibility: hidden;
+}
+
+.ui-stack .openStack li a:hover>span {
+	white-space: nowrap;
+	opacity: .65 !important;
+	right: 0;
+/* 	left: 0; */
+	top: 40px !important;
+	visibility: visible;
+}
+
 .userControl {
-	position: fixed;
-	top: 1px;
-	right: 1px;
-	width: 250px;
-	/* 	width: 150px; */
-	margin-right: 20px;
-	margin-top: 10px;
-	z-index: 2;
+	/* 	position: fixed; */
+	/* 	top: 1px; */
+	/* 	right: 1px; */
+	/* 	width: 250px; */
+	/* 	/* 	width: 150px; */ */
+	/* 	margin-right: 20px; */
+	/* 	margin-top: 10px; */
+	/* 	z-index: 2; */
+	z-index: 5;
+	font-size: 50%;
+	line-height: 50%;
 }
 
 .header {
@@ -57,7 +73,7 @@ html {
 	right: 0px;
 	margin-left: 0px;
 	margin-right: 0px;
-	z-index: 0;
+	z-index: 5;
 	width: 100%;
 	font-size: 36px;
 	line-height: 47px;
@@ -94,4 +110,18 @@ html {
 	background: -moz-linear-gradient(bottom, #d2f5ff, rgba(12, 50, 150, 0.3));
 	background: linear-gradient(to bottom, #d2f5ff, rgba(12, 50, 150, 0.3));
 	text-align: center;
+}
+
+.greenBG .ui-widget-header {
+	border: 1px solid #acdd4a;
+	background: #6eac2c
+		url("/CRS/javax.faces.resource/images/ui-bg_gloss-wave_50_6eac2c_500x100.png.xhtml?ln=primefaces-start")
+		50% 50% repeat-x;
+}
+
+.ui-button {
+	border: 1px solid #acdd4a !important;
+	background: #6eac2c
+		url("/CRS/javax.faces.resource/images/ui-bg_gloss-wave_50_6eac2c_500x100.png.xhtml?ln=primefaces-start")
+		50% 50% repeat-x !important;
 }

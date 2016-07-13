@@ -28,36 +28,7 @@
 			</ui:insert>
 		</div>
 		<ui:insert name="userControl">
-			<h:form id="userForm" rendered="#{userBean.authenticated}">
-				<div class="userControl">
-					<p:panelGrid styleClass="#{userBean.userInDb.prsnType}">
-						<p:row>
-							<p:column>
-								<p:outputLabel id="userName"
-									value="#{msg['Welcome']}, #{userBean.userInDb.firstName} #{userBean.userInDb.familyName}!"></p:outputLabel>
-							</p:column>
-							<p:column>
-								<p:graphicImage value="/resources/img/users/admin.png"
-									height="50" width="50" rendered="#{userBean.admin}" />
-								<p:graphicImage value="/resources/img/users/doctor.png"
-									height="50" width="50" rendered="#{userBean.doctor}" />
-								<p:graphicImage value="/resources/img/users/nurse.png"
-									height="50" width="50" rendered="#{userBean.nurse}" />
-							</p:column>
-						</p:row>
-						<p:row>
-							<p:column colspan="2">
-								<p:outputLabel value="#{msg.language}: " />
-								<h:selectOneMenu value="#{localeManager.language}"  
-									onchange="submit()" >
-									<f:selectItem itemValue="en" itemLabel="#{msg.English}" />
-									<f:selectItem itemValue="ar" itemLabel="#{msg.Arabic}" />
-								</h:selectOneMenu>
-							</p:column>
-						</p:row>
-					</p:panelGrid>
-				</div>
-			</h:form>
+
 			<h:form id="tmplStckMenuForm" rendered="#{userBean.authenticated}">
 				<div class="stackCnt">
 					<p:stack icon="/resources/img/dock/stack.png" expanded="true">

@@ -1,4 +1,33 @@
-<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	<p:panel header="#{msg['CRS_Clinic_Record_System']}"  toggleable="false" collapsed="true"/>
+	<p:panel styleClass="greenBG" id="headerPanel"
+		header="#{msg['CRS_Clinic_Record_System']}" toggleable="false"
+		collapsed="true" />
+	<p:panel id="tb" styleClass="userControl">
+		<h:form id="userCtlInHeader" rendered="#{userBean.authenticated}">
+			<p:graphicImage value="/resources/img/users/admin.png" height="25"
+				width="25" rendered="#{userBean.admin}" />
+			<p:graphicImage value="/resources/img/users/doctor.png" height="25"
+				width="25" rendered="#{userBean.doctor}" />
+			<p:graphicImage value="/resources/img/users/nurse.png" height="25"
+				width="25" rendered="#{userBean.nurse}" />
+			<p:spacer width="25" height="10" />
+			<p:outputLabel id="userName" style="vertical-align: text-top;"
+				value="#{msg['Welcome']}, #{userBean.userInDb.firstName} #{userBean.userInDb.familyName}!"></p:outputLabel>
+
+			<div style="float: #{msg.direction_on_toolbar}; vertical-align: text-top;">
+				<p:outputLabel value="#{msg.language}: " />
+				<h:selectOneMenu value="#{localeManager.language}"
+					onchange="submit()">
+					<f:selectItem itemValue="en" itemLabel="#{msg.English}" />
+					<f:selectItem itemValue="ar" itemLabel="#{msg.Arabic}" />
+				</h:selectOneMenu>
+			</div>
+		</h:form>
+
+	</p:panel>
+	<p:sticky target="tb" />
 </ui:composition>
