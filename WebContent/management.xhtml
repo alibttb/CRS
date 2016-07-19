@@ -409,22 +409,29 @@
 						<p:panel style="width: 100%; height: 100%" id="dgnssComp">
 							<f:facet name="header">
 								<p:commandButton value="#{msg.Refresh}" icon="fa fa-refresh"
-									actionListener="#{dgnssView.onRefreshButtonClicked}"
+									actionListener="#{diagnosisView.onRefreshButtonClicked}"
 									update="dgnssComp" process="@this" />
 							</f:facet>
 							<p:dataTable id="dgnsssDT" value="#{diagnosisView.list}"
 								disabledTextSelection="true" resizableColumns="true"
 								selection="#{diagnosisView.service.selected}" var="di"
 								rowKey="#{di.id}" rows="10" paginator="true"
+								selectionMode="single"
 								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 								rowsPerPageTemplate="5,10,15">
+								<p:ajax event="rowSelect"
+									listener="#{diagnosisView.onRowSelect}" process="dgnsssDT"
+									update=":codingForm:dgnssEditButton" />
+								<p:ajax event="rowUnselect"
+									listener="#{diagnosisView.onRowUnSelect}" process="dgnsssDT"
+									update=":codingForm:dgnssEditButton" />
 								<p:column headerText="#{msg.Name}" sortBy="#{di.name}"
 									filterBy="#{di.name}" width="40">
 									<p:outputLabel value="#{di.name}" />
 								</p:column>
-								<p:column headerText="#{msg.Code}" sortBy="#{di.code} (ICD)"
+								<p:column headerText="#{msg.Code} (ICD)" sortBy="#{di.code}"
 									filterBy="#{di.code}" width="40">
-									<p:outputLabel value="#{tr.id}" />
+									<p:outputLabel value="#{di.code}" />
 								</p:column>
 								<p:column headerText="#{msg.Description}"
 									sortBy="#{di.describtion}" width="80"
@@ -441,15 +448,16 @@
 									oncomplete="PF('dgnssDlg').show()" process="@this"
 									update="dgnssComp"
 									actionListener="#{diagnosisView.onAddNewDialogOpen}" />
-								<p:commandButton value="#{msg.Edit}" icon="fa fa-edit"
-									oncomplete="PF('dgnssDlg').show()" process="@this,dgnsssDT"
-									update="dgnssComp"
+								<p:commandButton id="dgnssEditButton" value="#{msg.Edit}"
+									icon="fa fa-edit" oncomplete="PF('dgnssDlg').show()"
+									process="@this,dgnsssDT" update="dgnssComp"
+									disabled="#{not diagnosisView.rowSelected}"
 									actionListener="#{diagnosisView.onEditSelectedDialogOpen}" />
 							</f:facet>
 							<p:dialog id="dgnssDlg" widgetVar="dgnssDlg" modal="true">
 								<f:facet name="header">
 									<p:outputLabel
-										value="#{diagnosisView.service.selected.id ne 0 ? 'New Diagnosis Meta Data' : dgnssView.dgnssService.selected.name }" />
+										value="#{diagnosisView.service.selected.id eq 0 ? 'New Diagnosis Meta Data' : diagnosisView.service.selected.name }" />
 								</f:facet>
 								<p:panelGrid columns="3" columnClasses="label, value, message"
 									id="dgnssPanel">
@@ -497,83 +505,84 @@
 					</p:panel>
 					<p:panel id="treatments" header="#{msg.treatments}"
 						toggleable="true" collapsed="true">
-						
-							<p:dataTable id="trtmntsDT" value="#{treatmentView.list}"
-								disabledTextSelection="true" resizableColumns="true"
-								selection="#{treatmentView.service.selected}" var="tr"
-								rowKey="#{tr.id}" selectionMode="single" rows="10"
-								paginator="true"
-								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-								rowsPerPageTemplate="5,10,15">
-								<p:ajax event="rowSelect"
-									listener="#{treatmentView.onRowSelect}" process="trtmntsDT"
-									update=":codingForm:trtmntEditButton" />
-								<p:ajax event="rowUnselect"
-									listener="#{treatmentView.onRowUnSelect}" process="trtmntsDT"
-									update=":codingForm:trtmntEditButton" />
-								<!-- 								<p:column headerText="#{msg.Code}" sortBy="#{tr.id}" -->
-								<!-- 									filterBy="#{tr.id}" width="40"> -->
-								<!-- 									<p:outputLabel value="#{tr.id}" /> -->
-								<!-- 								</p:column> -->
-								<p:column headerText="#{msg.Name}" sortBy="#{tr.name}"
-									filterBy="#{tr.name}" width="40">
-									<p:outputLabel value="#{tr.name}" />
-								</p:column>
-								<p:column headerText="#{msg.Type}" sortBy="#{tr.type}"
-									width="80" filterBy="#{tr.type}">
-									<p:outputLabel value="#{tr.type}" />
-								</p:column>
-								<p:column headerText="#{msg.Description}"
-									sortBy="#{tr.description}" width="80"
-									filterBy="#{tr.description}">
-									<p:outputLabel value="#{tr.description}" />
-								</p:column>
-							</p:dataTable>
 
-							<p:dialog id="trtmntDlg" widgetVar="trtmntDlg" modal="true">
-								<f:facet name="header">
+						<p:dataTable id="trtmntsDT" value="#{treatmentView.list}"
+							disabledTextSelection="true" resizableColumns="true"
+							selection="#{treatmentView.service.selected}" var="tr"
+							rowKey="#{tr.id}" selectionMode="single" rows="10"
+							paginator="true"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							rowsPerPageTemplate="5,10,15">
+							<p:ajax event="rowSelect" listener="#{treatmentView.onRowSelect}"
+								process="trtmntsDT" update=":codingForm:trtmntEditButton" />
+							<p:ajax event="rowUnselect"
+								listener="#{treatmentView.onRowUnSelect}" process="trtmntsDT"
+								update=":codingForm:trtmntEditButton" />
+							<!-- 								<p:column headerText="#{msg.Code}" sortBy="#{tr.id}" -->
+							<!-- 									filterBy="#{tr.id}" width="40"> -->
+							<!-- 									<p:outputLabel value="#{tr.id}" /> -->
+							<!-- 								</p:column> -->
+							<p:column headerText="#{msg.Name}" sortBy="#{tr.name}"
+								filterBy="#{tr.name}" width="40">
+								<p:outputLabel value="#{tr.name}" />
+							</p:column>
+							<p:column headerText="#{msg.Type}" sortBy="#{tr.type}" width="80"
+								filterBy="#{tr.type}">
+								<p:outputLabel value="#{tr.type}" />
+							</p:column>
+							<p:column headerText="#{msg.Description}"
+								sortBy="#{tr.description}" width="80"
+								filterBy="#{tr.description}">
+								<p:outputLabel value="#{tr.description}" />
+							</p:column>
+						</p:dataTable>
+
+						<p:dialog id="trtmntDlg" widgetVar="trtmntDlg" modal="true">
+							<f:facet name="header">
+								<p:outputPanel>
 									<p:outputLabel
-										value="#{treatmentView.service.selected.id ne 0 ? 'New Treatment Meta Data' : trtmntView.trtmntService.selected.name }" />
-								</f:facet>
-								<p:panelGrid columns="3" columnClasses="label, value, message"
-									id="trtmntPanel">
-									<p:outputLabel for="trtmntName" value="#{msg.Name}: " />
-									<p:inputText id="trtmntName"
-										requiredMessage="You must enter a name for the Treatment."
-										value="#{treatmentView.service.selected.name}"
-										placeholder="#{msg.Name}" required="true" />
-									<p:message for="trtmntName" />
-									<p:outputLabel for="trtmntType" value="Type: " />
-									<p:inputText id="trtmntType" required="true"
-										requiredMessage="You must enter a type for the Treatment."
-										value="#{treatmentView.service.selected.type}"
-										placeholder="type" />
-									<p:message for="trtmntType" />
-									<p:outputLabel for="trtmntDesc" value="#{msg.Description}: " />
-									<p:inputText id="trtmntDesc"
-										requiredMessage="You must enter a description for the Treatment."
-										value="#{treatmentView.service.selected.description}"
-										placeholder="#{msg.Description}" required="true" />
-									<p:message for="trtmntDesc" />
-								</p:panelGrid>
-								<f:facet name="footer">
-									<p:commandButton value="#{msg.Save}" icon="fa fa-save"
-										oncomplete="handelTreatmentSaveRequest(xhr, status, args)"
-										process="trtmntDlg, @this" update="trtmntsDT,trtmntPanel, msg"
-										actionListener="#{treatmentView.onSaveButtonClicked}" />
-									<p:commandButton value="#{msg.Cancel}" icon="fa fa-remove"
-										oncomplete="PF('trtmntDlg').hide()" process="@this"
-										update="msg"
-										actionListener="#{treatmentView.onCancelButtonClicked}" />
-								</f:facet>
-							</p:dialog>
+										value="#{treatmentView.service.selected.id eq 0 ? 'New Treatment Meta Data' : treatmentView.service.selected.name }" />
+								</p:outputPanel>
+							</f:facet>
+							<p:panelGrid columns="3" columnClasses="label, value, message"
+								id="trtmntPanel">
+								<p:outputLabel for="trtmntName" value="#{msg.Name}: " />
+								<p:inputText id="trtmntName"
+									requiredMessage="You must enter a name for the Treatment."
+									value="#{treatmentView.service.selected.name}"
+									placeholder="#{msg.Name}" required="true" />
+								<p:message for="trtmntName" />
+								<p:outputLabel for="trtmntType" value="Type: " />
+								<p:inputText id="trtmntType" required="true"
+									requiredMessage="You must enter a type for the Treatment."
+									value="#{treatmentView.service.selected.type}"
+									placeholder="type" />
+								<p:message for="trtmntType" />
+								<p:outputLabel for="trtmntDesc" value="#{msg.Description}: " />
+								<p:inputText id="trtmntDesc"
+									requiredMessage="You must enter a description for the Treatment."
+									value="#{treatmentView.service.selected.description}"
+									placeholder="#{msg.Description}" required="true" />
+								<p:message for="trtmntDesc" />
+							</p:panelGrid>
+							<f:facet name="footer">
+								<p:commandButton value="#{msg.Save}" icon="fa fa-save"
+									oncomplete="handelTreatmentSaveRequest(xhr, status, args)"
+									process="trtmntDlg, @this" update="trtmntsDT,trtmntPanel, msg"
+									actionListener="#{treatmentView.onSaveButtonClicked}" />
+								<p:commandButton value="#{msg.Cancel}" icon="fa fa-remove"
+									oncomplete="PF('trtmntDlg').hide()" process="@this"
+									update="msg"
+									actionListener="#{treatmentView.onCancelButtonClicked}" />
+							</f:facet>
+						</p:dialog>
 						<p:commandButton value="#{msg.New}" icon="fa fa-plus"
 							oncomplete="PF('trtmntDlg').show()" process="@this"
-							update="trtmntsDT"
+							update="trtmntDlg"
 							actionListener="#{treatmentView.onAddNewDialogOpen}" />
 						<p:commandButton id="trtmntEditButton" value="#{msg.Edit}"
 							icon="fa fa-edit" oncomplete="PF('trtmntDlg').show()"
-							process="@this,trtmntsDT" update="trtmntsDT"
+							process="@this,trtmntsDT" update="trtmntDlg"
 							disabled="#{not treatmentView.rowSelected}"
 							actionListener="#{treatmentView.onEditSelectedDialogOpen}" />
 

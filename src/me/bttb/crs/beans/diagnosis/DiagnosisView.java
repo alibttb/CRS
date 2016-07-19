@@ -90,7 +90,7 @@ public class DiagnosisView implements  MetaDataTableEventHandler,Serializable {
 	@Override
 	public void onSaveButtonClicked(ActionEvent event) {
 		if (service.save()) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("Diagnosis meta data saved")));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("Diagnosis_meta_data_saved")));
 			init();
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(getMsg().getString("SaveError")));
